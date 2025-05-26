@@ -2085,7 +2085,7 @@
 .shop-sidebar .categor-list li a:hover{
 	color:#f2941a;
 }
-/* Recent Post */
+/* Son Yazılar */
 .shop-sidebar .single-post {
 	position: relative;
 	margin-top: 30px;
@@ -4107,7 +4107,7 @@
 	opacity:1;
 	visibility:visible;
 }
-/* Recent Post */
+/* Son Yazılar */
 .main-sidebar .recent-post{}
 .main-sidebar .single-post {
 	position: relative;

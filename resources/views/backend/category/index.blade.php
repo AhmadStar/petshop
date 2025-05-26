@@ -9,8 +9,9 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Category Lists</h6>
-      <a href="{{route('category.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Category</a>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Kategori Listesi</h6>
+      <a href="{{route('category.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Kategori Ekle
+</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -19,13 +20,13 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Title</th>
-              <th>Slug</th>
-              <th>Is Parent</th>
-              <th>Parent Category</th>
-              <th>Photo</th>
-              <th>Status</th>
-              <th>Action</th>
+<th>Başlık</th>
+<th>Slug</th>
+<th>Ana Kategori mi?</th>
+<th>Üst Kategori</th>
+<th>Fotoğraf</th>
+<th>Durum</th>
+<th>İşlem</th>
             </tr>
           </thead>
           <tbody>

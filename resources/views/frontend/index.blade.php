@@ -25,13 +25,13 @@
                 @endforeach
             </div>
             <a class="carousel-control-prev" href="#Gslider" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Önceki</span>
-</a>
-<a class="carousel-control-next" href="#Gslider" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Sonraki</span>
-</a>
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Önceki</span>
+            </a>
+            <a class="carousel-control-next" href="#Gslider" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Sonraki</span>
+            </a>
         </section>
     @endif
 
@@ -69,6 +69,83 @@
         </div>
     </section>
     <!-- End Small Banner -->
+
+    <!--== Start Product Category Area Wrapper ==-->
+    <section class="product-area product-category-area bg-color-f2 pt-100 pb-100">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-title shape-center text-center">
+              <h5 class="sub-title">TREND KATEGORİLER</h5>
+              <h2 class="title">SENİN İÇİN;</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-gutter-43">
+          <div class="col">
+            <!--== Start Product Category Item ==-->
+            <div class="product-category-item">
+              <div class="thumb">
+                <a href="shop.html"><img src="http://127.0.0.1:8000/frontend/img/category/1.webp" width="200" height="200" alt="Kedi Kategorisi"></a>
+              </div>
+              <div class="content">
+                <h3 class="title"><a href="shop.html">Kedi</a></h3>
+              </div>
+            </div>
+            <!--== End Product Category Item ==-->
+          </div>
+          <div class="col">
+            <!--== Start Product Category Item ==-->
+            <div class="product-category-item">
+              <div class="thumb">
+                <a href="shop.html"><img src="http://127.0.0.1:8000/frontend/img/category/2.webp" width="200" height="200" alt="Balık Kategorisi"></a>
+              </div>
+              <div class="content">
+                <h3 class="title"><a href="shop.html">Balık</a></h3>
+              </div>
+            </div>
+            <!--== End Product Category Item ==-->
+          </div>
+          <div class="col">
+            <!--== Start Product Category Item ==-->
+            <div class="product-category-item">
+              <div class="thumb">
+                <a href="shop.html"><img src="http://127.0.0.1:8000/frontend/img/category/3.webp" width="200" height="200" alt="Kuş Kategorisi"></a>
+              </div>
+              <div class="content">
+                <h3 class="title"><a href="shop.html">Kuş/Papağan</a></h3>
+              </div>
+            </div>
+            <!--== End Product Category Item ==-->
+          </div>
+          <div class="col">
+            <!--== Start Product Category Item ==-->
+            <div class="product-category-item">
+              <div class="thumb">
+                <a href="shop.html"><img src="http://127.0.0.1:8000/frontend/img/category/4.webp" width="200" height="200" alt="Köpek Kategorisi"></a>
+              </div>
+              <div class="content">
+                <h3 class="title"><a href="shop.html">Köpek</a></h3>
+              </div>
+            </div>
+            <!--== End Product Category Item ==-->
+          </div>
+          <div class="col">
+            <!--== Start Product Category Item ==-->
+            <div class="product-category-item">
+              <div class="thumb">
+                <a href="shop.html"><img src="http://127.0.0.1:8000/frontend/img/category/5.webp" width="200" height="200" alt="Tavşan Kategorisi"></a>
+              </div>
+              <div class="content">
+                <h3 class="title"><a href="shop.html">Tavşan</a></h3>
+              </div>
+            </div>
+            <!--== End Product Category Item ==-->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Product Category Area Wrapper ==-->
 
     <!-- Start Product Area -->
     <div class="product-area section">
@@ -129,27 +206,30 @@
                                                 <img class="hover-img" src="{{ $photos[0] }}"
                                                     alt="{{ $photos[0] }}">
                                                 @if ($product->stock <= 0)
-    <span class="out-of-stock">Tükendi</span>
-@elseif($product->condition == 'new')
-    <span class="new">Yeni</span>
-@elseif($product->condition == 'hot')
-    <span class="hot">Popüler</span>
-@else
-    <span class="price-dec">{{ $product->discount }}% İndirim</span>
-@endif
+                                                    <span class="out-of-stock">Tükendi</span>
+                                                @elseif($product->condition == 'new')
+                                                    <span class="new">Yeni</span>
+                                                @elseif($product->condition == 'hot')
+                                                    <span class="hot">Popüler</span>
+                                                @else
+                                                    <span class="price-dec">{{ $product->discount }}% İndirim</span>
+                                                @endif
                                             </a>
                                             <div class="button-head">
                                                 <div class="product-action">
-    <a data-toggle="modal" data-target="#{{ $product->id }}" title="Hızlı Görünüm" href="#">
-        <i class="ti-eye"></i><span>Hızlı Bakış</span>
-    </a>
-    <a title="Favori Listesi" href="{{ route('add-to-wishlist', $product->slug) }}">
-        <i class="ti-heart"></i><span>Favorilere Ekle</span>
-    </a>
-</div>
-<div class="product-action-2">
-    <a title="Sepete Ekle" href="{{ route('add-to-cart', $product->slug) }}">Sepete Ekle</a>
-</div>
+                                                    <a data-toggle="modal" data-target="#{{ $product->id }}"
+                                                        title="Hızlı Görünüm" href="#">
+                                                        <i class="ti-eye"></i><span>Hızlı Bakış</span>
+                                                    </a>
+                                                    <a title="Favori Listesi"
+                                                        href="{{ route('add-to-wishlist', $product->slug) }}">
+                                                        <i class="ti-heart"></i><span>Favorilere Ekle</span>
+                                                    </a>
+                                                </div>
+                                                <div class="product-action-2">
+                                                    <a title="Sepete Ekle"
+                                                        href="{{ route('add-to-cart', $product->slug) }}">Sepete Ekle</a>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="product-content">
@@ -231,16 +311,18 @@
                                         </a>
                                         <div class="button-head">
                                             <div class="product-action">
-    <a data-toggle="modal" data-target="#{{ $product->id }}" title="Hızlı Görünüm" href="#">
-        <i class="ti-eye"></i><span>Hızlı Bakış</span>
-    </a>
-    <a title="Favori Listesi" href="{{ route('add-to-wishlist', $product->slug) }}">
-        <i class="ti-heart"></i><span>Favorilere Ekle</span>
-    </a>
-</div>
-<div class="product-action-2">
-    <a href="{{ route('add-to-cart', $product->slug) }}">Sepete Ekle</a>
-</div>
+                                                <a data-toggle="modal" data-target="#{{ $product->id }}"
+                                                    title="Hızlı Görünüm" href="#">
+                                                    <i class="ti-eye"></i><span>Hızlı Bakış</span>
+                                                </a>
+                                                <a title="Favori Listesi"
+                                                    href="{{ route('add-to-wishlist', $product->slug) }}">
+                                                    <i class="ti-heart"></i><span>Favorilere Ekle</span>
+                                                </a>
+                                            </div>
+                                            <div class="product-action-2">
+                                                <a href="{{ route('add-to-cart', $product->slug) }}">Sepete Ekle</a>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="product-content">
@@ -325,6 +407,33 @@
     </section>
     <!-- End Shop Home List  -->
 
+    <section class="bg-theme-color position-relative z-index-1">
+      <div class="p--0">
+        <div class="row divider-style1">
+          <div class="col-lg-3 col-xl-4">
+            <div class="divider-thumb divider-thumb-left">
+              <img src="http://127.0.0.1:8000/frontend/img/photos/divider1.webp" width="351" height="435" alt="Image-HasTech">
+              <div class="shape-circle"></div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-xl-4">
+            <div class="divider-content text-center">
+              <h5 class="sub-title">%50'ye Varan İndirimlerden Faydalan!</h5>
+              <h2 class="title">En İyi Teklif</h2>
+              <p class="desc">En kaliteli ürünlere en uygun fiyatlara erişebilmek için aşağıdaki butona tıkla ve</p>
+              <a class="btn-theme text-dark" href="shop.html">Alışverişe Başla</a>
+              <img class="shape-object" src="http://127.0.0.1:8000/frontend/img/shape/object1.webp" width="316" height="302" alt="Image-HasTech">
+            </div>
+          </div>
+          <div class="col-lg-3 col-xl-4">
+            <div class="divider-thumb divider-thumb-right">
+              <img src="http://127.0.0.1:8000/frontend/img/photos/divider2.webp" width="488" height="447" alt="Image-HasTech">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Start Shop Blog  -->
     <section class="shop-blog section">
         <div class="container">
@@ -361,39 +470,39 @@
 
     <!-- Start Shop Services Area -->
     <section class="shop-services section home">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-12">
-                <div class="single-service">
-                    <i class="ti-rocket"></i>
-                    <h4>Ücretsiz Kargo</h4>
-                    <p>100$ üzeri siparişler</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="single-service">
+                        <i class="ti-rocket"></i>
+                        <h4>Ücretsiz Kargo</h4>
+                        <p>100$ üzeri siparişler</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <div class="single-service">
-                    <i class="ti-reload"></i>
-                    <h4>Ücretsiz İade</h4>
-                    <p>30 gün içinde iade</p>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="single-service">
+                        <i class="ti-reload"></i>
+                        <h4>Ücretsiz İade</h4>
+                        <p>30 gün içinde iade</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <div class="single-service">
-                    <i class="ti-lock"></i>
-                    <h4>Güvenli Ödeme</h4>
-                    <p>%100 güvenli ödeme</p>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="single-service">
+                        <i class="ti-lock"></i>
+                        <h4>Güvenli Ödeme</h4>
+                        <p>%100 güvenli ödeme</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-                <div class="single-service">
-                    <i class="ti-tag"></i>
-                    <h4>En Uygun Fiyat</h4>
-                    <p>Garantili fiyat</p>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="single-service">
+                        <i class="ti-tag"></i>
+                        <h4>En Uygun Fiyat</h4>
+                        <p>Garantili fiyat</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
     <!-- End Shop Services Area -->
 
     @include('frontend.layouts.newsletter')
@@ -453,11 +562,12 @@
                                             </div>
                                             <div class="quickview-stock">
                                                 <!-- With quantity specification -->
-@if ($product->stock > 0)
-    <span><i class="fa fa-check-circle-o"></i> {{ $product->stock }} Adet Stokta</span>
-@else
-    <span><i class="fa fa-times-circle-o text-danger"></i> Tükendi</span>
-@endif
+                                                @if ($product->stock > 0)
+                                                    <span><i class="fa fa-check-circle-o"></i> {{ $product->stock }} Adet
+                                                        Stokta</span>
+                                                @else
+                                                    <span><i class="fa fa-times-circle-o text-danger"></i> Tükendi</span>
+                                                @endif
                                             </div>
                                         </div>
                                         @php
@@ -576,7 +686,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script>
         /*==================================================================
-            [ Isotope ]*/
+                [ Isotope ]*/
         var $topeContainer = $('.isotope-grid');
         var $filter = $('.filter-tope-group');
 

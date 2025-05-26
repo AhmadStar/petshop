@@ -61,9 +61,9 @@
                                     </ul>
                                 </div>
                                 <!--/ End Single Widget -->
-                                <!-- Shop By Price -->
+                                <!-- Fiyata Göre Alışveriş Yap -->
                                     <div class="single-widget range">
-                                        <h3 class="title">Shop by Price</h3>
+                                        <h3 class="title">Fiyata Göre Alışveriş Yap</h3>
                                         <div class="price-filter">
                                             <div class="price-filter-inner">
                                                 @php
@@ -83,7 +83,7 @@
                                         </div>
 
                                     </div>
-                                    <!--/ End Shop By Price -->
+                                    <!--/ End Fiyata Göre Alışveriş Yap -->
                                 <!-- Single Widget -->
                                 <div class="single-widget recent-post">
                                     <h3 class="title">Recently Added</h3>
@@ -142,14 +142,14 @@
                                             </select>
                                         </div>
                                         <div class="single-shorter">
-                                            <label>Sort By :</label>
-                                            <select class='sortBy' name='sortBy' onchange="this.form.submit();">
-                                                <option value="">Default</option>
-                                                <option value="title" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='title') selected @endif>Name</option>
-                                                <option value="price" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='price') selected @endif>Price</option>
-                                                <option value="category" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='category') selected @endif>Category</option>
-                                                <option value="brand" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='brand') selected @endif>Brand</option>
-                                            </select>
+                                            <label>Sırala :</label>
+<select class='sortBy' name='sortBy' onchange="this.form.submit();">
+    <option value="">Varsayılan</option>
+    <option value="title" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='title') selected @endif>İsim</option>
+    <option value="price" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='price') selected @endif>Fiyat</option>
+    <option value="category" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='category') selected @endif>Kategori</option>
+    <option value="brand" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='brand') selected @endif>Marka</option>
+</select>
                                         </div>
                                     </div>
                                     <ul class="view-mode">
@@ -183,7 +183,7 @@
                                                         <a title="Wishlist" href="{{route('add-to-wishlist',$product->slug)}}" class="wishlist" data-id="{{$product->id}}"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
                                                     </div>
                                                     <div class="product-action-2">
-                                                        <a title="Add to cart" href="{{route('add-to-cart',$product->slug)}}">Add to cart</a>
+                                                        <a title="Sepete Ekle" href="{{route('add-to-cart',$product->slug)}}">Sepete Ekle</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -199,7 +199,7 @@
                                     </div>
                                 @endforeach
                             @else
-                                    <h4 class="text-warning" style="margin:100px auto;">There are no products.</h4>
+                                    <h4 class="text-warning" style="margin:100px auto;">Ürün bulunmamaktadır.</h4>
                             @endif
 
 
@@ -349,7 +349,7 @@
                                                     <!--/ End Input Order -->
                                                 </div>
                                                 <div class="add-to-cart">
-                                                    <button type="submit" class="btn">Add to cart</button>
+                                                    <button type="submit" class="btn">Sepete Ekle</button>
                                                     <a href="{{route('add-to-wishlist',$product->slug)}}" class="btn min"><i class="ti-heart"></i></a>
                                                 </div>
                                             </form>

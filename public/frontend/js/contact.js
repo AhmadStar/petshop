@@ -1,9 +1,9 @@
 $(document).ready(function(){
-    
+
     (function($) {
         "use strict";
 
-    
+
     jQuery.validator.addMethod('answercheck', function (value, element) {
         return this.optional(element) || /^\bcat\b$/.test(value)
     }, "type the correct answer -_-");
@@ -35,24 +35,24 @@ $(document).ready(function(){
             },
             messages: {
                 name: {
-                    required: "come on, you have a name, don't you?",
-                    minlength: "your name must have at least 2 characters"
-                },
-                subject: {
-                    required: "come on, you have a subject, don't you?",
-                    minlength: "your subject must have at least 4 characters"
-                },
-                number: {
-                    required: "come on, you have a number, don't you?",
-                    minlength: "your Number must have at least 9 characters"
-                },
-                email: {
-                    required: "no email, no message"
-                },
-                message: {
-                    required: "um...yea, you have to write something to send this form.",
-                    minlength: "Your subject must have at least 10 characters"
-                }
+    required: "Hadi ama, bir ismin olmalı değil mi?",
+    minlength: "İsmin en az 2 karakter olmalı"
+},
+subject: {
+    required: "Hadi ama, bir konu belirtmelisin",
+    minlength: "Konu en az 4 karakter olmalı"
+},
+number: {
+    required: "Hadi ama, bir telefon numaran olmalı",
+    minlength: "Telefon numaran en az 9 karakter olmalı"
+},
+email: {
+    required: "E-posta olmadan mesaj gönderemezsin"
+},
+message: {
+    required: "Bir şeyler yazmalısın ki bu formu gönderebilesin",
+    minlength: "Mesajın en az 10 karakter olmalı"
+}
             },
             submitHandler: function(form) {
                 $.ajaxSetup({
@@ -85,6 +85,6 @@ $(document).ready(function(){
             }
         })
     })
-        
+
  })(jQuery)
 })
