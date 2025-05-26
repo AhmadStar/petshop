@@ -37,115 +37,43 @@
 
     <!--/ End Slider Area -->
 
-    <!-- Start Small Banner  -->
-    <section class="small-banner section">
-        <div class="container-fluid">
+    <section class="product-area product-category-area pt-100 pb-100">
+        <div class="container">
             <div class="row">
+                <div class="col-12">
+                    <div class="section-title shape-center text-center">
+                        <h5 class="sub-title">TREND KATEGORİLER</h5>
+                        <h2 class="title">SENİN İÇİN;</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-gutter-43">
                 @php
-                    $category_lists = DB::table('categories')->where('status', 'active')->limit(3)->get();
+                    $category_lists = DB::table('categories')->where('status', 'active')->limit(5)->get();
                 @endphp
                 @if ($category_lists)
                     @foreach ($category_lists as $cat)
                         @if ($cat->is_parent == 1)
-                            <!-- Single Banner  -->
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="single-banner">
-                                    @if ($cat->photo)
-                                        <img src="{{ $cat->photo }}" alt="{{ $cat->photo }}">
-                                    @else
-                                        <img src="https://via.placeholder.com/600x370" alt="#">
-                                    @endif
+                            <div class="col">
+                                <div class="product-category-item">
+                                    <div class="thumb">
+                                        <a href="{{ route('product-cat', $cat->slug) }}">
+                                            <img src="{{ $cat->photo }}" alt="{{ $cat->photo }}" width="200"
+                                                height="200">
+                                        </a>
+                                    </div>
                                     <div class="content">
-                                        <h3>{{ $cat->title }}</h3>
-                                        <a href="{{ route('product-cat', $cat->slug) }}">Hemen Keşfet</a>
+                                        <h3 class="title"><a
+                                                href="{{ route('product-cat', $cat->slug) }}">{{ $cat->title }}</a></h3>
                                     </div>
                                 </div>
                             </div>
-                        @endif
-                        <!-- /End Single Banner  -->
-                    @endforeach
-                @endif
+                    @endif
+                        @endforeach
+                    @endif
             </div>
         </div>
     </section>
-    <!-- End Small Banner -->
-
-    <!--== Start Product Category Area Wrapper ==-->
-    <section class="product-area product-category-area bg-color-f2 pt-100 pb-100">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="section-title shape-center text-center">
-              <h5 class="sub-title">TREND KATEGORİLER</h5>
-              <h2 class="title">SENİN İÇİN;</h2>
-            </div>
-          </div>
-        </div>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-gutter-43">
-          <div class="col">
-            <!--== Start Product Category Item ==-->
-            <div class="product-category-item">
-              <div class="thumb">
-                <a href="shop.html"><img src="http://127.0.0.1:8000/frontend/img/category/1.webp" width="200" height="200" alt="Kedi Kategorisi"></a>
-              </div>
-              <div class="content">
-                <h3 class="title"><a href="shop.html">Kedi</a></h3>
-              </div>
-            </div>
-            <!--== End Product Category Item ==-->
-          </div>
-          <div class="col">
-            <!--== Start Product Category Item ==-->
-            <div class="product-category-item">
-              <div class="thumb">
-                <a href="shop.html"><img src="http://127.0.0.1:8000/frontend/img/category/2.webp" width="200" height="200" alt="Balık Kategorisi"></a>
-              </div>
-              <div class="content">
-                <h3 class="title"><a href="shop.html">Balık</a></h3>
-              </div>
-            </div>
-            <!--== End Product Category Item ==-->
-          </div>
-          <div class="col">
-            <!--== Start Product Category Item ==-->
-            <div class="product-category-item">
-              <div class="thumb">
-                <a href="shop.html"><img src="http://127.0.0.1:8000/frontend/img/category/3.webp" width="200" height="200" alt="Kuş Kategorisi"></a>
-              </div>
-              <div class="content">
-                <h3 class="title"><a href="shop.html">Kuş/Papağan</a></h3>
-              </div>
-            </div>
-            <!--== End Product Category Item ==-->
-          </div>
-          <div class="col">
-            <!--== Start Product Category Item ==-->
-            <div class="product-category-item">
-              <div class="thumb">
-                <a href="shop.html"><img src="http://127.0.0.1:8000/frontend/img/category/4.webp" width="200" height="200" alt="Köpek Kategorisi"></a>
-              </div>
-              <div class="content">
-                <h3 class="title"><a href="shop.html">Köpek</a></h3>
-              </div>
-            </div>
-            <!--== End Product Category Item ==-->
-          </div>
-          <div class="col">
-            <!--== Start Product Category Item ==-->
-            <div class="product-category-item">
-              <div class="thumb">
-                <a href="shop.html"><img src="http://127.0.0.1:8000/frontend/img/category/5.webp" width="200" height="200" alt="Tavşan Kategorisi"></a>
-              </div>
-              <div class="content">
-                <h3 class="title"><a href="shop.html">Tavşan</a></h3>
-              </div>
-            </div>
-            <!--== End Product Category Item ==-->
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--== End Product Category Area Wrapper ==-->
 
     <!-- Start Product Area -->
     <div class="product-area section">
@@ -408,30 +336,34 @@
     <!-- End Shop Home List  -->
 
     <section class="bg-theme-color position-relative z-index-1">
-      <div class="p--0">
-        <div class="row divider-style1">
-          <div class="col-lg-3 col-xl-4">
-            <div class="divider-thumb divider-thumb-left">
-              <img src="http://127.0.0.1:8000/frontend/img/photos/divider1.webp" width="351" height="435" alt="Image-HasTech">
-              <div class="shape-circle"></div>
+        <div class="p--0">
+            <div class="row divider-style1">
+                <div class="col-lg-3 col-xl-4">
+                    <div class="divider-thumb divider-thumb-left">
+                        <img src="http://127.0.0.1:8000/frontend/img/photos/divider1.webp" width="351" height="435"
+                            alt="Image-HasTech">
+                        <div class="shape-circle"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="divider-content text-center">
+                        <h5 class="sub-title">%50'ye Varan İndirimlerden Faydalan!</h5>
+                        <h2 class="title">En İyi Teklif</h2>
+                        <p class="desc">En kaliteli ürünlere en uygun fiyatlara erişebilmek için aşağıdaki butona tıkla
+                            ve</p>
+                        <a class="btn-theme text-dark" href="shop.html">Alışverişe Başla</a>
+                        <img class="shape-object" src="http://127.0.0.1:8000/frontend/img/shape/object1.webp"
+                            width="316" height="302" alt="Image-HasTech">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xl-4">
+                    <div class="divider-thumb divider-thumb-right">
+                        <img src="http://127.0.0.1:8000/frontend/img/photos/divider2.webp" width="488" height="447"
+                            alt="Image-HasTech">
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-6 col-xl-4">
-            <div class="divider-content text-center">
-              <h5 class="sub-title">%50'ye Varan İndirimlerden Faydalan!</h5>
-              <h2 class="title">En İyi Teklif</h2>
-              <p class="desc">En kaliteli ürünlere en uygun fiyatlara erişebilmek için aşağıdaki butona tıkla ve</p>
-              <a class="btn-theme text-dark" href="shop.html">Alışverişe Başla</a>
-              <img class="shape-object" src="http://127.0.0.1:8000/frontend/img/shape/object1.webp" width="316" height="302" alt="Image-HasTech">
-            </div>
-          </div>
-          <div class="col-lg-3 col-xl-4">
-            <div class="divider-thumb divider-thumb-right">
-              <img src="http://127.0.0.1:8000/frontend/img/photos/divider2.webp" width="488" height="447" alt="Image-HasTech">
-            </div>
-          </div>
         </div>
-      </div>
     </section>
 
     <!-- Start Shop Blog  -->
@@ -450,7 +382,7 @@
                         <div class="col-lg-4 col-md-6 col-12">
                             <!-- Start Single Blog  -->
                             <div class="shop-single-blog">
-                                <img src="{{ $post->photo }}" alt="{{ $post->photo }}">
+                                <img src="{{ asset($post->photo) }}" alt="{{ $post->photo }}">
                                 <div class="content">
                                     <p class="date">{{ $post->created_at->format('d M , Y. D') }}</p>
                                     <a href="{{ route('blog.detail', $post->slug) }}"
@@ -686,7 +618,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script>
         /*==================================================================
-                [ Isotope ]*/
+                    [ Isotope ]*/
         var $topeContainer = $('.isotope-grid');
         var $filter = $('.filter-tope-group');
 
