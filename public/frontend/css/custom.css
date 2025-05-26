@@ -1,0 +1,113 @@
+.footer {
+    background: #474654;
+}
+
+.preloader-deactive .preloader-wrap {
+    display: none;
+}
+
+.preloader-wrap {
+    background-color: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 99999;
+    overflow: hidden;
+}
+
+.preloader-wrap .preloader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+.preloader-wrap .dog-head {
+    background-image: url('http://127.0.0.1:8000/frontend/img/dog-head-md.webp');
+    height: 118px;
+    left: 8px;
+    position: absolute;
+    width: 130px;
+    animation: head-move 1s ease-in-out infinite;
+    -webkit-animation: head-move 1s ease-in-out infinite;
+    -moz-animation: head-move 1s ease-in-out infinite;
+    -ms-animation: head-move 1s ease-in-out infinite;
+    -o-animation: head-move 1s ease-in-out infinite;
+    transform: translate(5px, 5px) rotate(1.5deg);
+    -webkit-transform: translate(5px, 5px) rotate(1.5deg);
+    -moz-transform: translate(5px, 5px) rotate(1.5deg);
+    -ms-transform: translate(5px, 5px) rotate(1.5deg);
+    -o-transform: translate(5px, 5px) rotate(1.5deg);
+    top: -35px;
+    z-index: 2;
+}
+
+.preloader-wrap .dog-body {
+    background-repeat: no-repeat;
+    background-image: url('http://127.0.0.1:8000/frontend/img/dog-body-md.webp');
+    height: 150px;
+    width: 160px;
+}
+
+@-webkit-keyframes head-move {
+    50% {
+        -webkit-transform: rotate(-1.5deg);
+    }
+}
+
+
+.center-footer-logo{
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.university-logo{
+    width: 200px;
+}
+
+.header.shop .search-bar .btnn {
+    background: #474654;
+}
+
+.header.shop .header-inner
+ {
+    background: #474654;
+}
+
+.header.sticky .header-inner .nav li a {
+    color: #ffffff;
+}
+
+.section-title.shape-left:before, .shop-section-title.shape-left:before{
+    content: url(http://127.0.0.1:8000/frontend/img/sec.webp);
+    position: absolute;
+    left: 0;
+    top: -16px;
+    z-index: -1;
+}
+
+.section-title.shape-center:before {
+    content: url(http://127.0.0.1:8000/frontend/img/sec.webp);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+    -moz-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+    -o-transform: translate(-50%, 0%);
+    top: -11px;
+    z-index: -1;
+}
