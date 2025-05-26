@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('title','Ecommerce Laravel || Banner Create')
+@section('title','Petshop - Banner Create')
 
 @section('main-content')
 

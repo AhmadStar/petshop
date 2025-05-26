@@ -1,8 +1,0 @@
----Admin Login Details---
-
-Email   : admin@mail.com
-Password: codeastro.com
-
---Customer Login Details---
-Email   : customer@mail.com
-Password: codeastro.com
