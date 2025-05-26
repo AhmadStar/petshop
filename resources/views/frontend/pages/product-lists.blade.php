@@ -11,8 +11,9 @@
 					<div class="col-12">
 						<div class="bread-inner">
 							<ul class="bread-list">
-								<li><a href="{{route('home')}}">Home<i class="ti-arrow-right"></i></a></li>
-								<li class="active"><a href="javascript:void(0);">Shop List</a></li>
+								<li><a href="{{ route('home') }}">Anasayfa<i class="ti-arrow-right"></i></a></li>
+<li class="active"><a href="javascript:void(0);">Mağaza Listesi</a></li>
+
 							</ul>
 						</div>
 					</div>
@@ -30,7 +31,8 @@
 							<div class="shop-sidebar">
                                 <!-- Single Widget -->
                                 <div class="single-widget category">
-                                    <h3 class="title">Categories</h3>
+                                    <h3 class="title">Kategoriler</h3>
+
                                     <ul class="categor-list">
 										@php
 											// $category = new Category();
@@ -53,11 +55,6 @@
 											@endforeach
 										</li>
 										@endif
-                                        {{-- @foreach(Helper::productCategoryList('products') as $cat)
-                                            @if($cat->is_parent==1)
-												<li><a href="{{route('product-cat',$cat->slug)}}">{{$cat->title}}</a></li>
-											@endif
-                                        @endforeach --}}
                                     </ul>
                                 </div>
                                 <!--/ End Single Widget -->
@@ -66,47 +63,27 @@
 									<h3 class="title">Fiyata Göre Alışveriş Yap</h3>
 									<div class="price-filter">
 										<div class="price-filter-inner">
-											{{-- <div id="slider-range" data-min="10" data-max="2000" data-currency="%"></div>
-												<div class="price_slider_amount">
-												<div class="label-input">
-													<span>Range:</span>
-													<input type="text" id="amount" name="price_range" value='@if(!empty($_GET['price'])) {{$_GET['price']}} @endif' placeholder="Add Your Price"/>
-												</div>
-											</div> --}}
 											@php
 												$max=DB::table('products')->max('price');
 												// dd($max);
 											@endphp
 											<div id="slider-range" data-min="0" data-max="{{$max}}"></div>
 											<div class="product_filter">
-											<button type="submit" class="filter_button">Filter</button>
-											<div class="label-input">
-												<span>Range:</span>
-												<input style="" type="text" id="amount" readonly/>
-												<input type="hidden" name="price_range" id="price_range" value="@if(!empty($_GET['price'])){{$_GET['price']}}@endif"/>
-											</div>
+											<button type="submit" class="filter_button">Filtrele</button>
+<div class="label-input">
+    <span>Aralık:</span>
+    <input style="" type="text" id="amount" readonly/>
+    <input type="hidden" name="price_range" id="price_range" value="@if(!empty($_GET['price'])){{$_GET['price']}}@endif"/>
+</div>
+
 											</div>
 										</div>
 									</div>
-									{{-- <ul class="check-box-list">
-										<li>
-											<label class="checkbox-inline" for="1"><input name="news" id="1" type="checkbox">$20 - $50<span class="count">(3)</span></label>
-										</li>
-										<li>
-											<label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">$50 - $100<span class="count">(5)</span></label>
-										</li>
-										<li>
-											<label class="checkbox-inline" for="3"><input name="news" id="3" type="checkbox">$100 - $250<span class="count">(8)</span></label>
-										</li>
-									</ul> --}}
+
 								</div>
-								<!--/ End Fiyata Göre Alışveriş Yap -->
-                                <!-- Single Widget -->
                                 <div class="single-widget recent-post">
-                                    <h3 class="title">Recently Added</h3>
-                                    {{-- {{dd($recent_products)}} --}}
+                                    <h3 class="title">Son Eklenenler</h3>
                                     @foreach($recent_products as $product)
-                                        <!-- Single Post -->
                                         @php
                                             $photo=explode(',',$product->photo);
                                         @endphp
@@ -122,13 +99,11 @@
                                                 <p class="price"><del class="text-muted">${{number_format($product->price,2)}}</del>   ${{number_format($org,2)}}  </p>
                                             </div>
                                         </div>
-                                        <!-- End Single Post -->
                                     @endforeach
                                 </div>
-                                <!--/ End Single Widget -->
-                                <!-- Single Widget -->
                                 <div class="single-widget category">
-                                    <h3 class="title">Brands</h3>
+                                    <h3 class="title">Markalar</h3>
+
                                     <ul class="categor-list">
                                         @php
                                             $brands=DB::table('brands')->orderBy('title','ASC')->where('status','active')->get();
@@ -148,9 +123,9 @@
 									<div class="shop-top">
 										<div class="shop-shorter">
 											<div class="single-shorter">
-												<label>Show :</label>
+                                                <label>Göster :</label>
 												<select class="show" name="show" onchange="this.form.submit();">
-													<option value="">Default</option>
+                                                    <option value="">Varsayılan</option>
 													<option value="9" @if(!empty($_GET['show']) && $_GET['show']=='9') selected @endif>09</option>
 													<option value="15" @if(!empty($_GET['show']) && $_GET['show']=='15') selected @endif>15</option>
 													<option value="21" @if(!empty($_GET['show']) && $_GET['show']=='21') selected @endif>21</option>
@@ -158,13 +133,14 @@
 												</select>
 											</div>
 											<div class="single-shorter">
-												<label>Sort By :</label>
+                                                <label>Sırala :</label>
 												<select class='sortBy' name='sortBy' onchange="this.form.submit();">
-													<option value="">Default</option>
-													<option value="title" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='title') selected @endif>Name</option>
-													<option value="price" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='price') selected @endif>Price</option>
-													<option value="category" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='category') selected @endif>Category</option>
-													<option value="brand" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='brand') selected @endif>Brand</option>
+													<option value="">Varsayılan</option>
+<option value="title" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='title') selected @endif>İsim</option>
+<option value="price" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='price') selected @endif>Fiyat</option>
+<option value="category" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='category') selected @endif>Kategori</option>
+<option value="brand" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='brand') selected @endif>Marka</option>
+
 												</select>
 											</div>
 										</div>
@@ -195,8 +171,14 @@
 															</a>
 															<div class="button-head">
 																<div class="product-action">
-																	<a data-toggle="modal" data-target="#{{$product->id}}" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-																	<a title="Wishlist" href="{{route('add-to-wishlist',$product->slug)}}" class="wishlist" data-id="{{$product->id}}"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+                                                                    <a data-toggle="modal" data-target="#{{$product->id}}" title="Hızlı Görünüm" href="#">
+    <i class="ti-eye"></i><span>Hızlı Alışveriş</span>
+</a>
+<a title="İstek Listesi" href="{{ route('add-to-wishlist', $product->slug) }}" class="wishlist" data-id="{{ $product->id }}">
+    <i class="ti-heart"></i><span>İstek Listesine Ekle</span>
+</a>
+
+
 																</div>
 																<div class="product-action-2">
 																	<a title="Sepete Ekle" href="{{route('add-to-cart',$product->slug)}}">Sepete Ekle</a>
@@ -216,10 +198,9 @@
 																<del>${{number_format($product->price,2)}}</del>
 															</div>
 															<h3 class="title"><a href="{{route('product-detail',$product->slug)}}">{{$product->title}}</a></h3>
-														{{-- <p>{!! html_entity_decode($product->summary) !!}</p> --}}
 														</div>
 														<p class="des pt-2">{!! html_entity_decode($product->summary) !!}</p>
-														<a href="javascript:void(0)" class="btn cart" data-id="{{$product->id}}">Buy Now!</a>
+														<a href="javascript:void(0)" class="btn cart" data-id="{{$product->id}}">Hemen Satın Al!</a>
 													</div>
 												</div>
 											</div>
@@ -227,12 +208,11 @@
 										<!-- End Single List -->
 									@endforeach
 								@else
-									<h4 class="text-danger" style="margin:100px auto;">Sorry, there are no products according to the range given. Try selecting different one to see more results.</h4>
+                                <h4 class="text-danger" style="margin:100px auto;">Üzgünüz, verilen aralığa göre ürün bulunamadı. Daha fazla sonuç görmek için farklı bir aralık seçmeyi deneyin.</h4>
 								@endif
 							</div>
 							 <div class="row">
                             <div class="col-md-12 justify-content-center d-flex">
-                                {{-- {{$products->appends($_GET)->links()}}  --}}
                             </div>
                           </div>
 						</div>
@@ -258,7 +238,6 @@
 													<div class="quickview-slider-active">
 														@php
 															$photo=explode(',',$product->photo);
-														// dd($photo);
 														@endphp
 														@foreach($photo as $data)
 															<div class="single-slider">
@@ -275,11 +254,6 @@
 												<div class="quickview-ratting-review">
 													<div class="quickview-ratting-wrap">
 														<div class="quickview-ratting">
-															{{-- <i class="yellow fa fa-star"></i>
-															<i class="yellow fa fa-star"></i>
-															<i class="yellow fa fa-star"></i>
-															<i class="yellow fa fa-star"></i>
-															<i class="fa fa-star"></i> --}}
 															@php
 																$rate=DB::table('product_reviews')->where('product_id',$product->id)->avg('rate');
 																$rate_count=DB::table('product_reviews')->where('product_id',$product->id)->count();
@@ -292,13 +266,13 @@
 																@endif
 															@endfor
 														</div>
-														<a href="#"> ({{$rate_count}} customer review)</a>
+														<a href="#"> ({{$rate_count}} Müşteri Yorumu)</a>
 													</div>
 													<div class="quickview-stock">
 														@if($product->stock >0)
-														<span><i class="fa fa-check-circle-o"></i> {{$product->stock}} in stock</span>
+														<span><i class="fa fa-check-circle-o"></i> {{$product->stock}} Stokta Var</span>
 														@else
-														<span><i class="fa fa-times-circle-o text-danger"></i> {{$product->stock}} out stock</span>
+														<span><i class="fa fa-times-circle-o text-danger"></i> {{$product->stock}} Stokta Yok</span>
 														@endif
 													</div>
 												</div>

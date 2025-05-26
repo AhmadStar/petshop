@@ -160,10 +160,10 @@
                                             <i class="yellow fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                         </div>
-                                        <a href="#"> (1 customer review)</a>
+                                        <a href="#"> (1 Müşteri Yorumu)</a>
                                     </div>
                                     <div class="quickview-stock">
-                                        <span><i class="fa fa-check-circle-o"></i> in stock</span>
+                                        <span><i class="fa fa-check-circle-o"></i> Stokta Var</span>
                                     </div>
                                 </div>
                                 <h3>$29.00</h3>

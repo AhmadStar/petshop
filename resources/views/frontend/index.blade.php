@@ -117,7 +117,7 @@
                                 $recentlyAddedProducts = DB::table('products')
                                     ->where('status', 'active')
                                     ->orderBy('created_at', 'desc')
-                                    ->take(8) // Get the 8 most recently added products
+                                    ->take(8) // Get the 8 most Son Eklenenler products
                                     ->get();
                             @endphp
 

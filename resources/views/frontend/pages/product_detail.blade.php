@@ -152,7 +152,7 @@
 												<p class="availability"> Stock:
     @if($product_detail->stock > 0)
         @if($product_detail->stock < 5)
-            <span class="badge badge-warning">Low in stock</span>
+            <span class="badge badge-warning">Low Stokta Var</span>
         @else
             <span class="badge badge-success">Available</span>
         @endif
@@ -419,10 +419,10 @@
                                         <i class="yellow fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <a href="#"> (1 customer review)</a>
+                                    <a href="#"> (1 Müşteri Yorumu)</a>
                                 </div>
                                 <div class="quickview-stock">
-                                    <span><i class="fa fa-check-circle-o"></i> in stock</span>
+                                    <span><i class="fa fa-check-circle-o"></i> Stokta Var</span>
                                 </div>
                             </div>
                             <h3>$29.00</h3>

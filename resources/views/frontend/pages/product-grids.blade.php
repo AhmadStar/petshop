@@ -86,7 +86,7 @@
                                     <!--/ End Fiyata Göre Alışveriş Yap -->
                                 <!-- Single Widget -->
                                 <div class="single-widget recent-post">
-                                    <h3 class="title">Recently Added</h3>
+                                    <h3 class="title">Son Eklenenler</h3>
                                     {{-- {{dd($recent_products)}} --}}
                                     @foreach($recent_products as $product)
                                         <!-- Single Post -->
@@ -272,13 +272,13 @@
                                                             @endif
                                                         @endfor
                                                     </div>
-                                                    <a href="#"> ({{$rate_count}} customer review)</a>
+                                                    <a href="#"> ({{$rate_count}} Müşteri Yorumu)</a>
                                                 </div>
                                                 <div class="quickview-stock">
                                                     @if($product->stock >0)
-                                                    <span><i class="fa fa-check-circle-o"></i> {{$product->stock}} in stock</span>
+                                                    <span><i class="fa fa-check-circle-o"></i> {{$product->stock}} Stokta Var</span>
                                                     @else
-                                                    <span><i class="fa fa-times-circle-o text-danger"></i> {{$product->stock}} out stock</span>
+                                                    <span><i class="fa fa-times-circle-o text-danger"></i> {{$product->stock}} Stokta Yok</span>
                                                     @endif
                                                 </div>
                                             </div>
