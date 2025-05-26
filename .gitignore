@@ -1,6 +1,6 @@
 vendor
 .vendor
-storage
+/storage
 database
 DATABASE FILE
 history

@@ -8,8 +8,8 @@
 				<div class="col-12">
 					<div class="bread-inner">
 						<ul class="bread-list">
-							<li><a href="{{('home')}}">Home<i class="ti-arrow-right"></i></a></li>
-							<li class="active"><a href="">Cart</a></li>
+							<li><a href="{{('home')}}">Ana Sayfa<i class="ti-arrow-right"></i></a></li>
+<li class="active"><a href="">Sepet</a></li>
 						</ul>
 					</div>
 				</div>
@@ -27,11 +27,11 @@
 					<table class="table shopping-summery">
 						<thead>
 							<tr class="main-hading">
-								<th>PRODUCT</th>
-								<th>NAME</th>
-								<th class="text-center">UNIT PRICE</th>
-								<th class="text-center">QUANTITY</th>
-								<th class="text-center">TOTAL</th>
+								<th>ÜRÜN</th>
+<th>AD</th>
+<th class="text-center">BİRİM FİYAT</th>
+<th class="text-center">ADET</th>
+<th class="text-center">TOPLAM</th>
 								<th class="text-center"><i class="ti-trash remove-icon"></i></th>
 							</tr>
 						</thead>
@@ -79,14 +79,13 @@
 										<td></td>
 										<td></td>
 										<td class="float-right">
-											<button class="btn float-right" type="submit">Update</button>
+                                            <button class="btn float-right" type="submit">Güncelle</button>
 										</td>
 									</track>
 								@else
 										<tr>
 											<td class="text-center">
-												There are no any carts available. <a href="{{route('product-grids')}}" style="color:blue;">Continue shopping</a>
-
+Sepetinizde ürün bulunmamaktadır. <a href="{{route('product-grids')}}" style="color:blue;">Alışverişe devam et</a>
 											</td>
 										</tr>
 								@endif
@@ -100,46 +99,46 @@
 				<div class="col-12">
 					<!-- Total Amount -->
 					<div class="total-amount">
-						<div class="row">
-							<div class="col-lg-8 col-md-5 col-12">
-								<div class="left">
-									<div class="coupon">
-									<form action="{{route('coupon-store')}}" method="POST">
-											@csrf
-											<input name="code" placeholder="Enter Valid Coupon">
-											<button class="btn">Apply Coupon</button>
-										</form>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-7 col-12">
-								<div class="right">
-									<ul>
-										<li class="order_subtotal" data-price="{{Helper::totalCartPrice()}}">Cart Subtotal<span>${{number_format(Helper::totalCartPrice(),2)}}</span></li>
+    <div class="row">
+        <div class="col-lg-8 col-md-5 col-12">
+            <div class="left">
+                <div class="coupon">
+                    <form action="{{route('coupon-store')}}" method="POST">
+                        @csrf
+                        <input name="code" placeholder="Geçerli Kupon Kodunu Girin">
+                        <button class="btn">Kuponu Uygula</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-7 col-12">
+            <div class="right">
+                <ul>
+                    <li class="order_subtotal" data-price="{{Helper::totalCartPrice()}}">Ara Toplam<span>${{number_format(Helper::totalCartPrice(),2)}}</span></li>
 
-										@if(session()->has('coupon'))
-										<li class="coupon_price" data-price="{{Session::get('coupon')['value']}}">You Save<span>${{number_format(Session::get('coupon')['value'],2)}}</span></li>
-										@endif
-										@php
-											$total_amount=Helper::totalCartPrice();
-											if(session()->has('coupon')){
-												$total_amount=$total_amount-Session::get('coupon')['value'];
-											}
-										@endphp
-										@if(session()->has('coupon'))
-											<li class="last" id="order_total_price">You Pay<span>${{number_format($total_amount,2)}}</span></li>
-										@else
-											<li class="last" id="order_total_price">You Pay<span>${{number_format($total_amount,2)}}</span></li>
-										@endif
-									</ul>
-									<div class="button5">
-										<a href="{{route('checkout')}}" class="btn">Checkout</a>
-										<a href="{{route('product-grids')}}" class="btn">Continue shopping</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+                    @if(session()->has('coupon'))
+                    <li class="coupon_price" data-price="{{Session::get('coupon')['value']}}">Tasarruf Edilen<span>${{number_format(Session::get('coupon')['value'],2)}}</span></li>
+                    @endif
+                    @php
+                        $total_amount=Helper::totalCartPrice();
+                        if(session()->has('coupon')){
+                            $total_amount=$total_amount-Session::get('coupon')['value'];
+                        }
+                    @endphp
+                    @if(session()->has('coupon'))
+                        <li class="last" id="order_total_price">Ödenecek Tutar<span>${{number_format($total_amount,2)}}</span></li>
+                    @else
+                        <li class="last" id="order_total_price">Ödenecek Tutar<span>${{number_format($total_amount,2)}}</span></li>
+                    @endif
+                </ul>
+                <div class="button5">
+                    <a href="{{route('checkout')}}" class="btn">Ödemeye Geç</a>
+                    <a href="{{route('product-grids')}}" class="btn">Alışverişe Devam Et</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 					<!--/ End Total Amount -->
 				</div>
 			</div>
