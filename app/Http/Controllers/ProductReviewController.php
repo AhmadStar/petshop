@@ -61,10 +61,10 @@ class ProductReviewController extends Controller
         ];
         Notification::send($user,new StatusNotification($details));
         if($status){
-            request()->session()->flash('success','Thank you for your honest review!');
+            request()->session()->flash('success','Güzel yorumlarınız için teşekkürler!');
         }
         else{
-            request()->session()->flash('error','Something went wrong! Please try again!!');
+            request()->session()->flash('error','Birşeyler ters gitti, daha sonra tekrar deneyin!');
         }
         return redirect()->back();
     }
@@ -119,14 +119,14 @@ class ProductReviewController extends Controller
             // ];
             // Notification::send($user,new StatusNotification($details));
             if($status){
-                request()->session()->flash('success','Review updated');
+                request()->session()->flash('success','Yorum güncellendi');
             }
             else{
-                request()->session()->flash('error','Something went wrong! Please try again!!');
+                request()->session()->flash('error','Birşeyler ters gitti, daha sonra tekrar deneyin!');
             }
         }
         else{
-            request()->session()->flash('error','Review not found!!');
+            request()->session()->flash('error','Yorum bulunamadı!!');
         }
 
         return redirect()->route('review.index');
@@ -143,10 +143,10 @@ class ProductReviewController extends Controller
         $review=ProductReview::find($id);
         $status=$review->delete();
         if($status){
-            request()->session()->flash('success','Review deleted');
+            request()->session()->flash('success','Yorum silindi');
         }
         else{
-            request()->session()->flash('error','Something went wrong! Try again');
+            request()->session()->flash('error','Birşeyler ters gitti, daha sonra tekrar deneyin!');
         }
         return redirect()->route('review.index');
     }

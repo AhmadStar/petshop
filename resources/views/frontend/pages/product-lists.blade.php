@@ -349,7 +349,6 @@
         }
 
         .filter_button {
-            /* height:20px; */
             text-align: center;
             background: #8c52ff;
             padding: 8px 16px;
@@ -385,7 +384,6 @@
 					}
 					else{
                         swal('error',response.msg,'error').then(function(){
-							// document.location.href=document.location.href;
 						});
                     }
                 }
@@ -394,9 +392,7 @@
 	</script> --}}
     <script>
         $(document).ready(function() {
-            /*----------------------------------------------------*/
-            /*  Jquery Ui slider js
-            /*----------------------------------------------------*/
+
             if ($("#slider-range").length > 0) {
                 const max_value = parseInt($("#slider-range").data('max')) || 500;
                 const min_value = parseInt($("#slider-range").data('min')) || 0;

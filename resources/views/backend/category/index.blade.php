@@ -20,13 +20,13 @@
           <thead>
             <tr>
               <th>#</th>
-<th>Başlık</th>
-<th>Slug</th>
-<th>Ana Kategori mi?</th>
-<th>Üst Kategori</th>
-<th>Fotoğraf</th>
-<th>Durum</th>
-<th>İşlem</th>
+              <th>Başlık</th>
+              <th>Slug</th>
+              <th>Alt Kategori</th>
+              <th>Kategori</th>
+              <th>Fotoğraf</th>
+              <th>Durum</th>
+              <th>İşlem</th>
             </tr>
           </thead>
           <tbody>

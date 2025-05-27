@@ -9,7 +9,7 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Users List</h6>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Kullanıcı Listesi</h6>
       <a href="{{route('users.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add User</a>
     </div>
     <div class="card-body">
@@ -18,13 +18,13 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Name</th>
+              <th>Ad</th>
               <th>Email</th>
-              <th>Photo</th>
-              <th>Join Date</th>
-              <th>Role</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Fotoğraf</th>
+              <th>Oluşturma Tarihi</th>
+              <th>Rol</th>
+              <th>Statü</th>
+              <th>Düzenle</th>
             </tr>
           </thead>
           <tbody>
@@ -62,7 +62,7 @@
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="#delModal{{$user->id}}Label">Delete user</h5>
+                              <h5 class="modal-title" id="#delModal{{$user->id}}Label">Kullanıcıyı Sil</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
@@ -71,7 +71,7 @@
                               <form method="post" action="{{ route('users.destroy',$user->id) }}">
                                 @csrf 
                                 @method('delete')
-                                <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Parmanent delete user</button>
+                                <button type="submit" class="btn btn-danger" style="margin:auto; text-align:center">Kullanıcıyı Kalıcı Olarak Sil</button>
                               </form>
                             </div>
                           </div>
@@ -136,8 +136,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                    title: "Emin misin?",
+                    text: "Tüm bilgiler silinecek!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -146,7 +146,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Bilgiler kurtarıldı!");
                     }
                 });
           })

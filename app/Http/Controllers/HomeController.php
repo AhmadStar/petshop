@@ -45,10 +45,10 @@ class HomeController extends Controller
         $data=$request->all();
         $status=$user->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Successfully updated your profile');
+            request()->session()->flash('success','Profil başarıyla güncellendi!');
         }
         else{
-            request()->session()->flash('error','Please try again!');
+            request()->session()->flash('error','Lütfen daha sonra tekrar deneyin!');
         }
         return redirect()->back();
     }
@@ -63,21 +63,21 @@ class HomeController extends Controller
         $order=Order::find($id);
         if($order){
            if($order->status=="process" || $order->status=='delivered' || $order->status=='cancel'){
-                return redirect()->back()->with('error','You can not delete this order now');
+                return redirect()->back()->with('error','Bu siparişi şuan silemezsiniz!');
            }
            else{
                 $status=$order->delete();
                 if($status){
-                    request()->session()->flash('success','Order Successfully deleted');
+                    request()->session()->flash('success','Sipariş başarıyla silindi!');
                 }
                 else{
-                    request()->session()->flash('error','Order can not deleted');
+                    request()->session()->flash('error','Sipariş silinemedi!');
                 }
                 return redirect()->route('user.order.index');
            }
         }
         else{
-            request()->session()->flash('error','Order can not found');
+            request()->session()->flash('error','Sipariş bulunamadı!');
             return redirect()->back();
         }
     }
@@ -115,14 +115,14 @@ class HomeController extends Controller
             $data=$request->all();
             $status=$review->fill($data)->update();
             if($status){
-                request()->session()->flash('success','Review updated');
+                request()->session()->flash('success','Yorum güncellendi!');
             }
             else{
-                request()->session()->flash('error','Something went wrong! Please try again!!');
+                request()->session()->flash('error','Bir şeyler ters gitti! Lütfen tekrar deneyin!');
             }
         }
         else{
-            request()->session()->flash('error','Review not found!!');
+            request()->session()->flash('error','Yorum bulunamadı!');
         }
 
         return redirect()->route('user.productreview.index');
@@ -139,10 +139,10 @@ class HomeController extends Controller
         $review=ProductReview::find($id);
         $status=$review->delete();
         if($status){
-            request()->session()->flash('success','Review deleted');
+            request()->session()->flash('success','Yorum silindi');
         }
         else{
-            request()->session()->flash('error','Something went wrong! Try again');
+            request()->session()->flash('error','Bir şeyler ters gitti! Lütfen tekrar deneyin!');
         }
         return redirect()->route('user.productreview.index');
     }
@@ -157,15 +157,15 @@ class HomeController extends Controller
         if($comment){
             $status=$comment->delete();
             if($status){
-                request()->session()->flash('success','Post Comment deleted');
+                request()->session()->flash('success','Ürün yorumu silindi');
             }
             else{
-                request()->session()->flash('error','Error occurred please try again');
+                request()->session()->flash('error','Bir şeyler ters gitti! Lütfen tekrar deneyin!');
             }
             return back();
         }
         else{
-            request()->session()->flash('error','Post Comment not found');
+            request()->session()->flash('error','Ürün yorumu bulunamadı!');
             return redirect()->back();
         }
     }
@@ -176,7 +176,7 @@ class HomeController extends Controller
             return view('user.comment.edit')->with('comment',$comments);
         }
         else{
-            request()->session()->flash('error','Comment not found');
+            request()->session()->flash('error','Ürün yorumu bulunamadı!');
             return redirect()->back();
         }
     }
@@ -196,15 +196,15 @@ class HomeController extends Controller
             // return $data;
             $status=$comment->fill($data)->update();
             if($status){
-                request()->session()->flash('success','Comment updated');
+                request()->session()->flash('success','Yorum güncellendi');
             }
             else{
-                request()->session()->flash('error','Something went wrong! Please try again!!');
+                request()->session()->flash('error','Bir şeyler ters gitti! Lütfen tekrar deneyin!');
             }
             return redirect()->route('user.post-comment.index');
         }
         else{
-            request()->session()->flash('error','Comment not found');
+            request()->session()->flash('error','Yorum bulunamadı');
             return redirect()->back();
         }
 
@@ -223,7 +223,7 @@ class HomeController extends Controller
    
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
    
-        return redirect()->route('user')->with('success','Password changed successfully');
+        return redirect()->route('user')->with('success','Şifre başarıyla güncellendi!');
     }
 
     

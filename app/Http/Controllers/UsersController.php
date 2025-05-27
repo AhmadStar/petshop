@@ -52,10 +52,10 @@ class UsersController extends Controller
         $status=User::create($data);
         // dd($status);
         if($status){
-            request()->session()->flash('success','User added successfully');
+            request()->session()->flash('success','Kullanıcı başarıyla eklendi!');
         }
         else{
-            request()->session()->flash('error','Error occurred while adding user');
+            request()->session()->flash('error','Kullanıcıyı eklerken bir hata oluştu!');
         }
         return redirect()->route('users.index');
 
@@ -108,10 +108,10 @@ class UsersController extends Controller
         
         $status=$user->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Successfully updated');
+            request()->session()->flash('success','Başarıyla güncellendi!');
         }
         else{
-            request()->session()->flash('error','Error occured while updating');
+            request()->session()->flash('error','Güncelleme sırasında bir hata oluştu!');
         }
         return redirect()->route('users.index');
 
@@ -128,10 +128,10 @@ class UsersController extends Controller
         $delete=User::findorFail($id);
         $status=$delete->delete();
         if($status){
-            request()->session()->flash('success','User deleted successfully');
+            request()->session()->flash('success','Kullanıcı başarıyla silindi');
         }
         else{
-            request()->session()->flash('error','There is an error while deleting users');
+            request()->session()->flash('error','Kullanıcıyı silerken bir hata oluştu! ');
         }
         return redirect()->route('users.index');
     }

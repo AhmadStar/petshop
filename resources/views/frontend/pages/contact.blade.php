@@ -137,7 +137,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p class="text-success">Mesajınız başarıyla gönderildi...</p>
+                <p class="text-success">Mesajınız başarıyla gönderildi!</p>
             </div>
         </div>
     </div>

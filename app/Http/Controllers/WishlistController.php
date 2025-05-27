@@ -15,20 +15,20 @@ class WishlistController extends Controller
     public function wishlist(Request $request){
         // dd($request->all());
         if (empty($request->slug)) {
-            request()->session()->flash('error','Invalid Products');
+            request()->session()->flash('error','Geçersiz Ürün');
             return back();
         }        
         $product = Product::where('slug', $request->slug)->first();
         // return $product;
         if (empty($product)) {
-            request()->session()->flash('error','Invalid Products');
+            request()->session()->flash('error','Geçersiz Ürün');
             return back();
         }
 
         $already_wishlist = Wishlist::where('user_id', auth()->user()->id)->where('cart_id',null)->where('product_id', $product->id)->first();
         // return $already_wishlist;
         if($already_wishlist) {
-            request()->session()->flash('error','You already placed in wishlist');
+            request()->session()->flash('error','Zaten İstek Listesine Eklediniz!');
             return back();
         }else{
             
@@ -38,10 +38,10 @@ class WishlistController extends Controller
             $wishlist->price = ($product->price-($product->price*$product->discount)/100);
             $wishlist->quantity = 1;
             $wishlist->amount=$wishlist->price*$wishlist->quantity;
-            if ($wishlist->product->stock < $wishlist->quantity || $wishlist->product->stock <= 0) return back()->with('error','Stock not sufficient!.');
+            if ($wishlist->product->stock < $wishlist->quantity || $wishlist->product->stock <= 0) return back()->with('error','Stok yeterli değil!');
             $wishlist->save();
         }
-        request()->session()->flash('success','Product added to wishlist');
+        request()->session()->flash('success','Ürün istek listesine eklendi!');
         return back();       
     }  
     
@@ -49,10 +49,10 @@ class WishlistController extends Controller
         $wishlist = Wishlist::find($request->id);
         if ($wishlist) {
             $wishlist->delete();
-            request()->session()->flash('success','Wishlist removed');
+            request()->session()->flash('success','İstek listesi silindi');
             return back();  
         }
-        request()->session()->flash('error','Error please try again');
+        request()->session()->flash('error','İstek listesi silinirken bir hata oluştu');
         return back();       
     }     
 }

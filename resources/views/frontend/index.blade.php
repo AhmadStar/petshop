@@ -109,35 +109,6 @@
         </div>
     </section>
 
-    {{-- <section class="shop-blog section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title shape-center text-center">
-                        <h2>Blogumuzdan</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                @if ($posts)
-                    @foreach ($posts as $post)
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="shop-single-blog">
-                                <img src="{{ asset($post->photo) }}" alt="{{ $post->photo }}">
-                                <div class="content">
-                                    <p class="date">{{ $post->created_at->format('d M , Y. D') }}</p>
-                                    <a href="{{ route('blog.detail', $post->slug) }}"
-                                        class="title">{{ $post->title }}</a>
-                                    <a href="{{ route('blog.detail', $post->slug) }}" class="more-btn">Devamını Oku</a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                @endif
-            </div>
-        </div>
-    </section> --}}
-
     <!-- Start Shop Services Area -->
     <section class="shop-services section home">
         <div class="container">
@@ -146,7 +117,7 @@
                     <div class="single-service">
                         <i class="ti-rocket"></i>
                         <h4>Ücretsiz Kargo</h4>
-                        <p>100$ üzeri siparişler</p>
+                        <p>2000₺ üzeri siparişler</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
@@ -355,8 +326,7 @@
 @push('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script>
-        /*==================================================================
-                    [ Isotope ]*/
+
         var $topeContainer = $('.isotope-grid');
         var $filter = $('.filter-tope-group');
 
@@ -371,7 +341,6 @@
 
         });
 
-        // init Isotope
         $(window).on('load', function() {
             var $grid = $topeContainer.each(function() {
                 $(this).isotope({
@@ -402,9 +371,9 @@
         function cancelFullScreen(el) {
             var requestMethod = el.cancelFullScreen || el.webkitCancelFullScreen || el.mozCancelFullScreen || el
                 .exitFullscreen;
-            if (requestMethod) { // cancel full screen.
+            if (requestMethod) { 
                 requestMethod.call(el);
-            } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+            } else if (typeof window.ActiveXObject !== "undefined") { 
                 var wscript = new ActiveXObject("WScript.Shell");
                 if (wscript !== null) {
                     wscript.SendKeys("{F11}");
@@ -417,9 +386,9 @@
             var requestMethod = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el
                 .msRequestFullscreen;
 
-            if (requestMethod) { // Native full screen.
+            if (requestMethod) {
                 requestMethod.call(el);
-            } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+            } else if (typeof window.ActiveXObject !== "undefined") { 
                 var wscript = new ActiveXObject("WScript.Shell");
                 if (wscript !== null) {
                     wscript.SendKeys("{F11}");

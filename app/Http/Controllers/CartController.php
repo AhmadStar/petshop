@@ -18,13 +18,13 @@ class CartController extends Controller
     public function addToCart(Request $request){
         // dd($request->all());
         if (empty($request->slug)) {
-            request()->session()->flash('error','Invalid Products');
+            request()->session()->flash('error','Geçersiz Ürün');
             return back();
         }        
         $product = Product::where('slug', $request->slug)->first();
         // return $product;
         if (empty($product)) {
-            request()->session()->flash('error','Invalid Products');
+            request()->session()->flash('error','Geçersin Ürün');
             return back();
         }
 
@@ -50,7 +50,7 @@ class CartController extends Controller
             $cart->save();
             $wishlist=Wishlist::where('user_id',auth()->user()->id)->where('cart_id',null)->update(['cart_id'=>$cart->id]);
         }
-        request()->session()->flash('success','Product has been added to cart');
+        request()->session()->flash('success','Ürün sepete eklendi');
         return back();       
     }  
 
@@ -64,10 +64,10 @@ class CartController extends Controller
 
         $product = Product::where('slug', $request->slug)->first();
         if($product->stock <$request->quant[1]){
-            return back()->with('error','Out of stock, You can add other products.');
+            return back()->with('error','Stoklarımız tükenmiştir, başka ürünler ekleyebilirsiniz.');
         }
         if ( ($request->quant[1] < 1) || empty($product) ) {
-            request()->session()->flash('error','Invalid Products');
+            request()->session()->flash('error','Geçersiz ürün');
             return back();
         }    
 

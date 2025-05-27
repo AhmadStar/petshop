@@ -1,7 +1,7 @@
 @extends('user.layouts.master')
 @section('title','E-SHOP || Comment Page')
 @section('main-content')
- <!-- DataTales Example -->
+
  <div class="card shadow mb-4">
      <div class="row">
          <div class="col-md-12">
@@ -103,7 +103,6 @@
             ]
         } );
 
-        // Sweet alert
 
         function deleteData(id){
 

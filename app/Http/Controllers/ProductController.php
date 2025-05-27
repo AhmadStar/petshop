@@ -81,10 +81,10 @@ class ProductController extends Controller
         // return $data;
         $status=Product::create($data);
         if($status){
-            request()->session()->flash('success','Product added');
+            request()->session()->flash('success','Ürün eklendi');
         }
         else{
-            request()->session()->flash('error','Please try again!!');
+            request()->session()->flash('error','Lütfen tekrar deneyin!');
         }
         return redirect()->route('product.index');
 
@@ -158,10 +158,10 @@ class ProductController extends Controller
         // return $data;
         $status=$product->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Product updated');
+            request()->session()->flash('success','Ürün güncellendi');
         }
         else{
-            request()->session()->flash('error','Please try again!!');
+            request()->session()->flash('error','Lütfen tekrar deneyin!');
         }
         return redirect()->route('product.index');
     }
@@ -178,10 +178,10 @@ class ProductController extends Controller
         $status=$product->delete();
         
         if($status){
-            request()->session()->flash('success','Product deleted');
+            request()->session()->flash('success','Ürün silindi');
         }
         else{
-            request()->session()->flash('error','Error while deleting product');
+            request()->session()->flash('error','Ürün silinirken hata oluştu!');
         }
         return redirect()->route('product.index');
     }
