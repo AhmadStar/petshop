@@ -9,7 +9,7 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Order Lists</h6>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Sipariş Listesi</h6>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -18,14 +18,14 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Order No.</th>
-              <th>Name</th>
+              <th>Sipariş No.</th>
+              <th>Ad</th>
               <th>Email</th>
-              <th>Qty.</th>
-              <th>Charge</th>
-              <th>Total</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Miktar</th>
+              <th>Fiyat</th>
+              <th>Toplam</th>
+              <th>Statü</th>
+              <th>Hareket Durumu</th>
             </tr>
           </thead>
           <tbody>
@@ -43,11 +43,11 @@
                     <td>${{number_format($order->total_amount,2)}}</td>
                     <td>
                         @if($order->status=='new')
-                          <span class="badge badge-primary">NEW</span>
+                          <span class="badge badge-primary">YENİ</span>
                         @elseif($order->status=='process')
-                          <span class="badge badge-warning">Processing</span>
+                          <span class="badge badge-warning">DEVAM EDİYOR</span>
                         @elseif($order->status=='delivered')
-                          <span class="badge badge-success">Delivered</span>
+                          <span class="badge badge-success">TESLİM EDİLMİŞ</span>
                         @else
                           <span class="badge badge-danger">{{$order->status}}</span>
                         @endif
@@ -67,7 +67,7 @@
         </table>
         <span style="float:right">{{$orders->links()}}</span>
         @else
-          <h6 class="text-center">No orders found!!! Please order some products</h6>
+          <h6 class="text-center">Sipariş Bulunamadı!!!</h6>
         @endif
       </div>
     </div>
@@ -104,7 +104,6 @@
             ]
         } );
 
-        // Sweet alert
 
         function deleteData(id){
             
@@ -123,8 +122,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                    title: "Emin misin?",
+                    text: "Tüm bilgiler silinecek!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -133,7 +132,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Bilgiler kurtarıldı!");
                     }
                 });
           })

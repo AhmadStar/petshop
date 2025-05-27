@@ -10,8 +10,8 @@
                 <div class="col-12">
                     <div class="bread-inner">
                         <ul class="bread-list">
-                            <li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
-                            <li class="active"><a href="blog-single.html">Shop Grid</a></li>
+                            <li><a href="index1.html">Anasayfa<i class="ti-arrow-right"></i></a></li>
+                            <li class="active"><a href="blog-single.html">Ürünler</a></li>
                         </ul>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                         <div class="shop-sidebar">
                             <!-- Single Widget -->
                             <div class="single-widget category">
-                                <h3 class="title">Categories</h3>
+                                <h3 class="title">Kategoriler</h3>
                                 <ul class="categor-list">
                                     @php
                                         // $category = new Category();
@@ -67,16 +67,16 @@
                                 <div class="shop-top">
                                     <div class="shop-shorter">
                                         <div class="single-shorter">
-                                            <label>Show :</label>
+                                            <label>Göster :</label>
                                             <select class="show" name="show" onchange="this.form.submit();">
-                                                <option value="">Default</option>
-                                                <option value="9" @if (!empty($_GET['show']) && $_GET['show'] == '9') selected @endif>09
+                                                <option value="">Varsayılan</option>
+                                                <option value="6" @if (!empty($_GET['show']) && $_GET['show'] == '6') selected @endif>06
                                                 </option>
-                                                <option value="15" @if (!empty($_GET['show']) && $_GET['show'] == '15') selected @endif>15
+                                                <option value="12" @if (!empty($_GET['show']) && $_GET['show'] == '12') selected @endif>12
                                                 </option>
-                                                <option value="21" @if (!empty($_GET['show']) && $_GET['show'] == '21') selected @endif>21
+                                                <option value="24" @if (!empty($_GET['show']) && $_GET['show'] == '24') selected @endif>24
                                                 </option>
-                                                <option value="30" @if (!empty($_GET['show']) && $_GET['show'] == '30') selected @endif>30
+                                                <option value="36" @if (!empty($_GET['show']) && $_GET['show'] == '36') selected @endif>36
                                                 </option>
                                             </select>
                                         </div>
@@ -271,15 +271,6 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                {{-- <div class="col-lg-6 col-12">
-                                                        <h5 class="title">Color</h5>
-                                                        <select>
-                                                            <option selected="selected">orange</option>
-                                                            <option>purple</option>
-                                                            <option>black</option>
-                                                            <option>pink</option>
-                                                        </select>
-                                                    </div> --}}
                                             </div>
                                         </div>
                                         <form action="{{ route('single-add-to-cart') }}" method="POST">
@@ -378,9 +369,7 @@
     </script> --}}
     <script>
         $(document).ready(function() {
-            /*----------------------------------------------------*/
-            /*  Jquery Ui slider js
-            /*----------------------------------------------------*/
+
             if ($("#slider-range").length > 0) {
                 const max_value = parseInt($("#slider-range").data('max')) || 500;
                 const min_value = parseInt($("#slider-range").data('min')) || 0;

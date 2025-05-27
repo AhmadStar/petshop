@@ -46,10 +46,10 @@ class ShippingController extends Controller
         // return $data;
         $status=Shipping::create($data);
         if($status){
-            request()->session()->flash('success','Shipping created successfully');
+            request()->session()->flash('success','Kargo başarıyla oluşturuldu!');
         }
         else{
-            request()->session()->flash('error','Error, Please try again');
+            request()->session()->flash('error','Error, Lütfen daha sonra tekrar deneyin!');
         }
         return redirect()->route('shipping.index');
     }
@@ -75,7 +75,7 @@ class ShippingController extends Controller
     {
         $shipping=Shipping::find($id);
         if(!$shipping){
-            request()->session()->flash('error','Shipping not found');
+            request()->session()->flash('error','Kargo bulunamadı');
         }
         return view('backend.shipping.edit')->with('shipping',$shipping);
     }
@@ -99,10 +99,10 @@ class ShippingController extends Controller
         // return $data;
         $status=$shipping->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Shipping updated');
+            request()->session()->flash('success','Kargo güncellendi');
         }
         else{
-            request()->session()->flash('error','Error, Please try again');
+            request()->session()->flash('error','Lütfen daha sonra tekrar deneyin!');
         }
         return redirect()->route('shipping.index');
     }
@@ -119,15 +119,15 @@ class ShippingController extends Controller
         if($shipping){
             $status=$shipping->delete();
             if($status){
-                request()->session()->flash('success','Shipping deleted');
+                request()->session()->flash('success','Kargo silindi!');
             }
             else{
-                request()->session()->flash('error','Error, Please try again');
+                request()->session()->flash('error','Lütfen daha sonra tekrar deneyin!');
             }
             return redirect()->route('shipping.index');
         }
         else{
-            request()->session()->flash('error','Shipping not found');
+            request()->session()->flash('error','Kargo bulunamadı');
             return redirect()->back();
         }
     }

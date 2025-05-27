@@ -6,17 +6,17 @@
        @include('backend.layouts.notification')
     </div>
   </div>
-  <h5 class="card-header">Messages</h5>
+  <h5 class="card-header">Mesaj</h5>
   <div class="card-body">
     @if(count($messages)>0)
     <table class="table message-table" id="message-dataTable">
       <thead>
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Subject</th>
-          <th scope="col">Date</th>
-          <th scope="col">Action</th>
+          <th scope="col">Ad</th>
+          <th scope="col">Konu</th>
+          <th scope="col">Tarih</th>
+          <th scope="col">Düzenle</th>
         </tr>
       </thead>
       <tbody>
@@ -44,7 +44,7 @@
       {{$messages->links()}}
     </nav>
     @else
-      <h2>Messages Empty!</h2>
+      <h2>Mesajlar Boş!</h2>
     @endif
   </div>
 </div>
@@ -57,7 +57,7 @@
           display: none;
       }
       .zoom {
-        transition: transform .2s; /* Animation */
+        transition: transform .2s;
       }
 
       .zoom:hover {
@@ -83,7 +83,6 @@
             ]
         } );
 
-        // Sweet alert
 
         function deleteData(id){
             
@@ -102,8 +101,8 @@
             // alert(dataID);
             e.preventDefault();
             swal({
-                  title: "Are you sure?",
-                  text: "Once deleted, you will not be able to recover this data!",
+                  title: "Emin misin?",
+                  text: "Tüm bilgiler silinecek!",
                   icon: "warning",
                   buttons: true,
                   dangerMode: true,
@@ -112,7 +111,7 @@
                   if (willDelete) {
                     form.submit();
                   } else {
-                      swal("Your data is safe!");
+                      swal("Bilgiler kurtarıldı!");
                   }
               });
         })

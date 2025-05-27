@@ -102,13 +102,6 @@ Sepetinizde ürün bulunmamaktadır. <a href="{{route('product-grids')}}" style=
     <div class="row">
         <div class="col-lg-8 col-md-5 col-12">
             <div class="left">
-                <div class="coupon">
-                    <form action="{{route('coupon-store')}}" method="POST">
-                        @csrf
-                        <input name="code" placeholder="Geçerli Kupon Kodunu Girin">
-                        <button class="btn">Kuponu Uygula</button>
-                    </form>
-                </div>
             </div>
         </div>
         <div class="col-lg-4 col-md-7 col-12">
@@ -116,9 +109,6 @@ Sepetinizde ürün bulunmamaktadır. <a href="{{route('product-grids')}}" style=
                 <ul>
                     <li class="order_subtotal" data-price="{{Helper::totalCartPrice()}}">Ara Toplam<span>${{number_format(Helper::totalCartPrice(),2)}}</span></li>
 
-                    @if(session()->has('coupon'))
-                    <li class="coupon_price" data-price="{{Session::get('coupon')['value']}}">Tasarruf Edilen<span>${{number_format(Session::get('coupon')['value'],2)}}</span></li>
-                    @endif
                     @php
                         $total_amount=Helper::totalCartPrice();
                         if(session()->has('coupon')){
@@ -154,7 +144,7 @@ Sepetinizde ürün bulunmamaktadır. <a href="{{route('product-grids')}}" style=
                 <div class="single-service">
                     <i class="ti-rocket"></i>
                     <h4>Ücretsiz Kargo</h4>
-                    <p>100$ üzeri siparişler</p>
+                    <p>2000₺ üzeri siparişler</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-12">

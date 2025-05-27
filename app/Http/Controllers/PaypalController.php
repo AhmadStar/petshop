@@ -57,7 +57,7 @@ class PaypalController extends Controller
      */
     public function cancel()
     {
-        dd('Your payment is canceled. You can create cancel page here.');
+        dd('Ödemeniz iptal edildi!');
     }
   
     /**
@@ -72,13 +72,13 @@ class PaypalController extends Controller
         // return $response;
   
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
-            request()->session()->flash('success','You have successfully paid through Paypal! Thank You');
+            request()->session()->flash('success','Başarılı bir şekilde Paypalla ödeme yaptınız, teşekkürler!');
             session()->forget('cart');
             session()->forget('coupon');
             return redirect()->route('home');
         }
   
-        request()->session()->flash('error','Something went wrong please try again!!!');
+        request()->session()->flash('error','Birşeyler ters gitti, lütfen daha sonra tekrar deneyin!');
         return redirect()->back();
     }
 }

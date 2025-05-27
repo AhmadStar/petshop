@@ -28,8 +28,8 @@
                         <thead>
                             <tr class="main-hading">
                                 <th>ÜRÜN</th>
-                                <th>ÜRÜN ADI</th> <!-- "Product Name" instead of just "Name" -->
-                                <th class="text-center">TUTAR</th> <!-- "Amount" as alternative to "Total" -->
+                                <th>ÜRÜN ADI</th>
+                                <th class="text-center">TUTAR</th>
                                 <th class="text-center">SEPETE EKLE</th>
                                 <th class="text-center"><i class="ti-trash remove-icon"></i></th>
                             </tr>
@@ -85,7 +85,7 @@
                     <div class="single-service">
                         <i class="ti-rocket"></i>
                         <h4>Ücretsiz Kargo</h4>
-                        <p>100$ üzeri siparişler</p>
+                        <p>2000₺ üzeri siparişler</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
@@ -146,55 +146,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- End Product slider -->
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                            <div class="quickview-content">
-                                <h2>Flared Shift Dress</h2>
-                                <div class="quickview-ratting-review">
-                                    <div class="quickview-ratting-wrap">
-                                        <div class="quickview-ratting">
-                                            <i class="yellow fa fa-star"></i>
-                                            <i class="yellow fa fa-star"></i>
-                                            <i class="yellow fa fa-star"></i>
-                                            <i class="yellow fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <a href="#"> (1 Müşteri Yorumu)</a>
-                                    </div>
-                                    <div class="quickview-stock">
-                                        <span><i class="fa fa-check-circle-o"></i> Stokta Var</span>
-                                    </div>
-                                </div>
-                                <h3>$29.00</h3>
-                                <div class="quickview-peragraph">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad
-                                        impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo
-                                        ipsum numquam.</p>
-                                </div>
-                                <div class="size">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-12">
-                                            <h5 class="title">Size</h5>
-                                            <select>
-                                                <option selected="selected">s</option>
-                                                <option>m</option>
-                                                <option>l</option>
-                                                <option>xl</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-6 col-12">
-                                            <h5 class="title">Color</h5>
-                                            <select>
-                                                <option selected="selected">orange</option>
-                                                <option>purple</option>
-                                                <option>black</option>
-                                                <option>pink</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="quantity">
                                     <!-- Input Order -->
                                     <div class="input-group">
                                         <div class="button minus">
@@ -220,7 +171,7 @@
                                     <a href="#" class="btn min"><i class="fa fa-compress"></i></a>
                                 </div>
                                 <div class="default-social">
-                                    <h4 class="share-now">Share:</h4>
+                                    <h4 class="share-now">Paylaş:</h4>
                                     <ul>
                                         <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                                         <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>

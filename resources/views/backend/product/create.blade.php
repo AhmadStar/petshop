@@ -3,7 +3,7 @@
 @section('main-content')
 
 <div class="card">
-    <h5 class="card-header">Add Product</h5>
+    <h5 class="card-header">Ürün Ekle</h5>
     <div class="card-body">
       <form method="post" action="{{route('product.store')}}">
         {{csrf_field()}}
@@ -16,7 +16,7 @@
         </div>
 
         <div class="form-group">
-          <label for="summary" class="col-form-label">Summary <span class="text-danger">*</span></label>
+          <label for="summary" class="col-form-label">Özet <span class="text-danger">*</span></label>
           <textarea class="form-control" id="summary" name="summary">{{old('summary')}}</textarea>
           @error('summary')
           <span class="text-danger">{{$message}}</span>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="form-group">
-          <label for="description" class="col-form-label">Description</label>
+          <label for="description" class="col-form-label">Açıklama</label>
           <textarea class="form-control" id="description" name="description">{{old('description')}}</textarea>
           @error('description')
           <span class="text-danger">{{$message}}</span>
@@ -33,15 +33,15 @@
 
 
         <div class="form-group">
-          <label for="is_featured">Is Featured</label><br>
-          <input type="checkbox" name='is_featured' id='is_featured' value='1' checked> Yes                        
+          <label for="is_featured">Öne Çıkarma</label><br>
+          <input type="checkbox" name='is_featured' id='is_featured' value='1' checked> Evet                        
         </div>
               {{-- {{$categories}} --}}
 
         <div class="form-group">
-          <label for="cat_id">Category <span class="text-danger">*</span></label>
+          <label for="cat_id">Kategori <span class="text-danger">*</span></label>
           <select name="cat_id" id="cat_id" class="form-control">
-              <option value="">--Select any category--</option>
+              <option value="">--Kategori Seç--</option>
               @foreach($categories as $key=>$cat_data)
                   <option value='{{$cat_data->id}}'>{{$cat_data->title}}</option>
               @endforeach
@@ -49,9 +49,9 @@
         </div>
 
         <div class="form-group d-none" id="child_cat_div">
-          <label for="child_cat_id">Sub Category</label>
+          <label for="child_cat_id">Alt Kategori</label>
           <select name="child_cat_id" id="child_cat_id" class="form-control">
-              <option value="">--Select any category--</option>
+              <option value="">--Alt Kategori Seç--</option>
               {{-- @foreach($parent_cats as $key=>$parent_cat)
                   <option value='{{$parent_cat->id}}'>{{$parent_cat->title}}</option>
               @endforeach --}}
@@ -59,7 +59,7 @@
         </div>
 
         <div class="form-group">
-          <label for="price" class="col-form-label">Price($) <span class="text-danger">*</span></label>
+          <label for="price" class="col-form-label">Fiyat(₺) <span class="text-danger">*</span></label>
           <input id="price" type="number" name="price" placeholder="Enter price"  value="{{old('price')}}" class="form-control">
           @error('price')
           <span class="text-danger">{{$message}}</span>
@@ -67,16 +67,16 @@
         </div>
 
         <div class="form-group">
-          <label for="discount" class="col-form-label">Discount(%)</label>
+          <label for="discount" class="col-form-label">İndirim(%)</label>
           <input id="discount" type="number" name="discount" min="0" max="100" placeholder="Enter discount"  value="{{old('discount')}}" class="form-control">
           @error('discount')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
         <div class="form-group">
-          <label for="size">Size</label>
+          <label for="size">Beden</label>
           <select name="size[]" class="form-control selectpicker"  multiple data-live-search="true">
-              <option value="">--Select any size--</option>
+              <option value="">--Beden Seç--</option>
               <option value="S">Small (S)</option>
               <option value="M">Medium (M)</option>
               <option value="L">Large (L)</option>
@@ -96,11 +96,11 @@
         </div>
 
         <div class="form-group">
-          <label for="brand_id">Brand</label>
+          <label for="brand_id">Marka</label>
           {{-- {{$brands}} --}}
 
           <select name="brand_id" class="form-control">
-              <option value="">--Select Brand--</option>
+              <option value="">--Marka Seç--</option>
              @foreach($brands as $brand)
               <option value="{{$brand->id}}">{{$brand->title}}</option>
              @endforeach
@@ -108,28 +108,28 @@
         </div>
 
         <div class="form-group">
-          <label for="condition">Condition</label>
+          <label for="condition">Öne Çıkar</label>
           <select name="condition" class="form-control">
-              <option value="">--Select Condition--</option>
-              <option value="default">Default</option>
-              <option value="new">New</option>
-              <option value="hot">Hot</option>
+              <option value="">--Öne Çıkarma--</option>
+              <option value="default">Varsayılan</option>
+              <option value="new">Yeni</option>
+              <option value="hot">En Yeni</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="stock">Quantity <span class="text-danger">*</span></label>
+          <label for="stock">Adet <span class="text-danger">*</span></label>
           <input id="quantity" type="number" name="stock" min="0" placeholder="Enter quantity"  value="{{old('stock')}}" class="form-control">
           @error('stock')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
         <div class="form-group">
-          <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
+          <label for="inputPhoto" class="col-form-label">Fotoğraf <span class="text-danger">*</span></label>
           <div class="input-group">
               <span class="input-group-btn">
                   <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-secondary text-white">
-                  <i class="fa fa-picture-o"></i> Choose
+                  <i class="fa fa-picture-o"></i> Seç
                   </a>
               </span>
           <input id="thumbnail" class="form-control" type="text" name="photo" value="{{old('photo')}}">
@@ -141,18 +141,18 @@
         </div>
         
         <div class="form-group">
-          <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
+          <label for="status" class="col-form-label">Statü <span class="text-danger">*</span></label>
           <select name="status" class="form-control">
-              <option value="active">Active</option>
-              <option value="inactive">Inactive</option>
+              <option value="active">Aktif</option>
+              <option value="inactive">Inaktif</option>
           </select>
           @error('status')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
         <div class="form-group mb-3">
-          <button type="reset" class="btn btn-warning">Reset</button>
-           <button class="btn btn-success" type="submit">Submit</button>
+          <button type="reset" class="btn btn-warning">Sıfırla</button>
+           <button class="btn btn-success" type="submit">Bitir</button>
         </div>
       </form>
     </div>

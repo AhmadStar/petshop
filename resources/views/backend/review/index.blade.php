@@ -9,7 +9,7 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Review Lists</h6>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Yorum Listesi</h6>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -18,13 +18,13 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Review By</th>
-              <th>Product</th>
-              <th>Review</th>
-              <th>Rate</th>
-              <th>Date</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Yorumlar;</th>
+              <th>Ürün</th>
+              <th>Yorum</th>
+              <th>Değerlendirme</th>
+              <th>Tarih</th>
+              <th>Statü</th>
+              <th>Düzenle</th>
             </tr>
           </thead>
           
@@ -33,7 +33,7 @@
                 <tr>
                     <td>{{$review->id}}</td>
                     <td>{{$review->user_info['name']}}</td>
-                    <td>{{ $review->product ? $review->product->title : 'Product Not Found' }}</td>
+                    <td>{{ $review->product ? $review->product->title : 'Ürün Bulunamadı' }}</td>
                     <td>{{$review->review}}</td>
                     <td>
                      <ul style="list-style:none">
@@ -68,7 +68,7 @@
         </table>
         <span style="float:right">{{$reviews->links()}}</span>
         @else
-          <h6 class="text-center">No reviews found!!!</h6>
+          <h6 class="text-center">Yorum Bulunamadı!!!</h6>
         @endif
       </div>
     </div>
@@ -105,7 +105,6 @@
             ]
         } );
 
-        // Sweet alert
 
         function deleteData(id){
 
@@ -124,8 +123,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                    title: "Emin misin?",
+                    text: "Tüm bilgiler silinecek!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -134,7 +133,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Bilgiler kurtarıldı!");
                     }
                 });
           })
