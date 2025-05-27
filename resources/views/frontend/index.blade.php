@@ -145,14 +145,7 @@
                                             </a>
                                             <div class="button-head">
                                                 <div class="product-action">
-                                                    <a data-toggle="modal" data-target="#{{ $product->id }}"
-                                                        title="Hızlı Görünüm" href="#">
-                                                        <i class="ti-eye"></i><span>Hızlı Bakış</span>
-                                                    </a>
-                                                    <a title="Favori Listesi"
-                                                        href="{{ route('add-to-wishlist', $product->slug) }}">
-                                                        <i class="ti-heart"></i><span>Favorilere Ekle</span>
-                                                    </a>
+
                                                 </div>
                                                 <div class="product-action-2">
                                                     <a title="Sepete Ekle"
@@ -184,100 +177,7 @@
         </div>
     </div>
 
-    <section class="midium-banner">
-        <div class="container">
-            <div class="row">
-                @if ($featured)
-                    @foreach ($featured as $data)
-                        <!-- Single Banner  -->
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="single-banner">
-                                @php
-                                    $photo = explode(',', $data->photo);
-                                @endphp
-                                <img src="{{ $photo[0] }}" alt="{{ $photo[0] }}">
-                                <div class="content">
-                                    <p>{{ $data->cat_info['title'] }}</p>
-                                    <h3>{{ $data->title }} <br><span>{{ $data->discount }}%'a varan</span> indirim</h3>
-                                    <a href="{{ route('product-detail', $data->slug) }}">Hemen Al</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /End Single Banner  -->
-                    @endforeach
-                @endif
-            </div>
-        </div>
-    </section>
 
-    <div class="product-area most-popular section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title shape-center">
-                        <h2>Çok Satanlar</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="owl-carousel popular-slider">
-                        @foreach ($product_lists as $product)
-                            @if ($product->condition == 'hot')
-                                <!-- Start Single Product -->
-                                <div class="single-product">
-                                    <div class="product-img">
-                                        <a href="{{ route('product-detail', $product->slug) }}">
-                                            @php
-                                                $photo = explode(',', $product->photo);
-                                                // dd($photo);
-                                            @endphp
-                                            <img class="default-img" src="{{ $photo[0] }}"
-                                                alt="{{ $photo[0] }}">
-                                            <img class="hover-img" src="{{ $photo[0] }}" alt="{{ $photo[0] }}">
-                                            {{-- <span class="out-of-stock">Hot</span> --}}
-                                        </a>
-                                        <div class="button-head">
-                                            <div class="product-action">
-                                                <a data-toggle="modal" data-target="#{{ $product->id }}"
-                                                    title="Hızlı Görünüm" href="#">
-                                                    <i class="ti-eye"></i><span>Hızlı Bakış</span>
-                                                </a>
-                                                <a title="Favori Listesi"
-                                                    href="{{ route('add-to-wishlist', $product->slug) }}">
-                                                    <i class="ti-heart"></i><span>Favorilere Ekle</span>
-                                                </a>
-                                            </div>
-                                            <div class="product-action-2">
-                                                <a href="{{ route('add-to-cart', $product->slug) }}">Sepete Ekle</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3><a
-                                                href="{{ route('product-detail', $product->slug) }}">{{ $product->title }}</a>
-                                        </h3>
-                                        <div class="product-price">
-                                            <span class="old">${{ number_format($product->price, 2) }}</span>
-                                            @php
-                                                $after_discount =
-                                                    $product->price - ($product->price * $product->discount) / 100;
-                                            @endphp
-                                            <span>${{ number_format($after_discount, 2) }}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Product -->
-                            @endif
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Most Popular Area -->
-
-    <!-- Start Shop Home List  -->
     <section class="shop-home-list section">
         <div class="container">
             <div class="row">
@@ -351,7 +251,7 @@
                         <h2 class="title">En İyi Teklif</h2>
                         <p class="desc">En kaliteli ürünlere en uygun fiyatlara erişebilmek için aşağıdaki butona tıkla
                             ve</p>
-                        <a class="btn-theme text-dark" href="shop.html">Alışverişe Başla</a>
+                        <a class="btn-theme text-dark" href="/product-grids">Alışverişe Başla</a>
                         <img class="shape-object" src="http://127.0.0.1:8000/frontend/img/shape/object1.webp"
                             width="316" height="302" alt="Image-HasTech">
                     </div>
@@ -366,8 +266,7 @@
         </div>
     </section>
 
-    <!-- Start Shop Blog  -->
-    <section class="shop-blog section">
+    {{-- <section class="shop-blog section">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -380,7 +279,6 @@
                 @if ($posts)
                     @foreach ($posts as $post)
                         <div class="col-lg-4 col-md-6 col-12">
-                            <!-- Start Single Blog  -->
                             <div class="shop-single-blog">
                                 <img src="{{ asset($post->photo) }}" alt="{{ $post->photo }}">
                                 <div class="content">
@@ -390,15 +288,12 @@
                                     <a href="{{ route('blog.detail', $post->slug) }}" class="more-btn">Devamını Oku</a>
                                 </div>
                             </div>
-                            <!-- End Single Blog  -->
                         </div>
                     @endforeach
                 @endif
-
             </div>
         </div>
-    </section>
-    <!-- End Shop Blog  -->
+    </section> --}}
 
     <!-- Start Shop Services Area -->
     <section class="shop-services section home">

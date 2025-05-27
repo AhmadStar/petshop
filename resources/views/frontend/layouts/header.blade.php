@@ -219,9 +219,6 @@
                                             <li class="@if (Request::path() == 'product-grids' || Request::path() == 'product-lists') active @endif"><a
                                                     href="{{ route('product-grids') }}">Ürünler</a><span
                                                     class="new">Yeni</span></li>
-                                            {{ Helper::getHeaderCategory() }}
-                                            <li class="{{ Request::path() == 'blog' ? 'active' : '' }}"><a
-                                                    href="{{ route('blog') }}">Blog</a></li>
                                             <li class="{{ Request::path() == 'contact' ? 'active' : '' }}"><a
                                                     href="{{ route('contact') }}">İletişim</a></li>
                                         </ul>

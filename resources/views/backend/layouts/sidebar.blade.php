@@ -20,12 +20,6 @@
 </div>
 
 <li class="nav-item">
-    <a class="nav-link" href="{{route('file-manager')}}">
-        <i class="fas fa-fw fa-chart-area"></i>
-        <span>Medya Yöneticisi</span></a>
-</li>
-
-<li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
     <i class="fas fa-image"></i>
     <span>Bannerlar</span>
@@ -109,53 +103,6 @@
     <a class="nav-link" href="{{route('review.index')}}">
         <i class="fas fa-comments"></i>
         <span>Yorumlar</span></a>
-</li>
-
-    <hr class="sidebar-divider">
-
-    <div class="sidebar-heading">
-    Yazılar
-</div>
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#postCollapse" aria-expanded="true" aria-controls="postCollapse">
-        <i class="fas fa-fw fa-folder"></i>
-        <span>Yazılar</span>
-    </a>
-    <div id="postCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Yazı Seçenekleri:</h6>
-            <a class="collapse-item" href="{{route('post.index')}}">Yazılar</a>
-            <a class="collapse-item" href="{{route('post.create')}}">Yazı Ekle</a>
-        </div>
-    </div>
-</li>
-
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#postCategoryCollapse" aria-expanded="true" aria-controls="postCategoryCollapse">
-        <i class="fas fa-sitemap fa-folder"></i>
-        <span>Kategoriler</span>
-    </a>
-    <div id="postCategoryCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Kategori Seçenekleri:</h6>
-            <a class="collapse-item" href="{{route('post-category.index')}}">Kategoriler</a>
-            <a class="collapse-item" href="{{route('post-category.create')}}">Kategori Ekle</a>
-        </div>
-    </div>
-</li>
-
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tagCollapse" aria-expanded="true" aria-controls="tagCollapse">
-        <i class="fas fa-tags fa-folder"></i>
-        <span>Etiketler</span>
-    </a>
-    <div id="tagCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Etiket Seçenekleri:</h6>
-            <a class="collapse-item" href="{{route('post-tag.index')}}">Etiketler</a>
-            <a class="collapse-item" href="{{route('post-tag.create')}}">Etiket Ekle</a>
-        </div>
-    </div>
 </li>
 
     <hr class="sidebar-divider d-none d-md-block">
