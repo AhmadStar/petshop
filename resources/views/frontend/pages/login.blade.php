@@ -52,10 +52,6 @@
             <div class="form-group login-btn">
                 <button class="btn btn-facebook" type="submit">Giriş Yap</button>
                 <a href="{{route('register.form')}}" class="btn">Kayıt Ol</a>
-                <!-- VEYA
-                <a href="{{route('login.redirect','facebook')}}" class="btn btn-facebook"><i class="ti-facebook"></i></a>
-                <a href="{{route('login.redirect','github')}}" class="btn btn-github"><i class="ti-github"></i></a>
-                <a href="{{route('login.redirect','google')}}" class="btn btn-google"><i class="ti-google"></i></a> -->
             </div>
             <div class="checkbox">
                 <label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">Beni Hatırla</label>

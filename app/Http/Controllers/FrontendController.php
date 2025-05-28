@@ -353,11 +353,11 @@ class FrontendController extends Controller
         $data= $request->all();
         if(Auth::attempt(['email' => $data['email'], 'password' => $data['password'],'status'=>'active'])){
             Session::put('user',$data['email']);
-            request()->session()->flash('success','Logged in successfully!');
+            request()->session()->flash('success','Başarıyla giriş yapıldı!');
             return redirect()->route('home');
         }
         else{
-            request()->session()->flash('error','Invalid email and password pleas try again!');
+            request()->session()->flash('error','Geçersiz E-mail veya şifre girdiniz.');
             return redirect()->back();
         }
     }
@@ -365,7 +365,7 @@ class FrontendController extends Controller
     public function logout(){
         Session::forget('user');
         Auth::logout();
-        request()->session()->flash('success','Logged out successfully');
+        request()->session()->flash('success','Başarıyla çıkış yapıldı!');
         return back();
     }
 
@@ -384,11 +384,11 @@ class FrontendController extends Controller
         $check=$this->create($data);
         Session::put('user',$data['email']);
         if($check){
-            request()->session()->flash('success','Registered successfully');
+            request()->session()->flash('success','Kayıt başarılı!');
             return redirect()->route('home');
         }
         else{
-            request()->session()->flash('error','Please try again!');
+            request()->session()->flash('error','Lütfen tekrar deneyin!');
             return back();
         }
     }
@@ -403,24 +403,6 @@ class FrontendController extends Controller
     // Reset password
     public function showResetForm(){
         return view('auth.passwords.old-reset');
-    }
-
-    public function subscribe(Request $request){
-        if(! Newsletter::isSubscribed($request->email)){
-                Newsletter::subscribePending($request->email);
-                if(Newsletter::lastActionSucceeded()){
-                    request()->session()->flash('success','Subscribed! Please check your email');
-                    return redirect()->route('home');
-                }
-                else{
-                    Newsletter::getLastError();
-                    return back()->with('error','Something went wrong! please try again');
-                }
-            }
-            else{
-                request()->session()->flash('error','Already Subscribed');
-                return back();
-            }
     }
     
 }

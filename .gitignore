@@ -5,3 +5,4 @@ database
 DATABASE FILE
 history
 .history
+.env 

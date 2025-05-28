@@ -20,7 +20,7 @@
                                 {{ $data->short_des }}
                             @endforeach
                         </p>
-                        <p class="call">Got Question? Call us 24/7<span><a href="tel:123456789">
+                        <p class="call">Sorunuz mu var? 7/24 arayabilirsiniz.<span><a href="tel:+905380662698">
                                     @foreach ($settings as $data)
                                         {{ $data->phone }}
                                     @endforeach
@@ -33,10 +33,10 @@
                     <div class="single-footer links">
                         <h4>Bilgiler</h4>
                         <ul>
-                            <li><a href="{{ route('about-us') }}">Hakkımızda</a></li>
-                            <li><a href="#">Kullanım Koşulları</a></li>
+                        <li><a href="{{ route('contact') }}">Hakkımızda</a></li>
+                            <p style="color: #fff">Kullanım Koşulları</p>
                             <li><a href="{{ route('contact') }}">İletişim</a></li>
-                            <li><a href="#">Yardım</a></li>
+                            <p style="color: #fff">Yardım</p>
                         </ul>
                     </div>
                     <!-- End Single Widget -->
@@ -46,11 +46,11 @@
                     <div class="single-footer links">
                         <h4>Politikalarımız</h4>
                         <ul>
-                            <li><a href="#">Ödeme Yöntemleri</a></li>
-                            <li><a href="#">Para İade Garantisi</a></li>
-                            <li><a href="#">İade & Değişim</a></li>
-                            <li><a href="#">Kargo & Teslimat</a></li>
-                            <li><a href="#">Gizlilik Politikası</a></li>
+                        <p style="color: #fff">Ödeme Yöntemleri</p>
+                        <p style="color: #fff">Para İade Garantisi</p>
+                        <p style="color: #fff">İade&Değişim</p>
+                        <p style="color: #fff">Kargo&Teslimat</p>
+                        <p style="color: #fff">Gizlilik Politikası</p>
                         </ul>
                     </div>
                     <!-- End Single Widget -->
@@ -62,10 +62,9 @@
                         <!-- Single Widget -->
                         <div class="contact">
                             <p style="color: #fff">
-                                Herhangi bir sorunuz varsa, lütfen bizimle iletişime geçin
+                                Herhangi bir sorunuz varsa, lütfen bizimle iletişime geçin;
                             </p>
-                            <a style="color: #fff" href="mailto://demo@example.com">210911090@stu.istinye.edu.tr veya
-                                210701053@stu.istinye.edu.tr</a>
+                            <a href="mailto:210911090@stu.istinye.edu.tr"style="color: #fff;">210911090@stu.istinye.edu.tr</a>  <a href="mailto:210701053@stu.istinye.edu.tr"style="color: #fff;">210701053@stu.istinye.edu.tr</a>>
                             <ul>
                                 <li>
                                     @foreach ($settings as $data)
@@ -99,7 +98,7 @@
                 <div class="row center-footer-logo">
                     <div class="col-lg-6 col-12">
                         <div class="left">
-                            <p>© {{ date('Y') }} Yaman Sankari Tarafından Geliştirilmiştir - Tüm Hakları Saklıdır.</p>
+                            <p>© {{ date('Y') }} Yaman Senkeri ve Mehmet Emre Bingöl tarafından geliştirildi. Tüm hakları saklıdır.</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
@@ -161,9 +160,6 @@
         $('.alert').slideUp();
     }, 5000);
     $(function() {
-        // ------------------------------------------------------- //
-        // Multi Level dropdowns
-        // ------------------------------------------------------ //
         $("ul.dropdown-menu [data-toggle='dropdown']").on("click", function(event) {
             event.preventDefault();
             event.stopPropagation();

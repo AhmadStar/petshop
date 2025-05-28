@@ -37,7 +37,6 @@
                             @endforeach
                         </p>
                         {{-- <div class="button">
-                            <a href="{{ route('blog') }}" class="btn">Blogumuz</a>
                             <a href="{{ route('contact') }}" class="btn primary">İletişim</a>
                         </div> --}}
                     </div>
@@ -56,7 +55,7 @@
                     <div class="single-service">
                         <i class="ti-rocket"></i>
                         <h4>Ücretsiz Kargo</h4>
-                        <p>100$ üzeri siparişler</p>
+                        <p>2000₺ üzeri siparişler</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">

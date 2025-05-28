@@ -59,10 +59,10 @@ class CategoryController extends Controller
         // return $data;   
         $status=Category::create($data);
         if($status){
-            request()->session()->flash('success','Category added successfully');
+            request()->session()->flash('success','Kategori başarıyla eklendi');
         }
         else{
-            request()->session()->flash('error','Error occurred, Please try again!');
+            request()->session()->flash('error','Hata oluştu. Lütfen tekrar deneyin!');
         }
         return redirect()->route('category.index');
 
@@ -117,10 +117,10 @@ class CategoryController extends Controller
         // return $data;
         $status=$category->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Category updated successfully');
+            request()->session()->flash('success','Kategori başarıyla güncellendi');
         }
         else{
-            request()->session()->flash('error','Error occurred, Please try again!');
+            request()->session()->flash('error','Hata oluştu. Lütfen tekrar deneyin!');
         }
         return redirect()->route('category.index');
     }
@@ -142,10 +142,10 @@ class CategoryController extends Controller
             if(count($child_cat_id)>0){
                 Category::shiftChild($child_cat_id);
             }
-            request()->session()->flash('success','Category deleted');
+            request()->session()->flash('success','Kategori silindi');
         }
         else{
-            request()->session()->flash('error','Error while deleting category');
+            request()->session()->flash('error','Kategoriyi silerken hata oluştu');
         }
         return redirect()->route('category.index');
     }

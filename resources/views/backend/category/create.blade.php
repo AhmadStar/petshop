@@ -59,7 +59,7 @@
           <label for="status" class="col-form-label">Durum <span class="text-danger">*</span></label>
           <select name="status" class="form-control">
               <option value="active">Aktif</option>
-              <option value="inactive">Pasif</option>
+              <option value="inactive">Inaktif</option>
           </select>
           @error('status')
           <span class="text-danger">{{$message}}</span>

@@ -58,7 +58,7 @@
           <label for="status" class="col-form-label">Durum <span class="text-danger">*</span></label>
           <select name="status" class="form-control">
               <option value="active" {{(($category->status=='active')? 'selected' : '')}}>Aktif</option>
-              <option value="inactive" {{(($category->status=='inactive')? 'selected' : '')}}>Pasif</option>
+              <option value="inactive" {{(($category->status=='inactive')? 'selected' : '')}}>Inaktif</option>
           </select>
           @error('status')
           <span class="text-danger">{{$message}}</span>

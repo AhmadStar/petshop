@@ -24,7 +24,7 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Admin Login Panel</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Admin Giriş Paneli</h1>
                   </div>
                   <form class="user"  method="POST" action="{{ route('login') }}">
                     @csrf
@@ -50,12 +50,12 @@
                             <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                             <label class="form-check-label" for="remember">
-                                {{ __('Remember Me') }}
+                                {{ __('Beni Hatırla') }}
                             </label>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-success btn-user btn-block">
-                      Login
+                      Giriş Yap
                     </button>
                   </form>
                   <hr>
@@ -63,7 +63,7 @@
                   <div class="text-center">
                     @if (Route::has('password.request'))
                         <a class="btn btn-link small" href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
+                            {{ __('Şifreni mi Unuttun?') }}
                         </a>
                     @endif
                   </div>

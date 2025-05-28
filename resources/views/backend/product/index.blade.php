@@ -9,8 +9,8 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Product Lists</h6>
-      <a href="{{route('product.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Product</a>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Ürün Listesi</h6>
+      <a href="{{route('product.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Ürün Ekle</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -19,18 +19,18 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Featured</th>
-              <th>Price</th>
-              <th>Discount</th>
-              <th>Size</th>
-              <th>Condition</th>
-              <th>Brand</th>
-              <th>Stock</th>
-              <th>Photo</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Başlık</th>
+              <th>Kategori</th>
+              <th>Oluşturulma Tarihi</th>
+              <th>Fiyat</th>
+              <th>İndirim</th>
+              <th>Beden</th>
+              <th>Kullanılma Durumu</th>
+              <th>Marka</th>
+              <th>Adet</th>
+              <th>Fotoğraf</th>
+              <th>Öne Çıkar</th>
+              <th>Düzenle</th>
             </tr>
           </thead>
           <tbody>
@@ -94,7 +94,7 @@
         </table>
         <span style="float:right">{{$products->links()}}</span>
         @else
-          <h6 class="text-center">No Products found!!! Please create Product</h6>
+          <h6 class="text-center">Ürün Bulunamadı. Lütfen Ürün Ekleyin!!!</h6>
         @endif
       </div>
     </div>
@@ -109,7 +109,7 @@
           display: none;
       }
       .zoom {
-        transition: transform .2s; /* Animation */
+        transition: transform .2s;
       }
 
       .zoom:hover {
@@ -139,7 +139,6 @@
             ]
         } );
 
-        // Sweet alert
 
         function deleteData(id){
 
@@ -158,8 +157,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                    title: "Emin misin?",
+                    text: "Tüm bilgiler silinecek!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -168,7 +167,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Bilgiler kurtarıldı!");
                     }
                 });
           })

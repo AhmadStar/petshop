@@ -4,13 +4,13 @@
 
 @section('main-content')
 <div class="card">
-  <h5 class="card-header">Order Edit</h5>
+  <h5 class="card-header">Sipariş Düzenle</h5>
   <div class="card-body">
     <form action="{{route('order.update',$order->id)}}" method="POST">
       @csrf
       @method('PATCH')
       <div class="form-group">
-        <label for="status">Status :</label>
+        <label for="status">Statü :</label>
         <select name="status" id="" class="form-control">
           <option value="new" {{($order->status=='delivered' || $order->status=="process" || $order->status=="cancel") ? 'disabled' : ''}}  {{(($order->status=='new')? 'selected' : '')}}>New</option>
           <option value="process" {{($order->status=='delivered'|| $order->status=="cancel") ? 'disabled' : ''}}  {{(($order->status=='process')? 'selected' : '')}}>Processing</option>
