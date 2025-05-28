@@ -2,7 +2,6 @@
 @section('title','PettyShop')
 
 @section('main-content')
-    <!-- Breadcrumbs -->
     <div class="breadcrumbs">
         <div class="container">
             <div class="row">
@@ -17,9 +16,6 @@
             </div>
         </div>
     </div>
-    <!-- End Breadcrumbs -->
-
-    <!-- Shop Login -->
     <section class="shop login section">
         <div class="container">
             <div class="row">
@@ -63,7 +59,6 @@
             </div>
         </div>
     </section>
-    <!--/ End Login -->
 @endsection
 @push('styles')
 <style>

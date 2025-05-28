@@ -2,7 +2,6 @@
 @section('title','PettyShop')
 
 @section('main-content')
-	<!-- Breadcrumbs -->
 	<div class="breadcrumbs">
 		<div class="container">
 			<div class="row">
@@ -17,14 +16,10 @@
 			</div>
 		</div>
 	</div>
-	<!-- End Breadcrumbs -->
-
-	<!-- Shopping Cart -->
 	<div class="shopping-cart section">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<!-- Shopping Summery -->
 					<table class="table shopping-summery">
 						<thead>
 							<tr class="main-hading">
@@ -51,7 +46,7 @@
 												<p class="product-des">{!!($cart['summary']) !!}</p>
 											</td>
 											<td class="price" data-title="Price"><span>${{number_format($cart['amount'],2)}}</span></td>
-											<td class="qty" data-title="Qty"><!-- Input Order -->
+											<td class="qty" data-title="Qty">
 												<div class="input-group">
 													<div class="button minus">
 														<button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[{{$key}}]">
@@ -66,7 +61,6 @@
 														</button>
 													</div>
 												</div>
-												<!--/ End Input Order -->
 											</td>
 											<td class="total-amount cart_single_price" data-title="Total"><span class="money">${{$cart['price']}}</span></td>
 
@@ -98,7 +92,6 @@ Sepetinizde ürün bulunmamaktadır. <a href="{{route('product-grids')}}" style=
 			</div>
 			<div class="row">
 				<div class="col-12">
-					<!-- Total Amount -->
 					<div class="total-amount">
     <div class="row">
         <div class="col-lg-8 col-md-5 col-12">
@@ -130,14 +123,11 @@ Sepetinizde ürün bulunmamaktadır. <a href="{{route('product-grids')}}" style=
         </div>
     </div>
 </div>
-					<!--/ End Total Amount -->
+
 				</div>
 			</div>
 		</div>
 	</div>
-	<!--/ End Shopping Cart -->
-
-	<!-- Start Shop Services Area  -->
 	<section class="shop-services section home">
     <div class="container">
         <div class="row">
@@ -172,12 +162,7 @@ Sepetinizde ürün bulunmamaktadır. <a href="{{route('product-grids')}}" style=
         </div>
     </div>
 </section>
-	<!-- End Shop Newsletter -->
-
-	<!-- Start Shop Newsletter  -->
 	@include('frontend.layouts.newsletter')
-	<!-- End Shop Newsletter -->
-
 @endsection
 @push('styles')
 	<style>
@@ -235,7 +220,6 @@ Sepetinizde ürün bulunmamaktadır. <a href="{{route('product-grids')}}" style=
 				let cost = parseFloat( $(this).find('option:selected').data('price') ) || 0;
 				let subtotal = parseFloat( $('.order_subtotal').data('price') );
 				let coupon = parseFloat( $('.coupon_price').data('price') ) || 0;
-				// alert(coupon);
 				$('#order_total_price span').text('$'+(subtotal + cost-coupon).toFixed(2));
 			});
 

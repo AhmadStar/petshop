@@ -1,12 +1,5 @@
-/*  jQuery Nice Select - v1.1.0
-    https://github.com/hernansartorio/jquery-nice-select
-    Made by Hernán Sartorio  */
- 
 (function($) {
-
   $.fn.niceSelect = function(method) {
-    
-    // Methods
     if (typeof method == 'string') {      
       if (method == 'update') {
         this.each(function() {
@@ -41,11 +34,7 @@
       }
       return this;
     }
-      
-    // Hide native select
     this.hide();
-    
-    // Create custom markup
     this.each(function() {
       var $select = $(this);
       
@@ -53,7 +42,6 @@
         create_nice_select($select);
       }
     });
-    
     function create_nice_select($select) {
       $select.after($('<div></div>')
         .addClass('nice-select')
@@ -62,7 +50,6 @@
         .attr('tabindex', $select.attr('disabled') ? null : '0')
         .html('<span class="current"></span><ul class="list"></ul>')
       );
-        
       var $dropdown = $select.next();
       var $options = $select.find('option');
       var $selected = $select.find('option:selected');
@@ -83,13 +70,8 @@
         );
       });
     }
-    
-    /* Event listeners */
-    
-    // Unbind existing events in case that the plugin has been initialized before
     $(document).off('.nice_select');
     
-    // Open/close
     $(document).on('click.nice_select', '.nice-select', function(event) {
       var $dropdown = $(this);
       
@@ -105,14 +87,12 @@
       }
     });
     
-    // Close when clicking outside
     $(document).on('click.nice_select', function(event) {
       if ($(event.target).closest('.nice-select').length === 0) {
         $('.nice-select').removeClass('open').find('.option');  
       }
     });
     
-    // Option click
     $(document).on('click.nice_select', '.nice-select .option:not(.disabled)', function(event) {
       var $option = $(this);
       var $dropdown = $option.closest('.nice-select');
@@ -125,13 +105,9 @@
       
       $dropdown.prev('select').val($option.data('value')).trigger('change');
     });
-
-    // Keyboard events
     $(document).on('keydown.nice_select', '.nice-select', function(event) {    
       var $dropdown = $(this);
       var $focused_option = $($dropdown.find('.focus') || $dropdown.find('.list .option.selected'));
-      
-      // Space or Enter
       if (event.keyCode == 32 || event.keyCode == 13) {
         if ($dropdown.hasClass('open')) {
           $focused_option.trigger('click');
@@ -139,7 +115,6 @@
           $dropdown.trigger('click');
         }
         return false;
-      // Down
       } else if (event.keyCode == 40) {
         if (!$dropdown.hasClass('open')) {
           $dropdown.trigger('click');
@@ -151,7 +126,6 @@
           }
         }
         return false;
-      // Up
       } else if (event.keyCode == 38) {
         if (!$dropdown.hasClass('open')) {
           $dropdown.trigger('click');
@@ -163,28 +137,22 @@
           }
         }
         return false;
-      // Esc
       } else if (event.keyCode == 27) {
         if ($dropdown.hasClass('open')) {
           $dropdown.trigger('click');
         }
-      // Tab
       } else if (event.keyCode == 9) {
         if ($dropdown.hasClass('open')) {
           return false;
         }
       }
     });
-
-    // Detect CSS pointer-events support, for IE <= 10. From Modernizr.
     var style = document.createElement('a').style;
     style.cssText = 'pointer-events:auto';
     if (style.pointerEvents !== 'auto') {
       $('html').addClass('no-csspointerevents');
     }
-    
     return this;
-
   };
 
 }(jQuery));

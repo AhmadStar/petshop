@@ -1,143 +1,78 @@
 <?php
-
 return [
-
     /*
-    |--------------------------------------------------------------------------
-    | Application Name
-    |--------------------------------------------------------------------------
-    |
-    | This value is the name of your application. This value is used when the
-    | framework needs to place the application's name in a notification or
-    | any other location as required by the application or its packages.
-    |
+    | Uygulama Adı
+    | Bu değer, uygulamanızın adıdır. Framework, uygulamanın adını bir bildirimde veya
+    | uygulama ya da paketleri tarafından gereken başka bir yerde kullanması gerektiğinde
+    | bu değeri kullanır.
     */
-
     'name' => env('APP_NAME', 'Laravel'),
-
     /*
-    |--------------------------------------------------------------------------
-    | Application Environment
-    |--------------------------------------------------------------------------
-    |
-    | This value determines the "environment" your application is currently
-    | running in. This may determine how you prefer to configure various
-    | services the application utilizes. Set this in your ".env" file.
-    |
+    | Uygulama Ortamı
+    | Bu değer, uygulamanızın şu anda hangi "ortamda" çalıştığını belirler. Bu, uygulamanın
+    | kullandığı çeşitli servisleri nasıl yapılandırmak istediğinizi etkileyebilir. Bu değeri ".env"
+    | dosyanızda ayarlayın.
     */
-
     'env' => env('APP_ENV', 'production'),
-
     /*
-    |--------------------------------------------------------------------------
-    | Application Debug Mode
-    |--------------------------------------------------------------------------
-    |
-    | When your application is in debug mode, detailed error messages with
-    | stack traces will be shown on every error that occurs within your
-    | application. If disabled, a simple generic error page is shown.
-    |
+    | Uygulama Hata Ayıklama Modu
+    | Uygulamanız hata ayıklama modundayken, meydana gelen her hatada ayrıntılı hata
+    | mesajları ve stack trace (yığın izi) gösterilir. Bu mod devre dışı bırakıldığında, yalnızca
+    | basit ve genel bir hata sayfası görüntülenir.
     */
-
     'debug' => (bool) env('APP_DEBUG', false),
-
     /*
-    |--------------------------------------------------------------------------
-    | Application URL
-    |--------------------------------------------------------------------------
-    |
-    | This URL is used by the console to properly generate URLs when using
-    | the Artisan command line tool. You should set this to the root of
-    | your application so that it is used when running Artisan tasks.
-    |
+    | Uygulama URL'si
+    | Bu URL, Artisan komut satırı aracı kullanılırken URL'lerin doğru şekilde oluşturulabilmesi
+    | için konsol tarafından kullanılır. Uygulamanızın kök (root) adresi olacak şekilde
+    | ayarlanmalıdır, böylece Artisan görevleri çalıştırılırken bu URL esas alınır.
     */
-
     'url' => env('APP_URL', 'http://localhost'),
-
     'asset_url' => env('ASSET_URL', null),
-
     /*
-    |--------------------------------------------------------------------------
-    | Application Timezone
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify the default timezone for your application, which
-    | will be used by the PHP date and date-time functions. We have gone
-    | ahead and set this to a sensible default for you out of the box.
-    |
+    | Uygulama Zaman Dilimi
+    | Burada, uygulamanız için varsayılan zaman dilimini belirleyebilirsiniz. Bu zaman dilimi,
+    | PHP'nin tarih ve saat fonksiyonları tarafından kullanılacaktır. Biz sizin için kutudan çıktığı
+    | haliyle makul bir varsayılan değer belirledik.
     */
-
     'timezone' => 'UTC',
-
     /*
-    |--------------------------------------------------------------------------
-    | Application Locale Configuration
-    |--------------------------------------------------------------------------
-    |
-    | The application locale determines the default locale that will be used
-    | by the translation service provider. You are free to set this value
-    | to any of the locales which will be supported by the application.
-    |
+    | Uygulama Yerel Ayar (Locale) Yapılandırması
+    | Uygulama yerel ayarı, çeviri servis sağlayıcısı tarafından kullanılacak varsayılan dili
+    | belirler. Bu değeri, uygulamanızın destekleyeceği dillerden herhangi biriyle özgürce
+    | değiştirebilirsiniz.
     */
-
     'locale' => 'en',
-
     /*
-    |--------------------------------------------------------------------------
-    | Application Fallback Locale
-    |--------------------------------------------------------------------------
-    |
-    | The fallback locale determines the locale to use when the current one
-    | is not available. You may change the value to correspond to any of
-    | the language folders that are provided through your application.
-    |
+    | Uygulama Yedek (Fallback) Locale Ayarı
+    | Yedek locale, mevcut dil seçeneği bulunamadığında kullanılacak olan dil ayarını belirler.
+    | Bu değeri, uygulamanızda bulunan dil klasörlerinden herhangi birine göre değiştirebilirsiniz.
     */
-
     'fallback_locale' => 'en',
-
     /*
-    |--------------------------------------------------------------------------
     | Faker Locale
-    |--------------------------------------------------------------------------
-    |
-    | This locale will be used by the Faker PHP library when generating fake
-    | data for your database seeds. For example, this will be used to get
-    | localized telephone numbers, street address information and more.
-    |
+    | Bu yerel ayar, veritabanı seed işlemlerinde sahte veri üretmek için kullanılan Faker PHP
+    | kütüphanesi tarafından kullanılır. Örneğin, yerel telefon numaraları, sokak adresleri gibi
+    | yerelleştirilmiş veriler bu ayara göre oluşturulur.
     */
-
     'faker_locale' => 'en_US',
-
     /*
-    |--------------------------------------------------------------------------
-    | Encryption Key
-    |--------------------------------------------------------------------------
-    |
-    | This key is used by the Illuminate encrypter service and should be set
-    | to a random, 32 character string, otherwise these encrypted strings
-    | will not be safe. Please do this before deploying an application!
-    |
+    | Şifreleme Anahtarı
+    | Bu anahtar, Laravel'in Illuminate şifreleme servisi tarafından kullanılır ve rastgele, 32
+    | karakter uzunluğunda bir dize olmalıdır. Aksi takdirde şifrelenmiş veriler güvenli olmaz.
+    | Uygulamayı yayına almadan önce mutlaka bu anahtarı ayarlayın!
     */
-
     'key' => env('APP_KEY'),
-
     'cipher' => 'AES-256-CBC',
-
     /*
-    |--------------------------------------------------------------------------
-    | Autoloaded Service Providers
-    |--------------------------------------------------------------------------
-    |
-    | The service providers listed here will be automatically loaded on the
-    | request to your application. Feel free to add your own services to
-    | this array to grant expanded functionality to your applications.
-    |
+    | Otomatik Yüklenen Servis Sağlayıcılar (Service Providers)
+    | Burada listelenen servis sağlayıcılar, uygulamanıza gelen her istekte otomatik olarak
+    | yüklenecektir. Uygulamanıza ek işlevsellik kazandırmak için kendi servis sağlayıcılarınızı
+    | bu diziye eklemekte özgürsünüz.
     */
-
     'providers' => [
-
         /*
-         * Laravel Framework Service Providers...
+         * Laravel Framework Servis Sağlayıcıları...
          */
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
@@ -161,20 +96,14 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
         // unisharp
         UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
+       
         Intervention\Image\ImageServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Srmklive\PayPal\Providers\PayPalServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-        /*
-         * Package Service Providers...
-         */
 
-        /*
-         * Application Service Providers...
-         */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\BroadcastServiceProvider::class,
@@ -184,18 +113,12 @@ return [
     ],
 
     /*
-    |--------------------------------------------------------------------------
-    | Class Aliases
-    |--------------------------------------------------------------------------
-    |
-    | This array of class aliases will be registered when this application
-    | is started. However, feel free to register as many as you wish as
-    | the aliases are "lazy" loaded so they don't hinder performance.
-    |
+    | Sınıf Takma Adları
+    | Bu sınıf takma adları dizisi, uygulama başlatıldığında kaydedilecektir. Ancak, istediğiniz
+    | kadar alias (takma ad) eklemekte özgürsünüz çünkü bu alias'lar "tembel" (lazy) yüklenir,
+    | yani performansı olumsuz etkilemezler.
     */
-
     'aliases' => [
-
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
@@ -237,7 +160,5 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-
     ],
-
 ];

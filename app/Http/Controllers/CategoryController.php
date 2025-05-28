@@ -1,27 +1,22 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Str;
-
 class CategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * 
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         $category=Category::getAllCategory();
-        // return $category;
         return view('backend.category.index')->with('categories',$category);
     }
-
     /**
-     * Show the form for creating a new resource.
+     * 
      *
      * @return \Illuminate\Http\Response
      */
@@ -30,16 +25,14 @@ class CategoryController extends Controller
         $parent_cats=Category::where('is_parent',1)->orderBy('title','ASC')->get();
         return view('backend.category.create')->with('parent_cats',$parent_cats);
     }
-
     /**
-     * Store a newly created resource in storage.
+     * 
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        // return $request->all();
         $this->validate($request,[
             'title'=>'string|required',
             'summary'=>'string|nullable',
@@ -56,7 +49,6 @@ class CategoryController extends Controller
         }
         $data['slug']=$slug;
         $data['is_parent']=$request->input('is_parent',0);
-        // return $data;   
         $status=Category::create($data);
         if($status){
             request()->session()->flash('success','Kategori başarıyla eklendi');
@@ -65,12 +57,9 @@ class CategoryController extends Controller
             request()->session()->flash('error','Hata oluştu. Lütfen tekrar deneyin!');
         }
         return redirect()->route('category.index');
-
-
     }
-
     /**
-     * Display the specified resource.
+     * 
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -79,9 +68,8 @@ class CategoryController extends Controller
     {
         //
     }
-
     /**
-     * Show the form for editing the specified resource.
+     * 
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -92,9 +80,8 @@ class CategoryController extends Controller
         $category=Category::findOrFail($id);
         return view('backend.category.edit')->with('category',$category)->with('parent_cats',$parent_cats);
     }
-
     /**
-     * Update the specified resource in storage.
+     * 
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -102,7 +89,6 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // return $request->all();
         $category=Category::findOrFail($id);
         $this->validate($request,[
             'title'=>'string|required',
@@ -114,7 +100,6 @@ class CategoryController extends Controller
         ]);
         $data= $request->all();
         $data['is_parent']=$request->input('is_parent',0);
-        // return $data;
         $status=$category->fill($data)->save();
         if($status){
             request()->session()->flash('success','Kategori başarıyla güncellendi');
@@ -124,9 +109,8 @@ class CategoryController extends Controller
         }
         return redirect()->route('category.index');
     }
-
     /**
-     * Remove the specified resource from storage.
+     * 
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -135,9 +119,7 @@ class CategoryController extends Controller
     {
         $category=Category::findOrFail($id);
         $child_cat_id=Category::where('parent_id',$id)->pluck('id');
-        // return $child_cat_id;
-        $status=$category->delete();
-        
+        $status=$category->delete();        
         if($status){
             if(count($child_cat_id)>0){
                 Category::shiftChild($child_cat_id);
@@ -151,10 +133,8 @@ class CategoryController extends Controller
     }
 
     public function getChildByParent(Request $request){
-        // return $request->all();
         $category=Category::findOrFail($request->id);
         $child_cat=Category::getChildByParentID($request->id);
-        // return $child_cat;
         if(count($child_cat)<=0){
             return response()->json(['status'=>false,'msg'=>'','data'=>null]);
         }

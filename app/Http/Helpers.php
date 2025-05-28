@@ -7,7 +7,6 @@ use App\Models\Order;
 use App\Models\Wishlist;
 use App\Models\Shipping;
 use App\Models\Cart;
-// use Auth;
 class Helper{
     public static function messageList()
     {
@@ -18,15 +17,11 @@ class Helper{
         $menu=$category->getAllParentWithChild();
         return $menu;
     }
-
     public static function getHeaderCategory(){
         $category = new Category();
-        // dd($category);
         $menu=$category->getAllParentWithChild();
-
         if($menu){
             ?>
-
             <li>
             <a href="javascript:void(0);">Tüm Kategoriler<i class="ti-angle-down"></i></a>
                 <ul class="dropdown border-0 shadow">
@@ -59,18 +54,14 @@ class Helper{
         <?php
         }
     }
-
     public static function productCategoryList($option='all'){
         if($option='all'){
             return Category::orderBy('id','DESC')->get();
         }
         return Category::has('products')->orderBy('id','DESC')->get();
     }
-
-
-    // Cart Count
+    // Sepet Sayısı
     public static function cartCount($user_id=''){
-
         if(Auth::check()){
             if($user_id=="") $user_id=auth()->user()->id;
             return Cart::where('user_id',$user_id)->where('order_id',null)->sum('quantity');
@@ -79,11 +70,10 @@ class Helper{
             return 0;
         }
     }
-    // relationship cart with product
+    // Sepet ile Ürün arasındaki ilişki
     public function product(){
         return $this->hasOne('App\Models\Product','id','product_id');
     }
-
     public static function getAllProductFromCart($user_id=''){
         if(Auth::check()){
             if($user_id=="") $user_id=auth()->user()->id;
@@ -93,20 +83,18 @@ class Helper{
             return 0;
         }
     }
-    // Total amount cart
+    // Sepet Toplam Tutarı
     public static function totalCartPrice($user_id=''){
         if(Auth::check()){
             if($user_id=="") $user_id=auth()->user()->id;
-            // return Cart::where('user_id',$user_id)->where('order_id',null)->sum('amount');
             return Cart::where('user_id',$user_id)->where('order_id',null)->sum('price');
         }
         else{
             return 0;
         }
     }
-    // Wishlist Count
+    // İstek Listesi Sayısı
     public static function wishlistCount($user_id=''){
-
         if(Auth::check()){
             if($user_id=="") $user_id=auth()->user()->id;
             return Wishlist::where('user_id',$user_id)->where('cart_id',null)->sum('quantity');
@@ -127,16 +115,13 @@ class Helper{
     public static function totalWishlistPrice($user_id=''){
         if(Auth::check()){
             if($user_id=="") $user_id=auth()->user()->id;
-            // return Wishlist::where('user_id',$user_id)->where('cart_id',null)->sum('amount');
             return Wishlist::where('user_id',$user_id)->where('cart_id',null)->sum('price');
-
         }
         else{
             return 0;
         }
     }
-
-    // Total price with shipping and coupon
+    // Kargo Toplam Fiyat
     public static function grandPrice($id,$user_id){
         $order=Order::find($id);
         dd($id);
@@ -148,22 +133,17 @@ class Helper{
             return 0;
         }
     }
-
-
-    // Admin home
+    // Admin Paneli Ana Ekranı
     public static function earningPerMonth(){
         $month_data=Order::where('status','delivered')->get();
-        // return $month_data;
         $price=0;
         foreach($month_data as $data){
             $price = $data->cart_info->sum('price');
         }
         return number_format((float)($price),2,'.','');
     }
-
     public static function shipping(){
         return Shipping::orderBy('id','DESC')->get();
     }
 }
-
 ?>

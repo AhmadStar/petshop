@@ -3,7 +3,7 @@
 
 @section('main-content')
 
-    <!-- Breadcrumbs -->
+
     <div class="breadcrumbs">
         <div class="container">
             <div class="row">
@@ -18,9 +18,7 @@
             </div>
         </div>
     </div>
-    <!-- End Breadcrumbs -->
 
-    <!-- Start Checkout -->
     <section class="shop checkout section">
         <div class="container">
             <form class="form" method="POST" action="{{ route('cart.order') }}">
@@ -31,7 +29,6 @@
                         <div class="checkout-form">
                             <h2>Alışverişini Tamamla</h2>
                             <p>Sadece son birkaç adım kaldı!</p>
-                            <!-- Form -->
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
@@ -114,12 +111,10 @@
                                 </div>
 
                             </div>
-                            <!--/ End Form -->
                         </div>
                     </div>
                     <div class="col-lg-4 col-12">
                         <div class="order-details">
-                            <!-- Order Widget -->
                             <div class="single-widget">
                                 <h2>SİPARİŞ ÖZETİ</h2>
                                 <div class="content">
@@ -162,8 +157,6 @@
                                     </ul>
                                 </div>
                             </div>
-                            <!--/ End Order Widget -->
-                            <!-- Order Widget -->
                             <div class="single-widget">
                                 <h2>Ödeme Yöntemleri</h2>
                                 <div class="content">
@@ -172,11 +165,8 @@
                                         <form-group>
                                             <input name="payment_method" type="radio" value="cod" required> <label>
                                                 Kapıda Ödeme</label><br>
-                                            <!-- <input name="payment_method"  type="radio" value="paypal"> <label> PayPal</label><br> -->
                                             <input name="payment_method" type="radio" value="cardpay" required> <label>
                                                 Kartla Ödeme</label><br>
-
-                                            <!-- Credit Card Details -->
                                             <div id="creditCardDetails" style="display: none;">
                                                 <label for="cardNumber">Kart Numarası:</label>
                                                 <input type="text" id="cardNumber" name="card_number"
@@ -197,15 +187,11 @@
                                 </div>
 
                             </div>
-                            <!--/ End Order Widget -->
-                            <!-- Payment Method Widget -->
                             <div class="single-widget payement">
                                 <div class="content">
                                     <img src="{{ 'backend/img/payment-method.png' }}" alt="#">
                                 </div>
                             </div>
-                            <!--/ End Payment Method Widget -->
-                            <!-- Button Widget -->
                             <div class="single-widget get-button">
                                 <div class="content">
                                     <div class="button">
@@ -213,16 +199,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--/ End Button Widget -->
                         </div>
                     </div>
                 </div>
             </form>
         </div>
     </section>
-    <!--/ End Checkout -->
-
-    <!-- Start Shop Services Area  -->
     <section class="shop-services section home">
         <div class="container">
             <div class="row">
@@ -321,7 +303,6 @@
     <script>
         function showMe(box) {
             var checkbox = document.getElementById('shipping').style.display;
-            // alert(checkbox);
             var vis = 'none';
             if (checkbox == "none") {
                 vis = 'block';
@@ -338,7 +319,6 @@
                 let cost = parseFloat($(this).find('option:selected').data('price')) || 0;
                 let subtotal = parseFloat($('.order_subtotal').data('price'));
                 let coupon = parseFloat($('.coupon_price').data('price')) || 0;
-                // alert(coupon);
                 $('#order_total_price span').text('$' + (subtotal + cost - coupon).toFixed(2));
             });
 

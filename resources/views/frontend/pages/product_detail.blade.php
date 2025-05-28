@@ -18,7 +18,6 @@
 @section('title', 'PettyShop - PRODUCT DETAIL')
 @section('main-content')
 
-    <!-- Breadcrumbs -->
     <div class="breadcrumbs">
         <div class="container">
             <div class="row">
@@ -33,18 +32,13 @@
             </div>
         </div>
     </div>
-    <!-- End Breadcrumbs -->
-
-    <!-- Shop Single -->
     <section class="shop single section">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="row">
                         <div class="col-lg-6 col-12">
-                            <!-- Product Slider -->
                             <div class="product-gallery">
-                                <!-- Images slider -->
                                 <div class="flexslider-thumbnails">
                                     <ul class="slides">
                                         @php
@@ -58,13 +52,10 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                                <!-- End Images slider -->
                             </div>
-                            <!-- End Product slider -->
                         </div>
                         <div class="col-lg-6 col-12">
                             <div class="product-des">
-                                <!-- Description -->
                                 <div class="short">
                                     <h4>{{ $product_detail->title }}</h4>
 
@@ -78,13 +69,11 @@
                                     </p>
                                     <p class="description">{!! $product_detail->summary !!}</p>
                                 </div>
-                                <!-- Product Buy -->
                                 <div class="product-buy">
                                     <form action="{{ route('single-add-to-cart') }}" method="POST">
                                         @csrf
                                         <div class="quantity">
                                             <h6>Quantity :</h6>
-                                            <!-- Input Order -->
                                             <div class="input-group">
                                                 <div class="button minus">
                                                     <button type="button" class="btn btn-primary btn-number"
@@ -102,7 +91,6 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                            <!--/ End Input Order -->
                                         </div>
                                         <div class="add-to-cart mt-4">
                                             <button type="submit" class="btn">Sepete Ekle</button>
@@ -136,8 +124,6 @@
 </p>
 
                                 </div>
-                                <!--/ End Product Buy -->
-
                             </div>
                         </div>
                     </div>
@@ -145,15 +131,12 @@
                         <div class="col-12">
                             <div class="product-info">
                                 <div class="nav-main">
-                                    <!-- Tab Nav -->
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                                         <li class="nav-item"><a class="nav-link active" data-toggle="tab"
                                                 href="#description" role="tab">Açıklama</a></li>
                                     </ul>
-                                    <!--/ End Tab Nav -->
                                 </div>
                                 <div class="tab-content" id="myTabContent">
-                                    <!-- Description Tab -->
                                     <div class="tab-pane fade show active" id="description" role="tabpanel">
                                         <div class="tab-single">
                                             <div class="row">
@@ -165,7 +148,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--/ End Description Tab -->
                                 </div>
                             </div>
                         </div>
@@ -174,9 +156,6 @@
             </div>
         </div>
     </section>
-    <!--/ End Shop Single -->
-
-    <!-- Modal -->
     <div class="modal fade" id="modelExample" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -187,7 +166,6 @@
                 <div class="modal-body">
                     <div class="row no-gutters">
                         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                            <!-- Product Slider -->
                             <div class="product-gallery">
                                 <div class="quickview-slider-active">
                                     <div class="single-slider">
@@ -204,12 +182,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- End Product slider -->
                         </div>
                         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                             <div class="quickview-content">
                                 <div class="quantity">
-                                    <!-- Input Order -->
                                     <div class="input-group">
                                         <div class="button minus">
                                             <button type="button" class="btn btn-primary btn-number" disabled="disabled"
@@ -226,7 +202,6 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <!--/ End Input Order -->
                                 </div>
                                 <div class="add-to-cart">
                                     <a href="#" class="btn">Sepete Ekle</a>
@@ -246,12 +221,9 @@
             </div>
         </div>
     </div>
-    <!-- Modal end -->
-
 @endsection
 @push('styles')
     <style>
-        /* Rating */
         .rating_box {
             display: inline-flex;
         }

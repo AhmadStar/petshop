@@ -90,8 +90,6 @@
                         <td> : ₺ {{number_format($order->total_amount,2)}}</td>
                     </tr>
                     <tr>
-                        <!-- <td>Payment Method</td>
-                        <td> : @if($order->payment_method=='cod') Cash on Delivery @else Paypal @endif</td> -->
                         <td>Ödeme Yöntemleri</td>
                         <td> : 
                             @if($order->payment_method == 'cod')
@@ -104,10 +102,6 @@
                         </td>
 
                     </tr>
-                    <!-- <tr>
-                        <td>Payment Status</td>
-                        <td> : {{$order->payment_status}}</td>
-                    </tr> -->
                     <tr>
                       <td>Ödeme Durumu</td>
                       <td> : 
