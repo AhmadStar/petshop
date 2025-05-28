@@ -242,38 +242,6 @@
                                         <div class="quickview-peragraph">
                                             <p>{!! html_entity_decode($product->summary) !!}</p>
                                         </div>
-                                        @if ($product->size)
-                                            <div class="size">
-                                                <h4>Size</h4>
-                                                <ul>
-                                                    @php
-                                                        $sizes = explode(',', $product->size);
-                                                        // dd($sizes);
-                                                    @endphp
-                                                    @foreach ($sizes as $size)
-                                                        <li><a href="#" class="one">{{ $size }}</a></li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        @endif
-                                        <div class="size">
-                                            <div class="row">
-                                                <div class="col-lg-6 col-12">
-                                                    <h5 class="title">Size</h5>
-                                                    <select>
-                                                        @php
-                                                            $sizes = explode(',', $product->size);
-                                                            // dd($sizes);
-                                                        @endphp
-                                                        @foreach ($sizes as $size)
-                                                            <option>{{ $size }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <form action="{{ route('single-add-to-cart') }}" method="POST">
-                                            @csrf
                                             <div class="quantity">
                                                 <!-- Input Order -->
                                                 <div class="input-group">

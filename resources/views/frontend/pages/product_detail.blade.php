@@ -92,22 +92,6 @@
                                     </p>
                                     <p class="description">{!! $product_detail->summary !!}</p>
                                 </div>
-
-                                @if ($product_detail->size)
-                                    <div class="size mt-4">
-                                        <h4>Size</h4>
-                                        <ul>
-                                            @php
-                                                $sizes = explode(',', $product_detail->size);
-                                                // dd($sizes);
-                                            @endphp
-                                            @foreach ($sizes as $size)
-                                                <li><a href="#" class="one">{{ $size }}</a></li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
-                                <!--/ End Size -->
                                 <!-- Product Buy -->
                                 <div class="product-buy">
                                     <form action="{{ route('single-add-to-cart') }}" method="POST">

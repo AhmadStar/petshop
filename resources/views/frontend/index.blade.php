@@ -18,8 +18,7 @@
                         <div class="carousel-caption d-none d-md-block text-left">
                             <h1 class="wow fadeInDown">{{ $banner->title }}</h1>
                             <p>{!! html_entity_decode($banner->description) !!}</p>
-                            <a class="btn btn-lg ws-btn wow fadeInUpBig" href="{{ route('product-grids') }}"
-                                role="button">Hemen Al<i class="far fa-arrow-alt-circle-right"></i></i></a>
+                            {{-- <a class="btn btn-lg ws-btn wow fadeInUpBig" href="{{ route('product-grids') }}" role="button"><i class="far fa-arrow-alt-circle-right"></i></i></a> --}}
                         </div>
                     </div>
                 @endforeach
@@ -221,24 +220,6 @@
                                         <div class="quickview-peragraph">
                                             <p>{!! html_entity_decode($product->summary) !!}</p>
                                         </div>
-                                        @if ($product->size)
-                                            <div class="size">
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-12">
-                                                        <h5 class="title">Beden</h5>
-                                                        <select>
-                                                            @php
-                                                                $sizes = explode(',', $product->size);
-                                                                // dd($sizes);
-                                                            @endphp
-                                                            @foreach ($sizes as $size)
-                                                                <option>{{ $size }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endif
                                         <form action="{{ route('single-add-to-cart') }}" method="POST" class="mt-4">
                                             @csrf
                                             <div class="quantity">

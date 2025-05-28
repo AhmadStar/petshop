@@ -38,13 +38,13 @@ class BannerController extends Controller
     {
         // return $request->all();
         $this->validate($request,[
-            'title'=>'string|required|max:50',
+            'title'=>'nullable|string|max:50',
             'description'=>'string|nullable',
             'photo'=>'string|required',
             'status'=>'required|in:active,inactive',
         ]);
         $data=$request->all();
-        $slug=Str::slug($request->title);
+        $slug_str = Str::slug($request->title ?? 'banner');
         $count=Banner::where('slug',$slug)->count();
         if($count>0){
             $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
@@ -95,7 +95,7 @@ class BannerController extends Controller
     {
         $banner=Banner::findOrFail($id);
         $this->validate($request,[
-            'title'=>'string|required|max:50',
+            'title' => 'nullable|string|max:50',
             'description'=>'string|nullable',
             'photo'=>'string|required',
             'status'=>'required|in:active,inactive',
