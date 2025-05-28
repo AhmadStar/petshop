@@ -3,16 +3,10 @@
 @section('main-content')
 <div class="container-fluid">
     @include('backend.layouts.notification')
-    <!-- Page Heading -->
-
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
       <h1 class="h3 mb-0 text-gray-800">Gösterge Paneli</h1>
     </div>
-
-    <!-- Content Row -->
     <div class="row">
-
-      <!-- Products -->
            <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-success shadow h-100 py-2">
           <div class="card-body">
@@ -29,10 +23,7 @@
         </div>
       </div>
     </div>
-
-
 @endsection
-
 @push('scripts')
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -84,7 +75,6 @@
       return s.join(dec);
     }
 
-      // Area Chart Example
       var ctx = document.getElementById("myAreaChart");
 
         axios.get(url)
@@ -94,7 +84,7 @@
                 var myLineChart = new Chart(ctx, {
                   type: 'line',
                   data: {
-                    labels: data_keys, // ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                    labels: data_keys, 
                     datasets: [{
                       label: "Earnings",
                       lineTension: 0.3,
@@ -108,7 +98,7 @@
                       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
                       pointHitRadius: 10,
                       pointBorderWidth: 2,
-                      data:data_values,// [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
+                      data:data_values,
                     }],
                   },
                   options: {
@@ -138,7 +128,6 @@
                         ticks: {
                           maxTicksLimit: 5,
                           padding: 10,
-                          // Include a dollar sign in the ticks
                           callback: function(value, index, values) {
                             return '$' + number_format(value);
                           }
@@ -180,7 +169,6 @@
                 });
               })
               .catch(function (error) {
-              //   vm.answer = 'Error! Could not reach the API. ' + error
               console.log(error)
               });
 

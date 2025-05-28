@@ -3,7 +3,6 @@
 @section('title', 'PettyShop - PRODUCT PAGE')
 
 @section('main-content')
-    <!-- Breadcrumbs -->
     <div class="breadcrumbs">
         <div class="container">
             <div class="row">
@@ -18,9 +17,6 @@
             </div>
         </div>
     </div>
-    <!-- End Breadcrumbs -->
-
-    <!-- Product Style -->
     <form action="{{ route('shop.filter') }}" method="POST">
         @csrf
         <section class="product-area shop-sidebar shop section">
@@ -28,7 +24,6 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-12">
                         <div class="shop-sidebar">
-                            <!-- Single Widget -->
                             <div class="single-widget category">
                                 <h3 class="title">Kategoriler</h3>
                                 <ul class="categor-list">
@@ -63,7 +58,6 @@
                     <div class="col-lg-9 col-md-8 col-12">
                         <div class="row">
                             <div class="col-12">
-                                <!-- Shop Top -->
                                 <div class="shop-top">
                                     <div class="shop-shorter">
                                         <div class="single-shorter">
@@ -95,7 +89,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--/ End Shop Top -->
                             </div>
                         </div>
                         <div class="row">
@@ -156,12 +149,6 @@
             </div>
         </section>
     </form>
-
-    <!--/ End Product Style 1  -->
-
-
-
-    <!-- Modal -->
     @if ($products)
         @foreach ($products as $key => $product)
             <div class="modal fade" id="{{ $product->id }}" tabindex="-1" role="dialog">
@@ -174,7 +161,6 @@
                         <div class="modal-body">
                             <div class="row no-gutters">
                                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                                    <!-- Product Slider -->
                                     <div class="product-gallery">
                                         <div class="quickview-slider-active">
                                             @php
@@ -188,7 +174,6 @@
                                             @endforeach
                                         </div>
                                     </div>
-                                    <!-- End Product slider -->
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                     <div class="quickview-content">
@@ -240,7 +225,6 @@
                                             <p>{!! html_entity_decode($product->summary) !!}</p>
                                         </div>
                                             <div class="quantity">
-                                                <!-- Input Order -->
                                                 <div class="input-group">
                                                     <div class="button minus">
                                                         <button type="button" class="btn btn-primary btn-number"
@@ -258,15 +242,13 @@
                                                         </button>
                                                     </div>
                                                 </div>
-                                                <!--/ End Input Order -->
                                             </div>
                                             <div class="add-to-cart">
                                                 <button type="submit" class="btn">Sepete Ekle</button>
                                             </div>
                                         </form>
                                         <div class="default-social">
-                                            <!-- ShareThis BEGIN -->
-                                            <div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
+                                            <div class="sharethis-inline-share-buttons"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -277,8 +259,6 @@
             </div>
         @endforeach
     @endif
-    <!-- Modal end -->
-
 @endsection
 @push('styles')
     <style>
@@ -287,7 +267,6 @@
         }
 
         .filter_button {
-            /* height:20px; */
             text-align: center;
             background: #F7941D;
             padding: 8px 16px;
@@ -322,7 +301,6 @@
 					}
                     else{
                         swal('error',response.msg,'error').then(function(){
-							// document.location.href=document.location.href;
 						});
                     }
                 }

@@ -3,7 +3,6 @@
 @section('title','PettyShop -  Order Track Page')
 
 @section('main-content')
-    <!-- Breadcrumbs -->
     <div class="breadcrumbs">
     <div class="container">
         <div class="row">
@@ -18,8 +17,6 @@
         </div>
     </div>
 </div>
-<!-- End Breadcrumbs -->
-
 <section class="tracking_box_area section_gap py-5">
     <div class="container">
         <div class="tracking_box_inner">

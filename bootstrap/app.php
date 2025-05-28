@@ -1,55 +1,35 @@
 <?php
-
 /*
-|--------------------------------------------------------------------------
-| Create The Application
-|--------------------------------------------------------------------------
-|
-| The first thing we will do is create a new Laravel application instance
-| which serves as the "glue" for all the components of Laravel, and is
-| the IoC container for the system binding all of the various parts.
-|
+| Uygulamayı Oluştur
+| İlk yapacağımız şey, Laravel’in tüm bileşenlerini birbirine bağlayan yeni bir Laravel
+| uygulama örneği oluşturmaktır. Bu örnek, sistemdeki çeşitli parçaları birbirine bağlayan
+| IoC (Kontrolün Tersine Çevrilmesi) konteyneridir.
 */
-
 $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
-
 /*
-|--------------------------------------------------------------------------
-| Bind Important Interfaces
-|--------------------------------------------------------------------------
-|
-| Next, we need to bind some important interfaces into the container so
-| we will be able to resolve them when needed. The kernels serve the
-| incoming requests to this application from both the web and CLI.
-|
+| Arayüzleri Bağla
+| Sonrasında, bazı önemli arayüzleri konteynıra bağlamamız gerekiyor ki ihtiyaç
+| duyduğumuzda onları çözümleyebilelim. Kernel'lar, bu uygulamaya gelen istekleri hem
+| web üzerinden hem de komut satırından işler.
 */
-
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
     App\Http\Kernel::class
 );
-
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
     App\Console\Kernel::class
 );
-
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
 );
-
 /*
-|--------------------------------------------------------------------------
-| Return The Application
-|--------------------------------------------------------------------------
-|
-| This script returns the application instance. The instance is given to
-| the calling script so we can separate the building of the instances
-| from the actual running of the application and sending responses.
-|
+| Uygulamayı Döndür
+| Bu betik, uygulama örneğini döndürür. Bu örnek, çağıran betiğe verilir, böylece
+| uygulama örneklerinin oluşturulması ile uygulamanın çalıştırılması ve yanıtların
+| gönderilmesi işlemleri birbirinden ayrılmış olur.
 */
-
 return $app;

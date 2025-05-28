@@ -12,7 +12,6 @@
   <div class="container-fluid">
 
     <div class="row" style="margin-top:10%">
-        <!-- 404 Hatası -->
       <div class="col-md-12">
         <div class="text-center">
           <div class="error mx-auto" data-text="404">404</div>

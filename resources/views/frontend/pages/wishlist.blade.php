@@ -1,7 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title', 'Wishlist Page')
 @section('main-content')
-    <!-- Breadcrumbs -->
     <div class="breadcrumbs">
         <div class="container">
             <div class="row">
@@ -16,14 +15,10 @@
             </div>
         </div>
     </div>
-    <!-- End Breadcrumbs -->
-
-    <!-- Shopping Cart -->
     <div class="shopping-cart section">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <!-- Shopping Summery -->
                     <table class="table shopping-summery">
                         <thead>
                             <tr class="main-hading">
@@ -70,14 +65,10 @@
 
                         </tbody>
                     </table>
-                    <!--/ End Shopping Summery -->
                 </div>
             </div>
         </div>
     </div>
-    <!--/ End Shopping Cart -->
-
-    <!-- Start Shop Services Area  -->
     <section class="shop-services section home">
         <div class="container">
             <div class="row">
@@ -112,13 +103,9 @@
             </div>
         </div>
     </section>
-    <!-- End Shop Newsletter -->
 
     @include('frontend.layouts.newsletter')
 
-
-
-    <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -129,7 +116,6 @@
                 <div class="modal-body">
                     <div class="row no-gutters">
                         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                            <!-- Product Slider -->
                             <div class="product-gallery">
                                 <div class="quickview-slider-active">
                                     <div class="single-slider">
@@ -146,7 +132,6 @@
                                     </div>
                                 </div>
                             </div>
-                                    <!-- Input Order -->
                                     <div class="input-group">
                                         <div class="button minus">
                                             <button type="button" class="btn btn-primary btn-number" disabled="disabled"
@@ -163,7 +148,6 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <!--/ End Input Order -->
                                 </div>
                                 <div class="add-to-cart">
                                     <a href="#" class="btn">Sepete Ekle</a>
@@ -185,8 +169,6 @@
             </div>
         </div>
     </div>
-    <!-- Modal end -->
-
 @endsection
 @push('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>

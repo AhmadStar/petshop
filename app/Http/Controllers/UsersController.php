@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -8,7 +7,7 @@ use App\User;
 class UsersController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * 
      *
      * @return \Illuminate\Http\Response
      */
@@ -17,9 +16,8 @@ class UsersController extends Controller
         $users=User::orderBy('id','ASC')->paginate(10);
         return view('backend.users.index')->with('users',$users);
     }
-
     /**
-     * Show the form for creating a new resource.
+     * 
      *
      * @return \Illuminate\Http\Response
      */
@@ -27,9 +25,8 @@ class UsersController extends Controller
     {
         return view('backend.users.create');
     }
-
     /**
-     * Store a newly created resource in storage.
+     * 
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -45,12 +42,9 @@ class UsersController extends Controller
             'status'=>'required|in:active,inactive',
             'photo'=>'nullable|string',
         ]);
-        // dd($request->all());
         $data=$request->all();
         $data['password']=Hash::make($request->password);
-        // dd($data);
         $status=User::create($data);
-        // dd($status);
         if($status){
             request()->session()->flash('success','Kullanıcı başarıyla eklendi!');
         }
@@ -58,11 +52,9 @@ class UsersController extends Controller
             request()->session()->flash('error','Kullanıcıyı eklerken bir hata oluştu!');
         }
         return redirect()->route('users.index');
-
     }
-
     /**
-     * Display the specified resource.
+     * 
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -71,9 +63,8 @@ class UsersController extends Controller
     {
         //
     }
-
     /**
-     * Show the form for editing the specified resource.
+     * 
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -83,9 +74,8 @@ class UsersController extends Controller
         $user=User::findOrFail($id);
         return view('backend.users.edit')->with('user',$user);
     }
-
     /**
-     * Update the specified resource in storage.
+     * 
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -102,10 +92,7 @@ class UsersController extends Controller
             'status'=>'required|in:active,inactive',
             'photo'=>'nullable|string',
         ]);
-        // dd($request->all());
         $data=$request->all();
-        // dd($data);
-        
         $status=$user->fill($data)->save();
         if($status){
             request()->session()->flash('success','Başarıyla güncellendi!');
@@ -114,11 +101,9 @@ class UsersController extends Controller
             request()->session()->flash('error','Güncelleme sırasında bir hata oluştu!');
         }
         return redirect()->route('users.index');
-
     }
-
     /**
-     * Remove the specified resource from storage.
+     * 
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

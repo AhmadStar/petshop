@@ -1,7 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title', 'PettyShop - Ana Sayfa')
 @section('main-content')
-    <!-- Slider Area -->
     @if (count($banners) > 0)
         <section id="Gslider" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -33,9 +32,6 @@
             </a>
         </section>
     @endif
-
-    <!--/ End Slider Area -->
-
     <section class="product-area product-category-area pt-100 pb-100">
         <div class="container">
             <div class="row">
@@ -73,10 +69,6 @@
             </div>
         </div>
     </section>
-
-
-    <!-- End Shop Home List  -->
-
     <section class="bg-theme-color position-relative z-index-1">
         <div class="p--0">
             <div class="row divider-style1">
@@ -107,8 +99,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Start Shop Services Area -->
     <section class="shop-services section home">
         <div class="container">
             <div class="row">
@@ -143,11 +133,7 @@
             </div>
         </div>
     </section>
-    <!-- End Shop Services Area -->
-
     @include('frontend.layouts.newsletter')
-
-    <!-- Modal -->
     @if ($product_lists)
         @foreach ($product_lists as $key => $product)
             <div class="modal fade" id="{{ $product->id }}" tabindex="-1" role="dialog">
@@ -160,7 +146,6 @@
                         <div class="modal-body">
                             <div class="row no-gutters">
                                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                                    <!-- Product Slider -->
                                     <div class="product-gallery">
                                         <div class="quickview-slider-active">
                                             @php
@@ -174,7 +159,6 @@
                                             @endforeach
                                         </div>
                                     </div>
-                                    <!-- End Product slider -->
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                     <div class="quickview-content">
@@ -201,7 +185,6 @@
                                                 <a href="#">({{ $rate_count }} müşteri yorumu)</a>
                                             </div>
                                             <div class="quickview-stock">
-                                                <!-- With quantity specification -->
                                                 @if ($product->stock > 0)
                                                     <span><i class="fa fa-check-circle-o"></i> {{ $product->stock }} Adet
                                                         Stokta</span>
@@ -223,7 +206,6 @@
                                         <form action="{{ route('single-add-to-cart') }}" method="POST" class="mt-4">
                                             @csrf
                                             <div class="quantity">
-                                                <!-- Input Order -->
                                                 <div class="input-group">
                                                     <div class="button minus">
                                                         <button type="button" class="btn btn-primary btn-number"
@@ -241,7 +223,6 @@
                                                         </button>
                                                     </div>
                                                 </div>
-                                                <!--/ End Input Order -->
                                             </div>
                                             <div class="add-to-cart">
                                                 <button type="submit" class="btn">Sepete Ekle</button>
@@ -258,12 +239,10 @@
             </div>
         @endforeach
     @endif
-    <!-- Modal end -->
 @endsection
 
 @push('styles')
     <style>
-        /* Banner Sliding */
         #Gslider .carousel-inner {
             background: #000000;
             color: black;
@@ -308,8 +287,6 @@
 
         var $topeContainer = $('.isotope-grid');
         var $filter = $('.filter-tope-group');
-
-        // filter items on button click
         $filter.each(function() {
             $filter.on('click', 'button', function() {
                 var filterValue = $(this).attr('data-filter');
@@ -361,7 +338,6 @@
         }
 
         function requestFullScreen(el) {
-            // Supports most browsers and their versions.
             var requestMethod = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el
                 .msRequestFullscreen;
 

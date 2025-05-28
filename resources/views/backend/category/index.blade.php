@@ -1,7 +1,5 @@
 @extends('backend.layouts.master')
-
 @section('main-content')
- <!-- DataTales Example -->
  <div class="card shadow mb-4">
      <div class="row">
          <div class="col-md-12">
@@ -89,12 +87,10 @@
 
 @push('scripts')
 
-  <!-- Page level plugins -->
   <script src="{{asset('backend/vendor/datatables/jquery.dataTables.min.js')}}"></script>
   <script src="{{asset('backend/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
-  <!-- Page level custom scripts -->
   <script src="{{asset('backend/js/demo/datatables-demo.js')}}"></script>
   <script>
 
@@ -107,7 +103,6 @@
             ]
         } );
 
-        // Sweet alert
 
         function deleteData(id){
 
@@ -123,7 +118,6 @@
           $('.dltBtn').click(function(e){
             var form=$(this).closest('form');
               var dataID=$(this).data('id');
-              // alert(dataID);
               e.preventDefault();
               swal({
                     title: "Are you sure?",

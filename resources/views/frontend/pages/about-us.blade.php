@@ -4,7 +4,6 @@
 
 @section('main-content')
 
-    <!-- Breadcrumbs -->
     <div class="breadcrumbs">
         <div class="container">
             <div class="row">
@@ -19,9 +18,6 @@
             </div>
         </div>
     </div>
-    <!-- End Breadcrumbs -->
-
-    <!-- About Us -->
     <section class="about-us section">
         <div class="container">
             <div class="row center-footer-logo">
@@ -47,10 +43,6 @@
             </div>
         </div>
     </section>
-    <!-- End About Us -->
-
-
-    <!-- Start Shop Services Area -->
     <section class="shop-services section home">
         <div class="container">
             <div class="row">
@@ -85,7 +77,5 @@
             </div>
         </div>
     </section>
-    <!-- End Shop Services Area -->
-
     @include('frontend.layouts.newsletter')
 @endsection

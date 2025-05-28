@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use Srmklive\PayPal\Services\ExpressCheckout;
 use Illuminate\Http\Request;
@@ -12,10 +11,7 @@ class PaypalController extends Controller
     public function payment()
     {
         $cart = Cart::where('user_id',auth()->user()->id)->where('order_id',null)->get()->toArray();
-        
         $data = [];
-        
-        // return $cart;
         $data['items'] = array_map(function ($item) use($cart) {
             $name=Product::where('id',$item['product_id'])->pluck('title');
             return [
@@ -25,33 +21,25 @@ class PaypalController extends Controller
                 'qty' => $item['quantity']
             ];
         }, $cart);
-
         $data['invoice_id'] ='ORD-'.strtoupper(uniqid());
         $data['invoice_description'] = "Order #{$data['invoice_id']} Invoice";
         $data['return_url'] = route('payment.success');
         $data['cancel_url'] = route('payment.cancel');
-
         $total = 0;
         foreach($data['items'] as $item) {
             $total += $item['price']*$item['qty'];
         }
-
         $data['total'] = $total;
         if(session('coupon')){
             $data['shipping_discount'] = session('coupon')['value'];
         }
         Cart::where('user_id', auth()->user()->id)->where('order_id', null)->update(['order_id' => session()->get('id')]);
-
-        // return session()->get('id');
         $provider = new ExpressCheckout;
-  
         $response = $provider->setExpressCheckout($data);
-    
         return redirect($response['paypal_link']);
     }
-   
     /**
-     * Responds with a welcome message with instructions
+     * 
      *
      * @return \Illuminate\Http\Response
      */
@@ -59,9 +47,8 @@ class PaypalController extends Controller
     {
         dd('Ödemeniz iptal edildi!');
     }
-  
     /**
-     * Responds with a welcome message with instructions
+     * 
      *
      * @return \Illuminate\Http\Response
      */
@@ -69,15 +56,12 @@ class PaypalController extends Controller
     {
         $provider = new ExpressCheckout;
         $response = $provider->getExpressCheckoutDetails($request->token);
-        // return $response;
-  
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
             request()->session()->flash('success','Başarılı bir şekilde Paypalla ödeme yaptınız, teşekkürler!');
             session()->forget('cart');
             session()->forget('coupon');
             return redirect()->route('home');
         }
-  
         request()->session()->flash('error','Birşeyler ters gitti, lütfen daha sonra tekrar deneyin!');
         return redirect()->back();
     }

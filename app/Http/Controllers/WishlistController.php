@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
@@ -11,27 +10,21 @@ class WishlistController extends Controller
     public function __construct(Product $product){
         $this->product=$product;
     }
-
     public function wishlist(Request $request){
-        // dd($request->all());
         if (empty($request->slug)) {
             request()->session()->flash('error','Geçersiz Ürün');
             return back();
         }        
         $product = Product::where('slug', $request->slug)->first();
-        // return $product;
         if (empty($product)) {
             request()->session()->flash('error','Geçersiz Ürün');
             return back();
         }
-
         $already_wishlist = Wishlist::where('user_id', auth()->user()->id)->where('cart_id',null)->where('product_id', $product->id)->first();
-        // return $already_wishlist;
         if($already_wishlist) {
             request()->session()->flash('error','Zaten İstek Listesine Eklediniz!');
             return back();
         }else{
-            
             $wishlist = new Wishlist;
             $wishlist->user_id = auth()->user()->id;
             $wishlist->product_id = $product->id;
@@ -44,7 +37,6 @@ class WishlistController extends Controller
         request()->session()->flash('success','Ürün istek listesine eklendi!');
         return back();       
     }  
-    
     public function wishlistDelete(Request $request){
         $wishlist = Wishlist::find($request->id);
         if ($wishlist) {

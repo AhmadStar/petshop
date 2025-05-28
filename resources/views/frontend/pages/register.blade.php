@@ -3,7 +3,6 @@
 @section('title','PettyShop -  Register Page')
 
 @section('main-content')
-	<!-- Breadcrumbs -->
     <div class="breadcrumbs">
         <div class="container">
             <div class="row">
@@ -18,9 +17,6 @@
             </div>
         </div>
     </div>
-    <!-- End Breadcrumbs -->
-
-    <!-- Shop Login -->
     <section class="shop login section">
         <div class="container">
             <div class="row">
@@ -74,13 +70,11 @@
         </div>
     </div>
 </form>
-                        <!--/ End Form -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!--/ End Login -->
 @endsection
 
 @push('styles')

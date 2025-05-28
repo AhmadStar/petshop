@@ -127,16 +127,13 @@
           height: 150
       });
     });
-    // $('select').selectpicker();
 
 </script>
 
 <script>
   $('#cat_id').change(function(){
     var cat_id=$(this).val();
-    // alert(cat_id);
     if(cat_id !=null){
-      // Ajax call
       $.ajax({
         url:"/admin/category/"+cat_id+"/child",
         data:{
@@ -148,11 +145,9 @@
           if(typeof(response) !='object'){
             response=$.parseJSON(response)
           }
-          // console.log(response);
           var html_option="<option value=''>----Select sub category----</option>"
           if(response.status){
             var data=response.data;
-            // alert(data);
             if(response.data){
               $('#child_cat_div').removeClass('d-none');
               $.each(data,function(id,title){

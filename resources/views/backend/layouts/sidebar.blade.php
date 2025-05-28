@@ -1,10 +1,8 @@
 <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
-
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin') }}">
         <img src="" alt="">
         <div class="sidebar-brand-text mx-3">Yönetici</div>
     </a>
-
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item active">
@@ -76,7 +74,6 @@
     <div class="sidebar-heading">
         Genel Ayarlar
     </div>
-    <!-- Kullanıcılar -->
     <li class="nav-item">
         <a class="nav-link" href="{{ route('users.index') }}">
             <i class="fas fa-users"></i>

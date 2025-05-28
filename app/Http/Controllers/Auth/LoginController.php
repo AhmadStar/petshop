@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -12,31 +10,23 @@ use Auth;
 class LoginController extends Controller
 {
     /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
+    | Giriş Denetleyicisi
+    | Bu denetleyici, uygulama için kullanıcı kimlik doğrulamasını gerçekleştirir ve
+    | onları ana ekrana yönlendirir.
+    | İşlevselliğini uygulamanıza kolayca sağlamak için bir trait kullanır.
     */
-
     use AuthenticatesUsers;
-
     /**
-     * Where to redirect users after login.
+     * 
      *
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
-
     /**
-     * Create a new controller instance.
+     * 
      *
      * @return void
      */
-
     public function credentials(Request $request){
         return ['email'=>$request->email,'password'=>$request->password,'status'=>'active','role'=>'admin'];
     }
@@ -44,18 +34,16 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
     public function redirect($provider)
     {
-        // dd($provider);
+        
      return Socialite::driver($provider)->redirect();
     }
- 
     public function Callback($provider)
     {
         $userSocial =   Socialite::driver($provider)->stateless()->user();
         $users      =   User::where(['email' => $userSocial->getEmail()])->first();
-        // dd($users);
+        
         if($users){
             Auth::login($users);
             return redirect('/')->with('success','You are login from '.$provider);

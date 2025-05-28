@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\User;
 use App\Models\Order;
@@ -9,11 +7,10 @@ use App\Models\ProductReview;
 use App\Models\PostComment;
 use App\Rules\MatchOldPassword;
 use Hash;
-
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * 
      *
      * @return void
      */
@@ -21,26 +18,19 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-
     /**
-     * Show the application dashboard.
+     * 
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-
-
     public function index(){
         return view('user.index');
     }
-
     public function profile(){
         $profile=Auth()->user();
-        // return $profile;
         return view('user.users.profile')->with('profile',$profile);
     }
-
     public function profileUpdate(Request $request,$id){
-        // return $request->all();
         $user=User::findOrFail($id);
         $data=$request->all();
         $status=$user->fill($data)->save();
@@ -52,8 +42,7 @@ class HomeController extends Controller
         }
         return redirect()->back();
     }
-
-    // Order
+    // Sipariş
     public function orderIndex(){
         $orders=Order::orderBy('id','DESC')->where('user_id',auth()->user()->id)->paginate(10);
         return view('user.order.index')->with('orders',$orders);
@@ -81,28 +70,23 @@ class HomeController extends Controller
             return redirect()->back();
         }
     }
-
     public function orderShow($id)
     {
         $order=Order::find($id);
-        // return $order;
         return view('user.order.show')->with('order',$order);
     }
-    // Product Review
+    // Ürün Değerlendirmesi
     public function productReviewIndex(){
         $reviews=ProductReview::getAllUserReview();
         return view('user.review.index')->with('reviews',$reviews);
     }
-
     public function productReviewEdit($id)
     {
         $review=ProductReview::find($id);
-        // return $review;
         return view('user.review.edit')->with('review',$review);
     }
-
     /**
-     * Update the specified resource in storage.
+     * 
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -124,12 +108,10 @@ class HomeController extends Controller
         else{
             request()->session()->flash('error','Yorum bulunamadı!');
         }
-
         return redirect()->route('user.productreview.index');
     }
-
     /**
-     * Remove the specified resource from storage.
+     * 
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -146,7 +128,6 @@ class HomeController extends Controller
         }
         return redirect()->route('user.productreview.index');
     }
-
     public function userComment()
     {
         $comments=PostComment::getAllUserComments();
@@ -180,9 +161,8 @@ class HomeController extends Controller
             return redirect()->back();
         }
     }
-
     /**
-     * Update the specified resource in storage.
+     * 
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -193,7 +173,6 @@ class HomeController extends Controller
         $comment=PostComment::find($id);
         if($comment){
             $data=$request->all();
-            // return $data;
             $status=$comment->fill($data)->update();
             if($status){
                 request()->session()->flash('success','Yorum güncellendi');
@@ -207,9 +186,7 @@ class HomeController extends Controller
             request()->session()->flash('error','Yorum bulunamadı');
             return redirect()->back();
         }
-
     }
-
     public function changePassword(){
         return view('user.layouts.userPasswordChange');
     }
@@ -220,11 +197,7 @@ class HomeController extends Controller
             'new_password' => ['required'],
             'new_confirm_password' => ['same:new_password'],
         ]);
-   
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
-   
         return redirect()->route('user')->with('success','Şifre başarıyla güncellendi!');
     }
-
-    
 }

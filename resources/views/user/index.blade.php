@@ -3,15 +3,10 @@
 @section('main-content')
 <div class="container-fluid">
     @include('user.layouts.notification')
-    <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
       <h1 class="h3 mb-0 text-gray-800">Kontrol Paneli</h1>
     </div>
-
-    <!-- Content Row -->
     {{-- <div class="row">
-
-      <!-- Category -->
       <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
           <div class="card-body">
@@ -27,8 +22,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Products -->
       <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-success shadow h-100 py-2">
           <div class="card-body">
@@ -44,8 +37,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Order -->
       <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-info shadow h-100 py-2">
           <div class="card-body">
@@ -66,8 +57,6 @@
           </div>
         </div>
       </div>
-
-      <!--Posts-->
       <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-warning shadow h-100 py-2">
           <div class="card-body">
@@ -84,14 +73,10 @@
         </div>
       </div>
     </div> --}}
-
-    <!-- Content Row -->
-
     <div class="row">
       @php
           $orders=DB::table('orders')->where('user_id',auth()->user()->id)->paginate(10);
       @endphp
-      <!-- Order -->
       <div class="col-xl-12 col-lg-12">
         <table class="table table-bordered table-hover" id="order-dataTable" width="100%" cellspacing="0">
           <thead>
@@ -200,7 +185,7 @@ axios.get(url)
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: data_keys, //["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    labels: data_keys,
     datasets: [{
       label: "Earnings",
       lineTension: 0.3,

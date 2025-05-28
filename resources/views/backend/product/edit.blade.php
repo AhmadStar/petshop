@@ -137,12 +137,10 @@
 
 <script>
   var  child_cat_id='{{$product->child_cat_id}}';
-        // alert(child_cat_id);
         $('#cat_id').change(function(){
             var cat_id=$(this).val();
 
             if(cat_id !=null){
-                // ajax call
                 $.ajax({
                     url:"/admin/category/"+cat_id+"/child",
                     type:"POST",

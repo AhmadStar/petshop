@@ -1,7 +1,6 @@
 @extends('frontend.layouts.master')
 
 @section('main-content')
-    <!-- Breadcrumbs -->
     <div class="breadcrumbs">
         <div class="container">
             <div class="row">
@@ -16,9 +15,6 @@
             </div>
         </div>
     </div>
-    <!-- End Breadcrumbs -->
-
-    <!-- Start Contact -->
     <section id="contact-us" class="contact-us section">
         <div class="container">
             <div class="contact-head">
@@ -120,12 +116,7 @@
         </div>
     </div>
 </section>
-<!--/ End Contact -->
-
-<!-- Start Shop Newsletter  -->
 @include('frontend.layouts.newsletter')
-<!-- End Shop Newsletter -->
-<!--================Contact Success  =================-->
 <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -142,8 +133,6 @@
         </div>
     </div>
 </div>
-
-<!-- Modals error -->
 <div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
