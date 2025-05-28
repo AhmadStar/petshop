@@ -80,7 +80,7 @@ class CartController extends Controller
             // $already_cart->price = ($product->price * $request->quant[1]) + $already_cart->price ;
             $already_cart->amount = ($product->price * $request->quant[1])+ $already_cart->amount;
 
-            if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) return back()->with('error','Stock not sufficient!.');
+            if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) return back()->with('error','Stok yeterli değil!');
 
             $already_cart->save();
             
@@ -92,11 +92,11 @@ class CartController extends Controller
             $cart->price = ($product->price-($product->price*$product->discount)/100);
             $cart->quantity = $request->quant[1];
             $cart->amount=($product->price * $request->quant[1]);
-            if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return back()->with('error','Stock not sufficient!.');
+            if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return back()->with('error','Stok yeterli değil!');
             // return $cart;
             $cart->save();
         }
-        request()->session()->flash('success','Product has been added to cart.');
+        request()->session()->flash('success','Ürün sepete eklendi.');
         return back();       
     } 
     
@@ -104,10 +104,10 @@ class CartController extends Controller
         $cart = Cart::find($request->id);
         if ($cart) {
             $cart->delete();
-            request()->session()->flash('success','Cart removed successfully');
+            request()->session()->flash('success','Sepet başarıyla silindi!');
             return back();  
         }
-        request()->session()->flash('error','Error please try again');
+        request()->session()->flash('error','Lütfen daha sonra tekrar deneyin!');
         return back();       
     }     
 
@@ -127,7 +127,7 @@ class CartController extends Controller
                     // return $quant;
 
                     if($cart->product->stock < $quant){
-                        request()->session()->flash('error','Out of stock');
+                        request()->session()->flash('error','Stokta bulunamadı');
                         return back();
                     }
                     $cart->quantity = ($cart->product->stock > $quant) ? $quant  : $cart->product->stock;
@@ -138,14 +138,14 @@ class CartController extends Controller
                     $cart->amount = $after_price * $quant;
                     // return $cart->price;
                     $cart->save();
-                    $success = 'Cart updated successfully!';
+                    $success = 'Kart bilgileri güncellendi!';
                 }else{
-                    $error[] = 'Cart Invalid!';
+                    $error[] = 'Geçersiz kart!';
                 }
             }
             return back()->with($error)->with('success', $success);
         }else{
-            return back()->with('Cart Invalid!');
+            return back()->with('Geçersiz kart!');
         }    
     }
 

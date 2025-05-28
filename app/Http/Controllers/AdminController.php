@@ -38,10 +38,10 @@ class AdminController extends Controller
         $data=$request->all();
         $status=$user->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Successfully updated your profile');
+            request()->session()->flash('success','Profiliniz başarıyla güncellendi');
         }
         else{
-            request()->session()->flash('error','Please try again!');
+            request()->session()->flash('error','Lütfen tekrar deneyin!');
         }
         return redirect()->back();
     }
@@ -68,10 +68,10 @@ class AdminController extends Controller
         // return $settings;
         $status=$settings->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Setting successfully updated');
+            request()->session()->flash('success','Ayarlar başarıyla güncellendi.');
         }
         else{
-            request()->session()->flash('error','Please try again');
+            request()->session()->flash('error','Lütfen tekrar deneyin!');
         }
         return redirect()->route('admin');
     }
@@ -89,7 +89,7 @@ class AdminController extends Controller
    
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
    
-        return redirect()->route('admin')->with('success','Password successfully changed');
+        return redirect()->route('admin')->with('success','Şifre başarıyla değiştirildi');
     }
 
     // Pie chart
