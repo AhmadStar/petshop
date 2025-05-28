@@ -66,29 +66,14 @@
                                 <!-- Description -->
                                 <div class="short">
                                     <h4>{{ $product_detail->title }}</h4>
-                                    <div class="rating-main">
-                                        <ul class="rating">
-                                            @php
-                                                $rate = ceil($product_detail->getReview->avg('rate'));
-                                            @endphp
-                                            @for ($i = 1; $i <= 5; $i++)
-                                                @if ($rate >= $i)
-                                                    <li><i class="fa fa-star"></i></li>
-                                                @else
-                                                    <li><i class="fa fa-star-o"></i></li>
-                                                @endif
-                                            @endfor
-                                        </ul>
-                                        <a href="#"
-                                            class="total-review">({{ $product_detail['getReview']->count() }}) Review</a>
-                                    </div>
+
                                     @php
                                         $after_discount =
                                             $product_detail->price -
                                             ($product_detail->price * $product_detail->discount) / 100;
                                     @endphp
                                     <p class="price"><span
-                                            class="discount">${{ number_format($after_discount, 2) }}</span><s>${{ number_format($product_detail->price, 2) }}</s>
+                                            class="discount">TL{{ number_format($after_discount, 2) }}</span>
                                     </p>
                                     <p class="description">{!! $product_detail->summary !!}</p>
                                 </div>
