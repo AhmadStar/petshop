@@ -49,7 +49,7 @@ class ShippingController extends Controller
             request()->session()->flash('success','Kargo başarıyla oluşturuldu!');
         }
         else{
-            request()->session()->flash('error','Error, Lütfen daha sonra tekrar deneyin!');
+            request()->session()->flash('error','Hata, Lütfen daha sonra tekrar deneyin!');
         }
         return redirect()->route('shipping.index');
     }

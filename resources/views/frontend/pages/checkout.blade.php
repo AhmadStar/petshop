@@ -1,6 +1,5 @@
 @extends('frontend.layouts.master')
-
-@section('title', 'Checkout page')
+@section('title','PettyShop')
 
 @section('main-content')
 
@@ -144,8 +143,8 @@
                                         </li>
 
                                         @if (session('coupon'))
-                                            <li class="coupon_price" data-price="{{ session('coupon')['value'] }}">You
-                                                Save<span>${{ number_format(session('coupon')['value'], 2) }}</span></li>
+                                            <li class="coupon_price" data-price="{{ session('coupon')['value'] }}">Kazanç
+                                                <span>${{ number_format(session('coupon')['value'], 2) }}</span></li>
                                         @endif
                                         @php
                                             $total_amount = Helper::totalCartPrice();

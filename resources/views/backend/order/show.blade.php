@@ -1,10 +1,9 @@
 @extends('backend.layouts.master')
-
-@section('title','Order Detail')
+@section('title','PettyShop')
 
 @section('main-content')
 <div class="card">
-<h5 class="card-header">Sipariş       <a href="{{route('order.pdf',$order->id)}}" class=" btn btn-sm btn-primary shadow-sm float-right"><i class="fas fa-download fa-sm text-white-50"></i> Generate PDF</a>
+<h5 class="card-header">Sipariş       <a href="{{route('order.pdf',$order->id)}}" class=" btn btn-sm btn-primary shadow-sm float-right"><i class="fas fa-download fa-sm text-white-50"></i> PDF oluştur</a>
   </h5>
   <div class="card-body">
     @if($order)
@@ -35,19 +34,19 @@
                 @if($order->status=='new')
                   <span class="badge badge-primary">YENİ</span>
                 @elseif($order->status=='process')
-                  <span class="badge badge-warning">DEVAM EDİYOR</span>
+                  <span class="badge badge-warning">İŞLEMDE</span>
                 @elseif($order->status=='delivered')
-                  <span class="badge badge-success">TESLİM EDİLMİŞ</span>
+                  <span class="badge badge-success">TESLİM EDİLDİ</span>
                 @else
                   <span class="badge badge-danger">{{$order->status}}</span>
                 @endif
             </td>
             <td>
-                <a href="{{route('order.edit',$order->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                <a href="{{route('order.edit',$order->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="düzenle" data-placement="bottom"><i class="fas fa-edit"></i></a>
                 <form method="POST" action="{{route('order.destroy',[$order->id])}}">
                   @csrf
                   @method('delete')
-                      <button class="btn btn-danger btn-sm dltBtn" data-id={{$order->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                      <button class="btn btn-danger btn-sm dltBtn" data-id={{$order->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="sil"><i class="fas fa-trash-alt"></i></button>
                 </form>
             </td>
 
@@ -113,9 +112,9 @@
                       <td>Ödeme Durumu</td>
                       <td> : 
                           @if($order->payment_status == 'paid')
-                              <span class="badge badge-success">Paid</span>
+                              <span class="badge badge-success">Ödendi</span>
                           @elseif($order->payment_status == 'unpaid')
-                              <span class="badge badge-danger">Unpaid</span>
+                              <span class="badge badge-danger">Ödenmedi</span>
                           @else
                               {{$order->payment_status}}
                           @endif

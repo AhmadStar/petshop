@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'PettyShop - Ana Sayfa')
+@section('title','PettyShop')
 @section('main-content')
     <!-- Slider Area -->
     @if (count($banners) > 0)

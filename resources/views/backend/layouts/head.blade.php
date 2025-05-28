@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>PettyShop - Anasayfa</title>
+    <title>PettyShop - Admin Paneli</title>
 <link rel="icon" type="image/png" href="http://127.0.0.1:8000/frontend/img/logo-2.webp">
 
     <!-- Custom fonts for this template-->

@@ -1,6 +1,5 @@
 @extends('backend.layouts.master')
-
-@section('title','Admin Profile')
+@section('title','PettyShop')
 
 @section('main-content')
 

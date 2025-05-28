@@ -15,7 +15,7 @@
     <li class="nav-item active">
       <a class="nav-link" href="{{route('user')}}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span></a>
+        <span>Kontrol Paneli</span></a>
     </li>
 
     <!-- Divider -->
@@ -23,13 +23,13 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Shop
+            Mağaza
         </div>
     <!--Orders -->
     <li class="nav-item">
         <a class="nav-link" href="{{route('user.order.index')}}">
             <i class="fas fa-hammer fa-chart-area"></i>
-            <span>Orders</span>
+            <span>Siparişler</span>
         </a>
     </li>
 
@@ -37,7 +37,7 @@
     <li class="nav-item">
         <a class="nav-link" href="{{route('user.productreview.index')}}">
             <i class="fas fa-comments"></i>
-            <span>Reviews</span></a>
+            <span>Değerlendirmeler</span></a>
     </li>
     
 
@@ -52,7 +52,7 @@
     <li class="nav-item">
       <a class="nav-link" href="{{route('user.post-comment.index')}}">
           <i class="fas fa-comments fa-chart-area"></i>
-          <span>Comments</span>
+          <span>Yorumlar</span>
       </a>
     </li>
     <!-- Sidebar Toggler (Sidebar) -->

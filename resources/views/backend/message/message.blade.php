@@ -1,3 +1,5 @@
+@section('title','PettyShop')
+
 <div id="messages">
     <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-envelope fa-fw"></i>

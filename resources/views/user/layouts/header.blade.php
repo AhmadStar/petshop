@@ -8,7 +8,7 @@
     <!-- Topbar Search -->
     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
       <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Ara..." aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
           <button class="btn btn-primary" type="button">
             <i class="fas fa-search fa-sm"></i>
@@ -29,7 +29,7 @@
         <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
           <form class="form-inline mr-auto w-100 navbar-search">
             <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Ara..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button">
                   <i class="fas fa-search fa-sm"></i>
@@ -42,7 +42,7 @@
 
       {{-- Home page --}}
       <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="{{route('home')}}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="home"  role="button">
+        <a class="nav-link dropdown-toggle" href="{{route('home')}}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="anasayfa"  role="button">
           <i class="fas fa-home fa-fw"></i>
         </a>
       </li>
@@ -63,17 +63,17 @@
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
           <a class="dropdown-item" href="{{route('user-profile')}}">
             <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-            Profile
+            Profil
           </a>
           <a class="dropdown-item" href="{{route('user.change.password.form')}}">
             <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
-            Change Password
+            Şifre değiştir
           </a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> {{ __('Logout') }}
+                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> {{ __('Çıkış Yap') }}
             </a>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-
+@section('title','PettyShop')
 @section('main-content')
  <!-- DataTales Example -->
  <div class="card shadow mb-4">
@@ -10,7 +10,7 @@
      </div>
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary float-left">Kategori Listesi</h6>
-      <a href="{{route('category.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Kategori Ekle
+      <a href="{{route('category.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="kategori ekle"><i class="fas fa-plus"></i> Kategori Ekle
 </a>
     </div>
     <div class="card-body">
@@ -57,11 +57,11 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('category.edit',$category->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('category.edit',$category->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="düzenle" data-placement="bottom"><i class="fas fa-edit"></i></a>
                     <form method="POST" action="{{route('category.destroy',[$category->id])}}">
                       @csrf
                       @method('delete')
-                          <button class="btn btn-danger btn-sm dltBtn" data-id={{$category->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                          <button class="btn btn-danger btn-sm dltBtn" data-id={{$category->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="sil"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>
@@ -70,7 +70,7 @@
         </table>
         <span style="float:right">{{$categories->links()}}</span>
         @else
-          <h6 class="text-center">No Categories found!!! Please create Category</h6>
+          <h6 class="text-center">Kategori bulunamadı!!!</h6>
         @endif
       </div>
     </div>
@@ -126,8 +126,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                    title: "Emin misin?",
+                    text: "Bir kez silindiğinde bu verileri kurtaramazsınız!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -136,7 +136,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Verileriniz güvende!");
                     }
                 });
           })

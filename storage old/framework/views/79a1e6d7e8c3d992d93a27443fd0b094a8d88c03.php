@@ -151,7 +151,7 @@ unset($__errorArgs, $__bag); ?>
     $('#lfm1').filemanager('image');
     $(document).ready(function() {
     $('#summary').summernote({
-      placeholder: "Write short description.....",
+      placeholder: "Kısa açıklama yazın.....",
         tabsize: 2,
         height: 150
     });
@@ -159,14 +159,14 @@ unset($__errorArgs, $__bag); ?>
 
     $(document).ready(function() {
       $('#quote').summernote({
-        placeholder: "Write short Quote.....",
+        placeholder: "Kısa Alıntı Yazın.....",
           tabsize: 2,
           height: 100
       });
     });
     $(document).ready(function() {
       $('#description').summernote({
-        placeholder: "Write detail description.....",
+        placeholder: "Detaylı açıklama yazın.....",
           tabsize: 2,
           height: 150
       });

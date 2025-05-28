@@ -74,7 +74,7 @@ unset($__errorArgs, $__bag); ?>
 
     $(document).ready(function() {
     $('#description').summernote({
-      placeholder: "Write short description.....",
+      placeholder: "Kısa açıklama yazın.....",
         tabsize: 2,
         height: 150
     });

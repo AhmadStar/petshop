@@ -1,5 +1,6 @@
 @extends('backend.layouts.master')
 @section('main-content')
+@section('title','PettyShop')
 <div class="card">
   <div class="row">
     <div class="col-md-12">
@@ -28,11 +29,11 @@
           <td>{{$message->subject}}</td>
           <td>{{$message->created_at->format('F d, Y h:i A')}}</td>
           <td>
-            <a href="{{route('message.show',$message->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
+            <a href="{{route('message.show',$message->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="görüntüle" data-placement="bottom"><i class="fas fa-eye"></i></a>
             <form method="POST" action="{{route('message.destroy',[$message->id])}}">
               @csrf 
               @method('delete')
-                  <button class="btn btn-danger btn-sm dltBtn" data-id={{$message->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                  <button class="btn btn-danger btn-sm dltBtn" data-id={{$message->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="sil"><i class="fas fa-trash-alt"></i></button>
             </form>
           </td>
         </tr>
@@ -102,7 +103,7 @@
             e.preventDefault();
             swal({
                   title: "Emin misin?",
-                  text: "Tüm bilgiler silinecek!",
+                  text: "Bir kez silindiğinde bu verileri kurtaramazsınız!",
                   icon: "warning",
                   buttons: true,
                   dangerMode: true,
@@ -111,7 +112,7 @@
                   if (willDelete) {
                     form.submit();
                   } else {
-                      swal("Bilgiler kurtarıldı!");
+                      swal("Verileriniz güvende!");
                   }
               });
         })

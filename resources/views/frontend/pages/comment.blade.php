@@ -1,3 +1,5 @@
+@section('title','PettyShop')
+
 @foreach($comments as $comment)
 {{-- {{dd($comments)}} --}}
 @php $dep = $depth-1; @endphp

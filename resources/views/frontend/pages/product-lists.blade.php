@@ -1,6 +1,5 @@
 @extends('frontend.layouts.master')
-
-@section('title', 'PettyShop - PRODUCT PAGE')
+@section('title','PettyShop')
 
 @section('main-content')
 
@@ -166,8 +165,8 @@
                                     <!-- End Single List -->
                                 @endforeach
                             @else
-                                <h4 class="text-danger" style="margin:100px auto;">Üzgünüz, verilen aralığa göre ürün
-                                    bulunamadı. Daha fazla sonuç görmek için farklı bir aralık seçmeyi deneyin.</h4>
+                                <h4 class="text-danger" style="margin:100px auto;">Üzgünüz, aradığınız kriterlere göre ürün
+                                    bulunamadı. Daha fazla sonuç görmek için farklı kriterler seçmeyi deneyin.</h4>
                             @endif
                         </div>
                         <div class="row">

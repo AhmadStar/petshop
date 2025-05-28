@@ -17,7 +17,7 @@
         <div class="text-center">
           <div class="error mx-auto" data-text="404">404</div>
 <p class="lead text-gray-800 mb-5">Sayfa Bulunamadı</p>
-<p class="text-gray-500 mb-0">Matrix'te bir hata bulmuş gibisiniz...</p>
+<p class="text-gray-500 mb-0">Bir hatayla karşılaşmış gibisiniz...</p>
 <a href="{{route('home')}}">&larr; Ana Sayfaya Dön</a>
         </div>
       </div>

@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-
+@section('title','PettyShop')
 @section('main-content')
  <!-- DataTales Example -->
  <div class="card shadow mb-4">
@@ -10,7 +10,7 @@
      </div>
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary float-left">Ürün Listesi</h6>
-      <a href="{{route('product.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Ürün Ekle</a>
+      <a href="{{route('product.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="kullanıcı ekle"><i class="fas fa-plus"></i> Ürün Ekle</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -21,11 +21,11 @@
               <th>#</th>
               <th>Başlık</th>
               <th>Kategori</th>
-              <th>Oluşturulma Tarihi</th>
               <th>Fiyat</th>
-              <th>Kullanılma Durumu</th>
+              <th>Fiyat</th>
               <th>Adet</th>
               <th>Fotoğraf</th>
+              <th>Statü</th>
               <th>Düzenle</th>
             </tr>
           </thead>
@@ -71,11 +71,11 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('product.edit',$product->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('product.edit',$product->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="düzenle" data-placement="bottom"><i class="fas fa-edit"></i></a>
                     <form method="POST" action="{{route('product.destroy',[$product->id])}}">
                       @csrf
                       @method('delete')
-                          <button class="btn btn-danger btn-sm dltBtn" data-id={{$product->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                          <button class="btn btn-danger btn-sm dltBtn" data-id={{$product->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="sil"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>

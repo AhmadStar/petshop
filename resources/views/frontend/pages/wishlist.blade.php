@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Wishlist Page')
+@section('title','PettyShop')
 @section('main-content')
     <!-- Breadcrumbs -->
     <div class="breadcrumbs">
@@ -174,8 +174,7 @@
                                     <ul>
                                         <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                                         <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="youtube" href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                                        <li><a class="dribbble" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a class="youtube" href="#"><i class="fa fa-youtube"></i></a></li>
                                     </ul>
                                 </div>
                             </div>

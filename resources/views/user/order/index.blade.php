@@ -1,5 +1,5 @@
 @extends('user.layouts.master')
-
+@section('title','PettyShop')
 @section('main-content')
 
  <div class="card shadow mb-4">
@@ -9,7 +9,7 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Order Lists</h6>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Siparişler Listesi</h6>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -17,15 +17,15 @@
         <table class="table table-bordered table-hover" id="order-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>#</th>
-              <th>Order No.</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Qty.</th>
-              <th>Charge</th>
-              <th>Total</th>
-              <th>Status</th>
-              <th>Action</th>
+                <th>#</th>
+                <th>Sipariş No.</th>
+                <th>Ad</th>
+                <th>Email</th>
+                <th>Adet</th>
+                <th>Ücret</th>
+                <th>Toplam</th>
+                <th>Statü</th>
+                <th>Düzenle</th>
             </tr>
           </thead>
           <tbody>
@@ -43,21 +43,21 @@
                     <td>${{number_format($order->total_amount,2)}}</td>
                     <td>
                         @if($order->status=='new')
-                          <span class="badge badge-primary">NEW</span>
+                          <span class="badge badge-primary">YENİ</span>
                         @elseif($order->status=='process')
-                          <span class="badge badge-warning">PROCESSING</span>
+                          <span class="badge badge-warning">İŞLEMDE</span>
                         @elseif($order->status=='delivered')
-                          <span class="badge badge-success">DELIVERED</span>
+                          <span class="badge badge-success">TESLİM EDİLDİ</span>
                         @else
                           <span class="badge badge-danger">{{$order->status}}</span>
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('user.order.show',$order->id)}}" class="btn btn-warning btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
+                        <a href="{{route('user.order.show',$order->id)}}" class="btn btn-warning btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="görüntüle" data-placement="bottom"><i class="fas fa-eye"></i></a>
                         <form method="POST" action="{{route('user.order.delete',[$order->id])}}">
                           @csrf
                           @method('delete')
-                              <button class="btn btn-danger btn-sm dltBtn" data-id={{$order->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                              <button class="btn btn-danger btn-sm dltBtn" data-id={{$order->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="sil"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>
@@ -69,7 +69,7 @@
         </table>
         <span style="float:right">{{$orders->links()}}</span>
         @else
-          <h6 class="text-center">No orders found!!! Please order some products</h6>
+          <h6 class="text-center">Sipariş bulunamadı!!!</h6>
         @endif
       </div>
     </div>
@@ -124,8 +124,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
+                    title: "Emin misin?",
+                    text: "Bir kez silindiğinde bu verileri kurtaramazsınız!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -134,7 +134,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Your data is safe!");
+                        swal("Verileriniz güvende!");
                     }
                 });
           })

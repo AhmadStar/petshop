@@ -1,6 +1,5 @@
 @extends('frontend.layouts.master')
-
-@section('title', 'PettyShop - PRODUCT PAGE')
+@section('title','PettyShop')
 
 @section('main-content')
     <!-- Breadcrumbs -->
@@ -168,7 +167,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            <button type="button" class="close" data-dismiss="modal" aria-label="kapat"><span
                                     class="ti-close" aria-hidden="true"></span></button>
                         </div>
                         <div class="modal-body">

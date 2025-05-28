@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section('title','PettyShop')
 
 @section('meta')
     <meta charset="utf-8">
@@ -112,7 +113,7 @@
                                             href="{{ route('product-cat', $product_detail->cat_info['slug']) }}">{{ $product_detail->cat_info['title'] }}</a>
                                     </p>
                                     @if ($product_detail->sub_cat_info)
-                                        <p class="cat mt-1">Sub Category :<a
+                                        <p class="cat mt-1">Alt Kategori :<a
                                                 href="{{ route('product-sub-cat', [$product_detail->cat_info['slug'], $product_detail->sub_cat_info['slug']]) }}">{{ $product_detail->sub_cat_info['title'] }}</a>
                                         </p>
                                     @endif
@@ -235,8 +236,7 @@
                                     <ul>
                                         <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                                         <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="youtube" href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                                        <li><a class="dribbble" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a class="youtube" href="#"><i class="fa fa-youtube"></i></a></li>
                                     </ul>
                                 </div>
                             </div>

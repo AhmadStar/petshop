@@ -1,4 +1,5 @@
 @extends('backend.layouts.master')
+@section('title','PettyShop')
 @section('main-content')
 <div class="card">
   <h5 class="card-header">Mesaj</h5>

@@ -1,3 +1,5 @@
+@section('title','PettyShop')
+
 @extends('backend.layouts.master')
 
 @section('main-content')
@@ -53,12 +55,12 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('order.show',$order->id)}}" class="btn btn-warning btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
-                        <a href="{{route('order.edit',$order->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('order.show',$order->id)}}" class="btn btn-warning btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="görüntüle" data-placement="bottom"><i class="fas fa-eye"></i></a>
+                        <a href="{{route('order.edit',$order->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="düzenle" data-placement="bottom"><i class="fas fa-edit"></i></a>
                         <form method="POST" action="{{route('order.destroy',[$order->id])}}">
                           @csrf 
                           @method('delete')
-                              <button class="btn btn-danger btn-sm dltBtn" data-id={{$order->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                              <button class="btn btn-danger btn-sm dltBtn" data-id={{$order->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="sil"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>  
@@ -123,7 +125,7 @@
               e.preventDefault();
               swal({
                     title: "Emin misin?",
-                    text: "Tüm bilgiler silinecek!",
+                    text: "Bir kez silindiğinde bu verileri kurtaramazsınız!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -132,7 +134,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal("Bilgiler kurtarıldı!");
+                        swal("Verileriniz güvende!");
                     }
                 });
           })

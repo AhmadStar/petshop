@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-
+@section('title','PettyShop')
 @section('main-content')
 
 <div class="card">
@@ -84,7 +84,7 @@
 
     $(document).ready(function() {
     $('#summary').summernote({
-      placeholder: "Write short description.....",
+      placeholder: "Kısa açıklama yazın.....",
         tabsize: 2,
         height: 150
     });

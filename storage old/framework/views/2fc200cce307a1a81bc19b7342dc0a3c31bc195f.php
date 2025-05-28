@@ -77,7 +77,7 @@
         </table>
         <span style="float:right"><?php echo e($reviews->links()); ?></span>
         <?php else: ?>
-          <h6 class="text-center">No reviews found!!!</h6>
+          <h6 class="text-center">Hiçbir değerlendirme bulunamadı!!!</h6>
         <?php endif; ?>
       </div>
     </div>

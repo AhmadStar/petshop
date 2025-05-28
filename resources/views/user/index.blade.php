@@ -1,5 +1,5 @@
 @extends('user.layouts.master')
-
+@section('title','PettyShop')
 @section('main-content')
 <div class="container-fluid">
     @include('user.layouts.notification')

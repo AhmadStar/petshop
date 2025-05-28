@@ -214,7 +214,7 @@ class OrderController extends Controller
             request()->session()->flash('success','Siparişiniz başarıyla güncellendi!');
         }
         else{
-            request()->session()->flash('error','Siparişinizi güncellerken hata oluştu!');
+            request()->session()->flash('error','Siparişiniz güncellenirken hata oluştu!');
         }
         return redirect()->route('order.index');
     }

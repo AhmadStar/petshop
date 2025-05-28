@@ -1,3 +1,5 @@
+@section('title','PettyShop')
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -175,7 +177,7 @@
   </div>
   <div class="clearfix"></div>
 @else
-  <h5 class="text-danger">Hatalı</h5>
+  <h5 class="text-danger">Geçersiz</h5>
 @endif
 </body>
 </html>

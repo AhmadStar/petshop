@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-
+@section('title','PettyShop')
 @section('main-content')
  <!-- DataTales Example -->
  <div class="card shadow mb-4">
@@ -38,11 +38,11 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('shipping.edit',$shipping->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('shipping.edit',$shipping->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="düzenle" data-placement="bottom"><i class="fas fa-edit"></i></a>
                         <form method="POST" action="{{route('shipping.destroy',[$shipping->id])}}">
                           @csrf
                           @method('delete')
-                              <button class="btn btn-danger btn-sm dltBtn" data-id={{$shipping->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Sil"><i class="fas fa-trash-alt"></i></button>
+                              <button class="btn btn-danger btn-sm dltBtn" data-id={{$shipping->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="sil"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                     {{-- Delete Modal --}}

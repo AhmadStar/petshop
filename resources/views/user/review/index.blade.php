@@ -1,5 +1,5 @@
 @extends('user.layouts.master')
-
+@section('title','PettyShop')
 @section('main-content')
 
  <div class="card shadow mb-4">
@@ -74,7 +74,7 @@
         </table>
         <span style="float:right">{{$reviews->links()}}</span>
         @else
-          <h6 class="text-center">No reviews found!!!</h6>
+          <h6 class="text-center">Hiçbir değerlendirme bulunamadı!!!</h6>
         @endif
       </div>
     </div>
