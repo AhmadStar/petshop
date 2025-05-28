@@ -135,7 +135,7 @@ class OrderController extends Controller
         } else {
             $order_data['payment_method'] = 'cod';
             $order_data['payment_status'] = 'Unpaid';
-        }        
+        }
         $order->fill($order_data);
         $status=$order->save();
         if($order)
@@ -156,7 +156,7 @@ class OrderController extends Controller
         }
         Cart::where('user_id', auth()->user()->id)->where('order_id', null)->update(['order_id' => $order->id]);
 
-        // dd($users);        
+        // dd($users);
         request()->session()->flash('success','Siparişiniz başarıyla oluşturuldu, alışveriş yaptığınız için teşekkürler!');
         return redirect()->route('home');
     }
@@ -260,17 +260,17 @@ class OrderController extends Controller
             elseif($order->status=="process"){
                 request()->session()->flash('success','Siparişiniz şu anda işleniyor.');
                 return redirect()->route('home');
-    
+
             }
             elseif($order->status=="delivered"){
                 request()->session()->flash('success','Siparişiniz teslim edildi. Alışveriş yaptığınız için teşekkür ederiz.');
                 return redirect()->route('home');
-    
+
             }
             else{
                 request()->session()->flash('error','Üzgünüz, siparişiniz iptal edildi.');
                 return redirect()->route('home');
-    
+
             }
         }
         else{

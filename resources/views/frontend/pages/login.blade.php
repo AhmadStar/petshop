@@ -56,11 +56,6 @@
             <div class="checkbox">
                 <label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">Beni Hatırla</label>
             </div>
-            @if (Route::has('password.request'))
-                <a class="lost-pass" href="{{ route('password.reset') }}">
-                    Şifrenizi mi unuttunuz?
-                </a>
-            @endif
         </div>
     </div>
 </form>

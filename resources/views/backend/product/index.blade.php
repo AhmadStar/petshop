@@ -23,13 +23,9 @@
               <th>Kategori</th>
               <th>Oluşturulma Tarihi</th>
               <th>Fiyat</th>
-              <th>İndirim</th>
-              <th>Beden</th>
               <th>Kullanılma Durumu</th>
-              <th>Marka</th>
               <th>Adet</th>
               <th>Fotoğraf</th>
-              <th>Öne Çıkar</th>
               <th>Düzenle</th>
             </tr>
           </thead>
@@ -38,8 +34,6 @@
             @foreach($products as $product)
               @php
               $sub_cat_info=DB::table('categories')->select('title')->where('id',$product->child_cat_id)->get();
-              // dd($sub_cat_info);
-              $brands=DB::table('brands')->select('title')->where('id',$product->brand_id)->get();
               @endphp
                 <tr>
                     <td>{{$product->id}}</td>
@@ -49,12 +43,8 @@
                           {{$product->sub_cat_info->title ?? ''}}
                       </sub>
                     </td>
-                    <td>{{(($product->is_featured==1)? 'Yes': 'No')}}</td>
                     <td>${{$product->price}}</td>
-                    <td>  {{$product->discount}}%</td>
-                    <td>{{$product->size}}</td>
                     <td>{{$product->condition}}</td>
-                    <td> {{ucfirst($product->brand->title)}}</td>
                     <td>
                       @if($product->stock>0)
                       <span class="badge badge-primary">{{$product->stock}}</span>

@@ -90,8 +90,7 @@
                                                     Fiyat</option>
                                                 <option value="category" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'category') selected @endif>
                                                     Kategori</option>
-                                                <option value="brand" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'brand') selected @endif>
-                                                    Marka</option>
+
                                             </select>
                                         </div>
                                     </div>
@@ -298,8 +297,6 @@
                                             </div>
                                             <div class="add-to-cart">
                                                 <button type="submit" class="btn">Sepete Ekle</button>
-                                                <a href="{{ route('add-to-wishlist', $product->slug) }}"
-                                                    class="btn min"><i class="ti-heart"></i></a>
                                             </div>
                                         </form>
                                         <div class="default-social">

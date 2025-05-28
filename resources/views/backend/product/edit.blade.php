@@ -6,7 +6,7 @@
     <h5 class="card-header">Ürünleri Düzenle</h5>
     <div class="card-body">
       <form method="post" action="{{route('product.update',$product->id)}}">
-        @csrf 
+        @csrf
         @method('PATCH')
         <div class="form-group">
           <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
@@ -33,11 +33,6 @@
         </div>
 
 
-        <div class="form-group">
-          <label for="is_featured">Öne Çıkarma</label><br>
-          <input type="checkbox" name='is_featured' id='is_featured' value='{{$product->is_featured}}' {{(($product->is_featured) ? 'checked' : '')}}> Evet                       
-        </div>
-              {{-- {{$categories}} --}}
 
         <div class="form-group">
           <label for="cat_id">Kategori <span class="text-danger">*</span></label>
@@ -48,7 +43,7 @@
               @endforeach
           </select>
         </div>
-        @php 
+        @php
           $sub_cat_info=DB::table('categories')->select('title')->where('id',$product->child_cat_id)->get();
         // dd($sub_cat_info);
 
@@ -58,7 +53,7 @@
           <label for="child_cat_id">Alt Kategori</label>
           <select name="child_cat_id" id="child_cat_id" class="form-control">
               <option value="">--Alt Kategori Seç--</option>
-              
+
           </select>
         </div>
 
@@ -69,52 +64,6 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-
-        <div class="form-group">
-          <label for="discount" class="col-form-label">İndirim(%)</label>
-          <input id="discount" type="number" name="discount" min="0" max="100" placeholder="Enter discount"  value="{{$product->discount}}" class="form-control">
-          @error('discount')
-          <span class="text-danger">{{$message}}</span>
-          @enderror
-        </div>
-        <div class="form-group">
-          <label for="size">Beden</label>
-          <select name="size[]" class="form-control selectpicker"  multiple data-live-search="true">
-              <option value="">--Beden Seçin--</option>
-              @foreach($items as $item)              
-                @php 
-                $data=explode(',',$item->size);
-                // dd($data);
-                @endphp
-              <option value="S"  @if( in_array( "S",$data ) ) selected @endif>Small</option>
-              <option value="M"  @if( in_array( "M",$data ) ) selected @endif>Medium</option>
-              <option value="L"  @if( in_array( "L",$data ) ) selected @endif>Large</option>
-              <option value="XL"  @if( in_array( "XL",$data ) ) selected @endif>Extra Large</option>
-              <option value="2XL"  @if( in_array( "2XL",$data ) ) selected @endif>Double Extra Large</option>
-              <option value="FS"  @if( in_array( "FS",$data ) ) selected @endif>Free Size</option>
-              @endforeach
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="brand_id">Marka</label>
-          <select name="brand_id" class="form-control">
-              <option value="">--Marka Seçin--</option>
-             @foreach($brands as $brand)
-              <option value="{{$brand->id}}" {{(($product->brand_id==$brand->id)? 'selected':'')}}>{{$brand->title}}</option>
-             @endforeach
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="condition">Öne Çıkar</label>
-          <select name="condition" class="form-control">
-              <option value="">--Öne Çıkarma--</option>
-              <option value="default" {{(($product->condition=='default')? 'selected':'')}}>Default</option>
-              <option value="new" {{(($product->condition=='new')? 'selected':'')}}>New</option>
-              <option value="hot" {{(($product->condition=='hot')? 'selected':'')}}>Hot</option>
-          </select>
-        </div>
-
         <div class="form-group">
           <label for="stock">Adet <span class="text-danger">*</span></label>
           <input id="quantity" type="number" name="stock" min="0" placeholder="Enter quantity"  value="{{$product->stock}}" class="form-control">
@@ -137,7 +86,7 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        
+
         <div class="form-group">
           <label for="status" class="col-form-label">Statü <span class="text-danger">*</span></label>
           <select name="status" class="form-control">
