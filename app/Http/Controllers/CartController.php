@@ -27,12 +27,7 @@ class CartController extends Controller
         if($already_cart) {
             $already_cart->quantity = $already_cart->quantity + 1;
             $already_cart->amount = $product->price+ $already_cart->amount;
-<<<<<<< HEAD
-            // return $already_cart->quantity;
             if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) return back()->with('error','Stok yeterli değil!');
-=======
-            if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) return back()->with('error','Stock not sufficient!.');
->>>>>>> caf3d1ce00037a1918783823faaee51bb91b388f
             $already_cart->save();
         }else{
             $cart = new Cart;

@@ -1,8 +1,5 @@
 @extends('backend.layouts.master')
-<<<<<<< HEAD
 @section('title','PettyShop')
-=======
->>>>>>> caf3d1ce00037a1918783823faaee51bb91b388f
 @section('main-content')
  <div class="card shadow mb-4">
      <div class="row">
