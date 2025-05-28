@@ -5,7 +5,7 @@
     @include('user.layouts.notification')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-      <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+      <h1 class="h3 mb-0 text-gray-800">Kontrol Paneli</h1>
     </div>
 
     <!-- Content Row -->
@@ -17,7 +17,7 @@
           <div class="card-body">
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Category</div>
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Kategori</div>
                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{\App\Models\Category::countActiveCategory()}}</div>
               </div>
               <div class="col-auto">
@@ -34,7 +34,7 @@
           <div class="card-body">
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Products</div>
+                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Ürünler</div>
                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{\App\Models\Product::countActiveProduct()}}</div>
               </div>
               <div class="col-auto">
@@ -51,7 +51,7 @@
           <div class="card-body">
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Order</div>
+                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Sipariş</div>
                 <div class="row no-gutters align-items-center">
                   <div class="col-auto">
                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{\App\Models\Order::countActiveOrder()}}</div>
@@ -97,13 +97,13 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Order No.</th>
-              <th>Name</th>
+              <th>Sipariş No.</th>
+              <th>Ad</th>
               <th>Email</th>
-              <th>Qty.</th>
-              <th>Total</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Miktar</th>
+              <th>Toplam</th>
+              <th>Statü</th>
+              <th>Düzenle</th>
             </tr>
           </thead>
           
@@ -122,21 +122,21 @@
                     <td>${{number_format($order->total_amount,2)}}</td>
                     <td>
                         @if($order->status=='new')
-                          <span class="badge badge-primary">NEW</span>
+                          <span class="badge badge-primary">YENİ</span>
                         @elseif($order->status=='process')
-                          <span class="badge badge-warning">PROCESSING</span>
+                          <span class="badge badge-warning">İŞLENİYOR</span>
                         @elseif($order->status=='delivered')
-                          <span class="badge badge-success">DELIVERED</span>
+                          <span class="badge badge-success">TESLİM EDİLDİ</span>
                         @else
                           <span class="badge badge-danger">{{$order->status}}</span>
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('user.order.show',$order->id)}}" class="btn btn-warning btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
+                        <a href="{{route('user.order.show',$order->id)}}" class="btn btn-warning btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="görüntüle" data-placement="bottom"><i class="fas fa-eye"></i></a>
                         <form method="POST" action="{{route('user.order.delete',[$order->id])}}">
                           @csrf 
                           @method('delete')
-                              <button class="btn btn-danger btn-sm dltBtn" data-id={{$order->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                              <button class="btn btn-danger btn-sm dltBtn" data-id={{$order->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="sil"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>
@@ -145,7 +145,7 @@
             @endphp
               @endforeach
               @else
-                <td colspan="8" class="text-center"><h4 class="my-4">No orders found! Try ordering some products to view it here.</h4></td>
+                <td colspan="8" class="text-center"><h4 class="my-4">Sipariş bulunamadı! Burada görüntülemek için ürün sipariş etmeyi deneyin.</h4></td>
               @endif
           </tbody>
         </table>
