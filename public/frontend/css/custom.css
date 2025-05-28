@@ -274,7 +274,7 @@
   right: 36px;
 }
 .divider-style1 .divider-thumb .shape-circle {
-  background-color: #ffd868;
+  background-color: #f4a32b;
   clip-path: polygon(0 0, 78% 0, 100% 100%, 0 100%);
   -webkit-clip-path: polygon(0 0, 78% 0, 100% 100%, 0 100%);
   height: 100%;
@@ -570,8 +570,8 @@
 }
 
 .btn-theme:before {
-    background-color: #ffd868;
-    border: 2px solid #ffd868;
+    background-color: #f4a32b;
+    border: 2px solid #f4a32b;
     border-radius: 20px;
     content: "";
     height: 100%;
@@ -630,5 +630,5 @@
 }
 
 .bg-theme-color {
-    background-color: #721b65 !important;
+    background-color: #474654 !important;
 }

@@ -30,14 +30,6 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-
-
-        <div class="form-group">
-          <label for="is_featured">Öne Çıkarma</label><br>
-          <input type="checkbox" name='is_featured' id='is_featured' value='1' checked> Evet                        
-        </div>
-              {{-- {{$categories}} --}}
-
         <div class="form-group">
           <label for="cat_id">Kategori <span class="text-danger">*</span></label>
           <select name="cat_id" id="cat_id" class="form-control">
@@ -65,58 +57,6 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-
-        <div class="form-group">
-          <label for="discount" class="col-form-label">İndirim(%)</label>
-          <input id="discount" type="number" name="discount" min="0" max="100" placeholder="Enter discount"  value="{{old('discount')}}" class="form-control">
-          @error('discount')
-          <span class="text-danger">{{$message}}</span>
-          @enderror
-        </div>
-        <div class="form-group">
-          <label for="size">Beden</label>
-          <select name="size[]" class="form-control selectpicker"  multiple data-live-search="true">
-              <option value="">--Beden Seç--</option>
-              <option value="S">Small (S)</option>
-              <option value="M">Medium (M)</option>
-              <option value="L">Large (L)</option>
-              <option value="XL">Extra Large (XL)</option>
-              <option value="2XL">Double Extra Large (2XL)</option>
-              <option value="7US">7 US</option>
-              <option value="8US">8 US</option>
-              <option value="9US">9 US</option>
-              <option value="10US">10 US</option>
-              <option value="11US">11 US</option>
-              <option value="12US">12 US</option>
-              <option value="13US">13 US</option>
-
-
-
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="brand_id">Marka</label>
-          {{-- {{$brands}} --}}
-
-          <select name="brand_id" class="form-control">
-              <option value="">--Marka Seç--</option>
-             @foreach($brands as $brand)
-              <option value="{{$brand->id}}">{{$brand->title}}</option>
-             @endforeach
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="condition">Öne Çıkar</label>
-          <select name="condition" class="form-control">
-              <option value="">--Öne Çıkarma--</option>
-              <option value="default">Varsayılan</option>
-              <option value="new">Yeni</option>
-              <option value="hot">En Yeni</option>
-          </select>
-        </div>
-
         <div class="form-group">
           <label for="stock">Adet <span class="text-danger">*</span></label>
           <input id="quantity" type="number" name="stock" min="0" placeholder="Enter quantity"  value="{{old('stock')}}" class="form-control">
@@ -139,7 +79,7 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        
+
         <div class="form-group">
           <label for="status" class="col-form-label">Statü <span class="text-danger">*</span></label>
           <select name="status" class="form-control">

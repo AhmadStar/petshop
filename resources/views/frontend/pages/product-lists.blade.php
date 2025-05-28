@@ -61,31 +61,6 @@
                                 </ul>
                             </div>
                             <!--/ End Single Widget -->
-                            <!-- Fiyata Göre Alışveriş Yap -->
-                            <div class="single-widget range">
-                                <h3 class="title">Fiyata Göre Alışveriş Yap</h3>
-                                <div class="price-filter">
-                                    <div class="price-filter-inner">
-                                        @php
-                                            $max = DB::table('products')->max('price');
-                                            // dd($max);
-                                        @endphp
-                                        <div id="slider-range" data-min="0" data-max="{{ $max }}"></div>
-                                        <div class="product_filter">
-                                            <button type="submit" class="filter_button">Filtrele</button>
-                                            <div class="label-input">
-                                                <span>Aralık:</span>
-                                                <input style="" type="text" id="amount" readonly />
-                                                <input type="hidden" name="price_range" id="price_range"
-                                                    value="@if (!empty($_GET['price'])) {{ $_GET['price'] }} @endif" />
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!--/ End Single Widget -->
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-8 col-12">
@@ -118,8 +93,6 @@
                                                     Fiyat</option>
                                                 <option value="category" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'category') selected @endif>
                                                     Kategori</option>
-                                                <option value="brand" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'brand') selected @endif>
-                                                    Marka</option>
 
                                             </select>
                                         </div>
@@ -157,8 +130,6 @@
                                                                 <a title="İstek Listesi"
                                                                     href="{{ route('add-to-wishlist', $product->slug) }}"
                                                                     class="wishlist" data-id="{{ $product->id }}">
-                                                                    <i class="ti-heart"></i><span>İstek Listesine
-                                                                        Ekle</span>
                                                                 </a>
 
 
@@ -189,8 +160,6 @@
                                                         </h3>
                                                     </div>
                                                     <p class="des pt-2">{!! html_entity_decode($product->summary) !!}</p>
-                                                    <a href="javascript:void(0)" class="btn cart"
-                                                        data-id="{{ $product->id }}">Hemen Satın Al!</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -323,8 +292,6 @@
                                             </div>
                                             <div class="add-to-cart">
                                                 <button type="submit" class="btn">Sepete Ekle</button>
-                                                <a href="{{ route('add-to-wishlist', $product->slug) }}"
-                                                    class="btn min"><i class="ti-heart"></i></a>
                                             </div>
                                         </form>
                                         <div class="default-social">

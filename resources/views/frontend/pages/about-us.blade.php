@@ -24,7 +24,7 @@
     <!-- About Us -->
     <section class="about-us section">
         <div class="container">
-            <div class="row">
+            <div class="row center-footer-logo">
                 <div class="col-lg-6 col-12">
                     <div class="about-content">
                         @php
@@ -40,6 +40,9 @@
                             <a href="{{ route('contact') }}" class="btn primary">İletişim</a>
                         </div> --}}
                     </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <img src="https://media.istockphoto.com/id/1355290974/photo/dog-near-different-variation-of-goods-for-animals.jpg?s=612x612&w=0&k=20&c=mL_5zyUinqzo32fKV_0lb0ycD8NnvvlsKCBg51CbO2Q=" alt="">
                 </div>
             </div>
         </div>

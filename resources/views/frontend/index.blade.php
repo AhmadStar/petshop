@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'PettyShop - HOME PAGE')
+@section('title', 'PettyShop - Ana Sayfa')
 @section('main-content')
     <!-- Slider Area -->
     @if (count($banners) > 0)
@@ -264,8 +264,6 @@
                                             </div>
                                             <div class="add-to-cart">
                                                 <button type="submit" class="btn">Sepete Ekle</button>
-                                                <a href="{{ route('add-to-wishlist', $product->slug) }}"
-                                                    class="btn min"><i class="ti-heart"></i></a>
                                             </div>
                                         </form>
                                         <div class="default-social">
@@ -371,9 +369,9 @@
         function cancelFullScreen(el) {
             var requestMethod = el.cancelFullScreen || el.webkitCancelFullScreen || el.mozCancelFullScreen || el
                 .exitFullscreen;
-            if (requestMethod) { 
+            if (requestMethod) {
                 requestMethod.call(el);
-            } else if (typeof window.ActiveXObject !== "undefined") { 
+            } else if (typeof window.ActiveXObject !== "undefined") {
                 var wscript = new ActiveXObject("WScript.Shell");
                 if (wscript !== null) {
                     wscript.SendKeys("{F11}");
@@ -388,7 +386,7 @@
 
             if (requestMethod) {
                 requestMethod.call(el);
-            } else if (typeof window.ActiveXObject !== "undefined") { 
+            } else if (typeof window.ActiveXObject !== "undefined") {
                 var wscript = new ActiveXObject("WScript.Shell");
                 if (wscript !== null) {
                     wscript.SendKeys("{F11}");
