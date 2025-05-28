@@ -102,13 +102,7 @@ Sepetinizde ürün bulunmamaktadır. <a href="{{route('product-grids')}}" style=
     <div class="row">
         <div class="col-lg-8 col-md-5 col-12">
             <div class="left">
-                <div class="coupon">
-                    <form action="{{route('coupon-store')}}" method="POST">
-                        @csrf
-                        <input name="code" placeholder="Geçerli Kupon Kodunu Girin">
-                        <button class="btn">Kuponu Uygula</button>
-                    </form>
-                </div>
+
             </div>
         </div>
         <div class="col-lg-4 col-md-7 col-12">

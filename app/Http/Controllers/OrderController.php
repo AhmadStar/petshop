@@ -135,7 +135,7 @@ class OrderController extends Controller
         } else {
             $order_data['payment_method'] = 'cod';
             $order_data['payment_status'] = 'Unpaid';
-        }        
+        }
         $order->fill($order_data);
         $status=$order->save();
         if($order)
@@ -156,7 +156,7 @@ class OrderController extends Controller
         }
         Cart::where('user_id', auth()->user()->id)->where('order_id', null)->update(['order_id' => $order->id]);
 
-        // dd($users);        
+        // dd($users);
         request()->session()->flash('success','Your product order has been placed. Thank you for shopping with us.');
         return redirect()->route('home');
     }
@@ -252,31 +252,27 @@ class OrderController extends Controller
         // return $request->all();
         $order=Order::where('user_id',auth()->user()->id)->where('order_number',$request->order_number)->first();
         if($order){
-            if($order->status=="new"){
-            request()->session()->flash('success','Your order has been placed.');
-            return redirect()->route('home');
-
-            }
-            elseif($order->status=="process"){
-                request()->session()->flash('success','Your order is currently processing.');
-                return redirect()->route('home');
-    
-            }
-            elseif($order->status=="delivered"){
-                request()->session()->flash('success','Your order has been delivered. Thank you for shopping with us.');
-                return redirect()->route('home');
-    
-            }
-            else{
-                request()->session()->flash('error','Sorry, your order has been canceled.');
-                return redirect()->route('home');
-    
-            }
-        }
-        else{
-            request()->session()->flash('error','Invalid order number. Please try again!');
-            return back();
-        }
+    if($order->status=="new"){
+        request()->session()->flash('success','Siparişiniz başarıyla oluşturuldu.');
+        return redirect()->route('home');
+    }
+    elseif($order->status=="process"){
+        request()->session()->flash('success','Siparişiniz işlem aşamasında.');
+        return redirect()->route('home');
+    }
+    elseif($order->status=="delivered"){
+        request()->session()->flash('success','Siparişiniz teslim edildi. Bizden alışveriş yaptığınız için teşekkür ederiz.');
+        return redirect()->route('home');
+    }
+    else{
+        request()->session()->flash('error','Üzgünüz, siparişiniz iptal edildi.');
+        return redirect()->route('home');
+    }
+}
+else{
+    request()->session()->flash('error','Geçersiz sipariş numarası. Lütfen tekrar deneyin!');
+    return back();
+}
     }
 
     // PDF generate

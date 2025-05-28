@@ -66,20 +66,6 @@
 </li>
 
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#brandCollapse" aria-expanded="true" aria-controls="brandCollapse">
-      <i class="fas fa-table"></i>
-      <span>Markalar</span>
-    </a>
-    <div id="brandCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <h6 class="collapse-header">Marka Seçenekleri:</h6>
-        <a class="collapse-item" href="{{route('brand.index')}}">Markalar</a>
-        <a class="collapse-item" href="{{route('brand.create')}}">Marka Ekle</a>
-      </div>
-    </div>
-</li>
-
-<li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#shippingCollapse" aria-expanded="true" aria-controls="shippingCollapse">
       <i class="fas fa-truck"></i>
       <span>Kargo</span>

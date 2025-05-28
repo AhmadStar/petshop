@@ -115,9 +115,6 @@
                                     @endphp
                                 @endforeach
                             @endif
-                            <a href="{{ route('wishlist') }}" class="single-icon"><i class="fa fa-heart-o"></i> <span
-                                    class="total-count">{{ Helper::wishlistCount() }}</span></a>
-                            <!-- Shopping Item -->
                             @auth
                                 <div class="shopping-item">
                                     <div class="dropdown-cart-header">
@@ -125,7 +122,6 @@
                                         <a href="{{ route('wishlist') }}">Favori Listesini Gör</a>
                                     </div>
                                     <ul class="shopping-list">
-                                        {{-- {{Helper::getAllProductFromCart()}} --}}
                                         @foreach (Helper::getAllProductFromWishlist() as $data)
                                             @php
                                                 $photo = explode(',', $data->product['photo']);
@@ -152,13 +148,11 @@
                                     </div>
                                 </div>
                             @endauth
-                            <!--/ End Shopping Item -->
                         </div>
 
                         <div class="sinlge-bar shopping">
                             <a href="{{ route('cart') }}" class="single-icon"><i class="ti-bag"></i> <span
                                     class="total-count">{{ Helper::cartCount() }}</span></a>
-                            <!-- Shopping Item -->
                             @auth
                                 <div class="shopping-item">
                                     <div class="dropdown-cart-header">
@@ -217,8 +211,7 @@
                                             <li class="{{ Request::path() == 'about-us' ? 'active' : '' }}"><a
                                                     href="{{ route('about-us') }}">Hakkımızda</a></li>
                                             <li class="@if (Request::path() == 'product-grids' || Request::path() == 'product-lists') active @endif"><a
-                                                    href="{{ route('product-grids') }}">Ürünler</a><span
-                                                    class="new">Yeni</span></li>
+                                                    href="{{ route('product-grids') }}">Ürünler</a></li>
                                             <li class="{{ Request::path() == 'contact' ? 'active' : '' }}"><a
                                                     href="{{ route('contact') }}">İletişim</a></li>
                                         </ul>

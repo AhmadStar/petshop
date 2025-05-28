@@ -99,7 +99,7 @@
                 <div class="row center-footer-logo">
                     <div class="col-lg-6 col-12">
                         <div class="left">
-                            <p>© {{ date('Y') }} Developed By Yaman Sankari - All Rights Reserved.</p>
+                            <p>© {{ date('Y') }} Yaman Sankari Tarafından Geliştirilmiştir - Tüm Hakları Saklıdır.</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
