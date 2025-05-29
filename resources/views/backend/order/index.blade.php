@@ -39,7 +39,7 @@
                     <td>{{$order->first_name}} {{$order->last_name}}</td>
                     <td>{{$order->email}}</td>
                     <td>{{$order->quantity}}</td>
-                    <td>{{number_format($order->total_amount,2)}}TL</td>
+                    <td>{{number_format($order->sub_total,2)}}TL</td>
                     @php
                         // dd($order);
                     @endphp
