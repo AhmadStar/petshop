@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 class TrustProxies extends Middleware
 {
     /**
-     *
+     * 
      *
      * @var array|string|null
      */
