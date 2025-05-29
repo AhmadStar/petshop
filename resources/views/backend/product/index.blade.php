@@ -22,7 +22,6 @@
               <th>Başlık</th>
               <th>Kategori</th>
               <th>Fiyat</th>
-              <th>Fiyat</th>
               <th>Adet</th>
               <th>Fotoğraf</th>
               <th>Statü</th>
@@ -43,8 +42,7 @@
                           {{$product->sub_cat_info->title ?? ''}}
                       </sub>
                     </td>
-                    <td>${{$product->price}}</td>
-                    <td>{{$product->condition}}</td>
+                    <td>{{$product->price}}TL</td>
                     <td>
                       @if($product->stock>0)
                       <span class="badge badge-primary">{{$product->stock}}</span>
