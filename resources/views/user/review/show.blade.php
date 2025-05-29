@@ -44,12 +44,12 @@
             <td>
                 <a href="{{route('order.edit',$order->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="düzenle" data-placement="bottom"><i class="fas fa-edit"></i></a>
                 <form method="POST" action="{{route('order.destroy',[$order->id])}}">
-                  @csrf 
+                  @csrf
                   @method('delete')
                       <button class="btn btn-danger btn-sm dltBtn" data-id={{$order->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="sil"><i class="fas fa-trash-alt"></i></button>
                 </form>
             </td>
-          
+
         </tr>
       </tbody>
     </table>
@@ -76,10 +76,6 @@
                     <tr>
                         <td>Sipariş Durumu</td>
                         <td> : {{$order->status}}</td>
-                    </tr>
-                    <tr>
-                        <td>Kargo Ücreti</td>
-                        <td> :{{number_format($order->delivery_charge,2)}} TL </td>
                     </tr>
                     <tr>
                         <td>Toplam Tutar</td>

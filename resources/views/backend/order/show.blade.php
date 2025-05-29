@@ -78,14 +78,6 @@
                         <td> : {{$order->status}}</td>
                     </tr>
                     <tr>
-                        <td>Kargo Ücreti</td>
-                        <td> :{{$order->shipping->price}} TL </td>
-                    </tr>
-                    <tr>
-                      <td>Kupon</td>
-                      <td> :{{number_format($order->coupon,2)}} TL </td>
-                    </tr>
-                    <tr>
                         <td>Total Ödeme</td>
                         <td> :{{number_format($order->total_amount,2)}} TL </td>
                     </tr>
