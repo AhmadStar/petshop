@@ -22,7 +22,6 @@
                 <th>Ad</th>
                 <th>Email</th>
                 <th>Adet</th>
-                <th>Ücret</th>
                 <th>Toplam</th>
                 <th>Statü</th>
                 <th>Düzenle</th>
@@ -39,8 +38,7 @@
                     <td>{{$order->first_name}} {{$order->last_name}}</td>
                     <td>{{$order->email}}</td>
                     <td>{{$order->quantity}}</td>
-                    <td>{{$order->shipping->price}}TL</td>
-                    <td>{{number_format($order->total_amount,2)}}TL</td>
+                    <td>{{number_format($order->sub_total,2)}}TL</td>
                     <td>
                         @if($order->status=='new')
                           <span class="badge badge-primary">YENİ</span>

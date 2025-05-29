@@ -29,7 +29,7 @@
             <td>{{$order->email}}</td>
             <td>{{$order->quantity}}</td>
             <td>{{number_format($order->delivery_charge,2)}}TL</td>
-            <td>{{number_format($order->total_amount,2)}}TL</td>
+            <td>{{number_format($order->sub_total,2)}}TL</td>
             <td>
                 @if($order->status=='new')
                   <span class="badge badge-primary">{{$order->status}}</span>
@@ -79,7 +79,7 @@
                     </tr>
                     <tr>
                         <td>Toplam Tutar</td>
-                        <td> :{{number_format($order->total_amount,2)}} TL </td>
+                        <td> :{{number_format($order->sub_total,2)}} TL </td>
                     </tr>
                     <tr>
                         <td>Payment Method</td>

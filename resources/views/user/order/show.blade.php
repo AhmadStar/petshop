@@ -15,7 +15,6 @@
             <th>Ad</th>
             <th>Email</th>
             <th>Adet</th>
-            <th>Ücret</th>
             <th>Toplam</th>
             <th>Statü</th>
             <th>Düzenle</th>
@@ -28,8 +27,7 @@
             <td>{{$order->first_name}} {{$order->last_name}}</td>
             <td>{{$order->email}}</td>
             <td>{{$order->quantity}}</td>
-            <td>{{$order->shipping->price}}TL</td>
-            <td>{{number_format($order->total_amount,2)}}TL</td>
+            <td>{{number_format($order->sub_total,2)}}TL</td>
             <td>
                 @if($order->status=='new')
                   <span class="badge badge-primary">YENİ</span>
@@ -78,11 +76,11 @@
                     </tr>
                     <tr>
                         <td>Toplam Ödeme</td>
-                        <td> :  {{number_format($order->total_amount,2)}}TL</td>
+                        <td> :  {{number_format($order->sub_total,2)}}TL</td>
                     </tr>
                     <tr>
                       <td>Ödeme Yöntemi</td>
-                      <td> : 
+                      <td> :
                             @if($order->payment_method == 'cod')
                                 Kapıda Ödeme
                             @elseif($order->payment_method == 'paypal')
@@ -94,7 +92,7 @@
                     </tr>
                     <tr>
                         <td>Ödeme Durumu</td>
-                        <td> : 
+                        <td> :
                           @if($order->payment_status == 'paid')
                               <span class="badge badge-success">Ödendi</span>
                           @elseif($order->payment_status == 'unpaid')
