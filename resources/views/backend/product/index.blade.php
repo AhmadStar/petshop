@@ -22,7 +22,6 @@
               <th>Başlık</th>
               <th>Kategori</th>
               <th>Fiyat</th>
-              <th>Fiyat</th>
               <th>Adet</th>
               <th>Fotoğraf</th>
               <th>Statü</th>
@@ -44,7 +43,6 @@
                       </sub>
                     </td>
                     <td>${{$product->price}}</td>
-                    <td>{{$product->condition}}</td>
                     <td>
                       @if($product->stock>0)
                       <span class="badge badge-primary">{{$product->stock}}</span>
