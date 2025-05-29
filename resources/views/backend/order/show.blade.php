@@ -83,11 +83,11 @@
                         <td>Ödeme Yöntemleri</td>
                         <td> :
                             @if($order->payment_method == 'cod')
-                                Cash on Delivery
+                                Kapıda Ödeme
                             @elseif($order->payment_method == 'paypal')
                                 Paypal
                             @elseif($order->payment_method == 'cardpay')
-                                Card Payment
+                                Kartla Ödeme
                             @endif
                         </td>
 
