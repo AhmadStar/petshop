@@ -120,7 +120,7 @@
                                 <div class="content">
                                     <ul>
                                         <li class="order_subtotal" data-price="{{ Helper::totalCartPrice() }}">Ürünler
-                                            Toplam<span>${{ number_format(Helper::totalCartPrice(), 2) }}</span></li>
+                                            Toplam<span>{{ number_format(Helper::totalCartPrice(), 2) }}TL</span></li>
                                         <li class="shipping">
                                             Kargo Ücreti
                                             @if (count(Helper::shipping()) > 0 && Helper::cartCount() > 0)
@@ -129,7 +129,7 @@
                                                     @foreach (Helper::shipping() as $shipping)
                                                         <option value="{{ $shipping->id }}" class="shippingOption"
                                                             data-price="{{ $shipping->price }}">{{ $shipping->type }}:
-                                                            ${{ $shipping->price }}</option>
+                                                            {{ $shipping->price }}TL</option>
                                                     @endforeach
                                                 </select>
                                             @else
@@ -139,7 +139,7 @@
 
                                         @if (session('coupon'))
                                             <li class="coupon_price" data-price="{{ session('coupon')['value'] }}">Kazanç
-                                                <span>${{ number_format(session('coupon')['value'], 2) }}</span></li>
+                                                <span>{{ number_format(session('coupon')['value'], 2) }}TL</span></li>
                                         @endif
                                         @php
                                             $total_amount = Helper::totalCartPrice();
@@ -149,10 +149,10 @@
                                         @endphp
                                         @if (session('coupon'))
                                             <li class="last" id="order_total_price">
-                                                Total<span>${{ number_format($total_amount, 2) }}</span></li>
+                                                Toplam<span>{{ number_format($total_amount, 2) }}TL</span></li>
                                         @else
                                             <li class="last" id="order_total_price">
-                                                Total<span>${{ number_format($total_amount, 2) }}</span></li>
+                                                Toplam<span>{{ number_format($total_amount, 2) }}TL</span></li>
                                         @endif
                                     </ul>
                                 </div>
@@ -161,7 +161,7 @@
                                 <h2>Ödeme Yöntemleri</h2>
                                 <div class="content">
                                     <div class="checkbox">
-                                        {{-- <label class="checkbox-inline" for="1"><input name="updates" id="1" type="checkbox"> Check Payments</label> --}}
+                                        {{-- <label class="checkbox-inline" for="1"><input name="updates" id="1" type="checkbox"> Ödemeleri Kontrol Et</label> --}}
                                         <form-group>
                                             <input name="payment_method" type="radio" value="cod" required> <label>
                                                 Kapıda Ödeme</label><br>
@@ -212,7 +212,7 @@
                     <div class="single-service">
                         <i class="ti-rocket"></i>
                         <h4>Ücretsiz Kargo</h4>
-                        <p>2000₺ üzeri siparişler</p>
+                        <p>Açılışa özel ücretsiz kargo</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">

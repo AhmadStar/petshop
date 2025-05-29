@@ -28,8 +28,8 @@
             <td>{{$order->first_name}} {{$order->last_name}}</td>
             <td>{{$order->email}}</td>
             <td>{{$order->quantity}}</td>
-            <td>${{$order->shipping->price}}</td>
-            <td>${{number_format($order->total_amount,2)}}</td>
+            <td>TL{{$order->shipping->price}}</td>
+            <td>TL{{number_format($order->total_amount,2)}}</td>
             <td>
                 @if($order->status=='new')
                   <span class="badge badge-primary">YENİ</span>
@@ -79,15 +79,15 @@
                     </tr>
                     <tr>
                         <td>Kargo Ücreti</td>
-                        <td> : ₺ {{$order->shipping->price}}</td>
+                        <td> :{{$order->shipping->price}} TL </td>
                     </tr>
                     <tr>
                       <td>Kupon</td>
-                      <td> : ₺ {{number_format($order->coupon,2)}}</td>
+                      <td> :{{number_format($order->coupon,2)}} TL </td>
                     </tr>
                     <tr>
                         <td>Total Ödeme</td>
-                        <td> : ₺ {{number_format($order->total_amount,2)}}</td>
+                        <td> :{{number_format($order->total_amount,2)}} TL </td>
                     </tr>
                     <tr>
                         <td>Ödeme Yöntemleri</td>

@@ -73,7 +73,7 @@
                                     <form action="{{ route('single-add-to-cart') }}" method="POST">
                                         @csrf
                                         <div class="quantity">
-                                            <h6>Quantity :</h6>
+                                            <h6>Adet :</h6>
                                             <div class="input-group">
                                                 <div class="button minus">
                                                     <button type="button" class="btn btn-primary btn-number"

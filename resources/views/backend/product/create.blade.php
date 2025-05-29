@@ -8,8 +8,8 @@
       <form method="post" action="{{route('product.store')}}">
         {{csrf_field()}}
         <div class="form-group">
-          <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
-          <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{old('title')}}" class="form-control">
+          <label for="inputTitle" class="col-form-label">Ürün <span class="text-danger">*</span></label>
+          <input id="inputTitle" type="text" name="title" placeholder="Başlık gir"  value="{{old('title')}}" class="form-control">
           @error('title')
           <span class="text-danger">{{$message}}</span>
           @enderror
@@ -51,15 +51,15 @@
         </div>
 
         <div class="form-group">
-          <label for="price" class="col-form-label">Fiyat(₺) <span class="text-danger">*</span></label>
-          <input id="price" type="number" name="price" placeholder="Enter price"  value="{{old('price')}}" class="form-control">
+          <label for="price" class="col-form-label">Fiyat(TL) <span class="text-danger">*</span></label>
+          <input id="price" type="number" name="price" placeholder="Fiyat girin"  value="{{old('price')}}" class="form-control">
           @error('price')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
         <div class="form-group">
           <label for="stock">Adet <span class="text-danger">*</span></label>
-          <input id="quantity" type="number" name="stock" min="0" placeholder="Enter quantity"  value="{{old('stock')}}" class="form-control">
+          <input id="quantity" type="number" name="stock" min="0" placeholder="Adet girin"  value="{{old('stock')}}" class="form-control">
           @error('stock')
           <span class="text-danger">{{$message}}</span>
           @enderror
@@ -145,7 +145,7 @@
           if(typeof(response) !='object'){
             response=$.parseJSON(response)
           }
-          var html_option="<option value=''>----Select sub category----</option>"
+          var html_option="<option value=''>----Alt Kategori Seç----</option>"
           if(response.status){
             var data=response.data;
             if(response.data){

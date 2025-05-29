@@ -76,7 +76,7 @@
                     <div class="single-service">
                         <i class="ti-rocket"></i>
                         <h4>Ücretsiz Kargo</h4>
-                        <p>2000₺ üzeri siparişler</p>
+                        <p>Açılışa özel ücretsiz kargo</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">

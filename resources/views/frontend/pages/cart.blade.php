@@ -25,9 +25,9 @@
 							<tr class="main-hading">
 								<th>ÜRÜN</th>
 <th>AD</th>
-<th class="text-center">BİRİM FİYAT</th>
+<th class="text-center">TOPLAM FİYAT</th>
 <th class="text-center">ADET</th>
-<th class="text-center">TOPLAM</th>
+<th class="text-center">ADET FİYAT</th>
 								<th class="text-center"><i class="ti-trash remove-icon"></i></th>
 							</tr>
 						</thead>
@@ -45,7 +45,7 @@
 												<p class="product-name"><a href="{{route('product-detail',$cart->product['slug'])}}" target="_blank">{{$cart->product['title']}}</a></p>
 												<p class="product-des">{!!($cart['summary']) !!}</p>
 											</td>
-											<td class="price" data-title="Price"><span>${{number_format($cart['amount'],2)}}</span></td>
+											<td class="price" data-title="Price"><span>{{number_format($cart['amount'],2)}}TL</span></td>
 											<td class="qty" data-title="Qty">
 												<div class="input-group">
 													<div class="button minus">
@@ -62,7 +62,7 @@
 													</div>
 												</div>
 											</td>
-											<td class="total-amount cart_single_price" data-title="Total"><span class="money">${{$cart['price']}}</span></td>
+											<td class="total-amount cart_single_price" data-title="Total"><span class="money">{{$cart['price']}}TL</span></td>
 
 											<td class="action" data-title="Remove"><a href="{{route('cart-delete',$cart->id)}}"><i class="ti-trash remove-icon"></i></a></td>
 										</tr>
@@ -101,7 +101,7 @@ Sepetinizde ürün bulunmamaktadır. <a href="{{route('product-grids')}}" style=
         <div class="col-lg-4 col-md-7 col-12">
             <div class="right">
                 <ul>
-                    <li class="order_subtotal" data-price="{{Helper::totalCartPrice()}}">Ara Toplam<span>${{number_format(Helper::totalCartPrice(),2)}}</span></li>
+                    <li class="order_subtotal" data-price="{{Helper::totalCartPrice()}}">Ara Toplam<span>{{number_format(Helper::totalCartPrice(),2)}}TL</span></li>
 
                     @php
                         $total_amount=Helper::totalCartPrice();
@@ -110,9 +110,9 @@ Sepetinizde ürün bulunmamaktadır. <a href="{{route('product-grids')}}" style=
                         }
                     @endphp
                     @if(session()->has('coupon'))
-                        <li class="last" id="order_total_price">Ödenecek Tutar<span>${{number_format($total_amount,2)}}</span></li>
+                        <li class="last" id="order_total_price">Ödenecek Tutar<span>TL{{number_format($total_amount,2)}}</span></li>
                     @else
-                        <li class="last" id="order_total_price">Ödenecek Tutar<span>${{number_format($total_amount,2)}}</span></li>
+                        <li class="last" id="order_total_price">Ödenecek Tutar<span>TL{{number_format($total_amount,2)}}</span></li>
                     @endif
                 </ul>
                 <div class="button5">
@@ -135,7 +135,7 @@ Sepetinizde ürün bulunmamaktadır. <a href="{{route('product-grids')}}" style=
                 <div class="single-service">
                     <i class="ti-rocket"></i>
                     <h4>Ücretsiz Kargo</h4>
-                    <p>2000₺ üzeri siparişler</p>
+                    <p>Açılışa özel ücretsiz kargo</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-12">

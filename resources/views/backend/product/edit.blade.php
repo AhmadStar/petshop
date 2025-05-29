@@ -10,7 +10,7 @@
         @method('PATCH')
         <div class="form-group">
           <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
-          <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{$product->title}}" class="form-control">
+          <input id="inputTitle" type="text" name="title" placeholder="Başlık gir"  value="{{$product->title}}" class="form-control">
           @error('title')
           <span class="text-danger">{{$message}}</span>
           @enderror
@@ -59,14 +59,14 @@
 
         <div class="form-group">
           <label for="price" class="col-form-label">Fiyat <span class="text-danger">*</span></label>
-          <input id="price" type="number" name="price" placeholder="Enter price"  value="{{$product->price}}" class="form-control">
+          <input id="price" type="number" name="price" placeholder="Fiyat girin"  value="{{$product->price}}" class="form-control">
           @error('price')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
         <div class="form-group">
           <label for="stock">Adet <span class="text-danger">*</span></label>
-          <input id="quantity" type="number" name="stock" min="0" placeholder="Enter quantity"  value="{{$product->stock}}" class="form-control">
+          <input id="quantity" type="number" name="stock" min="0" placeholder="Adet girin"  value="{{$product->stock}}" class="form-control">
           @error('stock')
           <span class="text-danger">{{$message}}</span>
           @enderror

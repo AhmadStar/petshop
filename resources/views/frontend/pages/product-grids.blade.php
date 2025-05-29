@@ -8,7 +8,7 @@
                 <div class="col-12">
                     <div class="bread-inner">
                         <ul class="bread-list">
-                            <li><a href="index1.html">Anasayfa<i class="ti-arrow-right"></i></a></li>
+                            <li><a href="/">Ana Sayfa<i class="ti-arrow-right"></i></a></li>
                             <li class="active"><a href="blog-single.html">Ürünler</a></li>
                         </ul>
                     </div>
