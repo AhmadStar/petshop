@@ -15,7 +15,6 @@
             <th>Ad</th>
             <th>Email</th>
             <th>Miktar</th>
-            <th>Fiyat</th>
             <th>Toplam</th>
             <th>Statü</th>
             <th>Hareket Durumu</th>
@@ -28,8 +27,7 @@
             <td>{{$order->first_name}} {{$order->last_name}}</td>
             <td>{{$order->email}}</td>
             <td>{{$order->quantity}}</td>
-            <td>{{$order->shipping->price}}TL</td>
-            <td>{{number_format($order->total_amount,2)}}TL</td>
+            <td>{{number_format($order->sub_total,2)}}TL</td>
             <td>
                 @if($order->status=='new')
                   <span class="badge badge-primary">YENİ</span>
@@ -79,7 +77,7 @@
                     </tr>
                     <tr>
                         <td>Total Ödeme</td>
-                        <td> :{{number_format($order->total_amount,2)}} TL </td>
+                        <td> :{{number_format($order->sub_total,2)}} TL </td>
                     </tr>
                     <tr>
                         <td>Ödeme Yöntemleri</td>
