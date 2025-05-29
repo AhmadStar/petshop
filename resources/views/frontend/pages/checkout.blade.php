@@ -74,9 +74,11 @@
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
                                         <label>Country<span>*</span></label>
-                                        <select name="country" id="country" required>
-                                            <option value="TR">Türkiye</option>
-                                        </select>
+                                        <input type="text" value="Türkiye" name="country" placeholder=""
+                                            value="{{ old('country') }}" required readonly>
+                                        {{-- <select name="country" id="country" required>
+                                            <option value="TR" selected>Türkiye</option>
+                                        </select> --}}
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12">
