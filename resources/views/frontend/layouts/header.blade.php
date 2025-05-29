@@ -129,7 +129,7 @@
                                                 <h4><a href="{{ route('product-detail', $data->product['slug']) }}"
                                                         target="_blank">{{ $data->product['title'] }}</a></h4>
                                                 <p class="quantity">{{ $data->quantity }} x - <span
-                                                        class="amount">TL{{ number_format($data->price, 2) }}</span></p>
+                                                        class="amount">{{ number_format($data->price, 2) }}TL</span></p>
                                             </li>
                                         @endforeach
                                     </ul>

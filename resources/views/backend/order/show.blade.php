@@ -28,8 +28,8 @@
             <td>{{$order->first_name}} {{$order->last_name}}</td>
             <td>{{$order->email}}</td>
             <td>{{$order->quantity}}</td>
-            <td>TL{{$order->shipping->price}}</td>
-            <td>TL{{number_format($order->total_amount,2)}}</td>
+            <td>{{$order->shipping->price}}TL</td>
+            <td>{{number_format($order->total_amount,2)}}TL</td>
             <td>
                 @if($order->status=='new')
                   <span class="badge badge-primary">YENİ</span>
@@ -91,7 +91,7 @@
                     </tr>
                     <tr>
                         <td>Ödeme Yöntemleri</td>
-                        <td> : 
+                        <td> :
                             @if($order->payment_method == 'cod')
                                 Cash on Delivery
                             @elseif($order->payment_method == 'paypal')
@@ -104,7 +104,7 @@
                     </tr>
                     <tr>
                       <td>Ödeme Durumu</td>
-                      <td> : 
+                      <td> :
                           @if($order->payment_status == 'paid')
                               <span class="badge badge-success">Ödendi</span>
                           @elseif($order->payment_status == 'unpaid')

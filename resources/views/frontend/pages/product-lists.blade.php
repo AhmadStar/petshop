@@ -137,7 +137,7 @@
                                                                     $product->price -
                                                                     ($product->price * $product->discount) / 100;
                                                             @endphp
-                                                            <span>TL{{ number_format($after_discount, 2) }}</span>
+                                                            <span>{{ number_format($after_discount, 2) }}TL</span>
                                                         </div>
                                                         <h3 class="title"><a
                                                                 href="{{ route('product-detail', $product->slug) }}">{{ $product->title }}</a>
@@ -227,8 +227,8 @@
                                                 $product->price - ($product->price * $product->discount) / 100;
                                         @endphp
                                         <h3><small><del
-                                                    class="text-muted">TL{{ number_format($product->price, 2) }}</del></small>
-                                            TL{{ number_format($after_discount, 2) }} </h3>
+                                                    class="text-muted">{{ number_format($product->price, 2) }}TL</del></small>
+                                            {{ number_format($after_discount, 2) }}TL </h3>
                                         <div class="quickview-peragraph">
                                             <p>{!! html_entity_decode($product->summary) !!}</p>
                                         </div>
