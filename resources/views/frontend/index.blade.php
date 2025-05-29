@@ -133,7 +133,6 @@
             </div>
         </div>
     </section>
-    @include('frontend.layouts.newsletter')
     @if ($product_lists)
         @foreach ($product_lists as $key => $product)
             <div class="modal fade" id="{{ $product->id }}" tabindex="-1" role="dialog">

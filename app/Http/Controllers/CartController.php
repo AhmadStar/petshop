@@ -3,7 +3,6 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\Wishlist;
 use App\Models\Cart;
 use Illuminate\Support\Str;
 use Helper;
@@ -38,7 +37,6 @@ class CartController extends Controller
             $cart->amount=$cart->price*$cart->quantity;
             if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return back()->with('error','Stok yeterli değil!');
             $cart->save();
-            $wishlist=Wishlist::where('user_id',auth()->user()->id)->where('cart_id',null)->update(['cart_id'=>$cart->id]);
         }
         request()->session()->flash('success','Ürün sepete eklendi');
         return back();
@@ -73,18 +71,18 @@ class CartController extends Controller
             $cart->save();
         }
         request()->session()->flash('success','Ürün sepete eklendi.');
-        return back();       
-    }    
+        return back();
+    }
     public function cartDelete(Request $request){
         $cart = Cart::find($request->id);
         if ($cart) {
             $cart->delete();
             request()->session()->flash('success','Sepet başarıyla silindi!');
-            return back();  
+            return back();
         }
         request()->session()->flash('error','Lütfen daha sonra tekrar deneyin!');
-        return back();       
-    }     
+        return back();
+    }
     public function cartUpdate(Request $request){
         if($request->quant){
             $error = array();
@@ -110,7 +108,7 @@ class CartController extends Controller
             return back()->with($error)->with('success', $success);
         }else{
             return back()->with('Geçersiz kart!');
-        }    
+        }
     }
     public function checkout(Request $request){
         return view('frontend.pages.checkout');

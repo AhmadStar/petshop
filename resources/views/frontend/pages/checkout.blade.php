@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title','PettyShop')
+@section('title', 'PettyShop')
 
 @section('main-content')
 
@@ -82,8 +82,7 @@
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
                                         <label>Adres<span>*</span></label>
-                                        <input type="text" name="address1" placeholder=""
-                                            value="{{ old('address1') }}">
+                                        <input type="text" name="address1" placeholder="" value="{{ old('address1') }}">
                                         @error('address1')
                                             <span class='text-danger'>{{ $message }}</span>
                                         @enderror
@@ -92,8 +91,7 @@
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-group">
                                         <label>Detaylı Adres</label>
-                                        <input type="text" name="address2" placeholder=""
-                                            value="{{ old('address2') }}">
+                                        <input type="text" name="address2" placeholder="" value="{{ old('address2') }}">
                                         @error('address2')
                                             <span class='text-danger'>{{ $message }}</span>
                                         @enderror
@@ -121,15 +119,17 @@
                                     <ul>
                                         <li class="order_subtotal" data-price="{{ Helper::totalCartPrice() }}">Ürünler
                                             Toplam<span>{{ number_format(Helper::totalCartPrice(), 2) }}TL</span></li>
-                                        <li class="shipping">
+                                        <li class="shipping" style="display: none">
                                             Kargo Ücreti
                                             @if (count(Helper::shipping()) > 0 && Helper::cartCount() > 0)
                                                 <select name="shipping" class="nice-select" required>
                                                     <option value="">Adres Seçin</option>
-                                                    @foreach (Helper::shipping() as $shipping)
+                                                    @foreach (Helper::shipping() as $index => $shipping)
                                                         <option value="{{ $shipping->id }}" class="shippingOption"
-                                                            data-price="{{ $shipping->price }}">{{ $shipping->type }}:
-                                                            {{ $shipping->price }}TL</option>
+                                                            data-price="{{ $shipping->price }}"
+                                                            @if ($index === 0) selected @endif>
+                                                            {{ $shipping->type }}: {{ $shipping->price }}TL
+                                                        </option>
                                                     @endforeach
                                                 </select>
                                             @else
@@ -139,7 +139,8 @@
 
                                         @if (session('coupon'))
                                             <li class="coupon_price" data-price="{{ session('coupon')['value'] }}">Kazanç
-                                                <span>{{ number_format(session('coupon')['value'], 2) }}TL</span></li>
+                                                <span>{{ number_format(session('coupon')['value'], 2) }}TL</span>
+                                            </li>
                                         @endif
                                         @php
                                             $total_amount = Helper::totalCartPrice();

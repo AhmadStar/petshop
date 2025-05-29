@@ -26,16 +26,6 @@
             <i class="fas fa-comments"></i>
             <span>Değerlendirmeler</span></a>
     </li>
-    <hr class="sidebar-divider">
-    <div class="sidebar-heading">
-      Posts
-    </div>
-    <li class="nav-item">
-      <a class="nav-link" href="{{route('user.post-comment.index')}}">
-          <i class="fas fa-comments fa-chart-area"></i>
-          <span>Yorumlar</span>
-      </a>
-    </li>
     <div class="text-center d-none d-md-inline">
       <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>

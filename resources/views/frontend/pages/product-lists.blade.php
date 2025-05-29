@@ -118,12 +118,6 @@
                                                                     title="Hızlı Görünüm" href="#">
                                                                     <i class="ti-eye"></i><span>Hızlı Alışveriş</span>
                                                                 </a>
-                                                                <a title="İstek Listesi"
-                                                                    href="{{ route('add-to-wishlist', $product->slug) }}"
-                                                                    class="wishlist" data-id="{{ $product->id }}">
-                                                                </a>
-
-
                                                             </div>
                                                             <div class="product-action-2">
                                                                 <a title="Sepete Ekle"

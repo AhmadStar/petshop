@@ -162,7 +162,6 @@ Sepetinizde ürün bulunmamaktadır. <a href="{{route('product-grids')}}" style=
         </div>
     </div>
 </section>
-	@include('frontend.layouts.newsletter')
 @endsection
 @push('styles')
 	<style>

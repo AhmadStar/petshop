@@ -23,7 +23,7 @@
                     <div class="image">
                         @if($profile->photo)
                         <img class="card-img-top img-fluid roundend-circle mt-4" style="border-radius:50%;height:80px;width:80px;margin:auto;" src="{{$profile->photo}}" alt="profile picture">
-                        @else 
+                        @else
                         <img class="card-img-top img-fluid roundend-circle mt-4" style="border-radius:50%;height:80px;width:80px;margin:auto;" src="{{asset('backend/img/avatar.png')}}" alt="profile picture">
                         @endif
                     </div>
@@ -44,7 +44,7 @@
                       <span class="text-danger">{{$message}}</span>
                       @enderror
                       </div>
-              
+
                       <div class="form-group">
                           <label for="inputEmail" class="col-form-label">Email</label>
                         <input id="inputEmail" disabled type="email" name="email" placeholder="Enter email"  value="{{$profile->email}}" class="form-control">
@@ -52,7 +52,7 @@
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                       </div>
-              
+
                       <div class="form-group">
                       <label for="inputPhoto" class="col-form-label">Fotoğraf</label>
                       <div class="input-group">
@@ -67,7 +67,7 @@
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                       </div>
-                      <div class="form-group">
+                      <div class="form-group" style="display: none">
                           <label for="role" class="col-form-label">Rol</label>
                           <select name="role" class="form-control">
                               <option value="">-----Rol Seç-----</option>
@@ -122,7 +122,7 @@
         font-size: 14px;
         padding-right:8px;
     }
-  </style> 
+  </style>
 
 @push('scripts')
 <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>

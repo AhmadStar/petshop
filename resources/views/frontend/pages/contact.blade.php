@@ -117,7 +117,6 @@
         </div>
     </div>
 </section>
-@include('frontend.layouts.newsletter')
 <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">

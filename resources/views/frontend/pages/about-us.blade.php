@@ -76,5 +76,4 @@
             </div>
         </div>
     </section>
-    @include('frontend.layouts.newsletter')
 @endsection
