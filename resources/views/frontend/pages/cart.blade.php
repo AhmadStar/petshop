@@ -110,9 +110,9 @@ Sepetinizde ürün bulunmamaktadır. <a href="{{route('product-grids')}}" style=
                         }
                     @endphp
                     @if(session()->has('coupon'))
-                        <li class="last" id="order_total_price">Ödenecek Tutar<span>TL{{number_format($total_amount,2)}}</span></li>
+                        <li class="last" id="order_total_price">Ödenecek Tutar<span>{{number_format($total_amount,2)}}TL</span></li>
                     @else
-                        <li class="last" id="order_total_price">Ödenecek Tutar<span>TL{{number_format($total_amount,2)}}</span></li>
+                        <li class="last" id="order_total_price">Ödenecek Tutar<span>{{number_format($total_amount,2)}}TL</span></li>
                     @endif
                 </ul>
                 <div class="button5">
