@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 class BannerController extends Controller
 {
     /**
-     * 
+     *
      *
      * @return \Illuminate\Http\Response
      */
@@ -16,7 +16,7 @@ class BannerController extends Controller
         return view('backend.banner.index')->with('banners',$banner);
     }
     /**
-     * 
+     *
      *
      * @return \Illuminate\Http\Response
      */
@@ -25,7 +25,7 @@ class BannerController extends Controller
         return view('backend.banner.create');
     }
     /**
-     * 
+     *
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -40,6 +40,7 @@ class BannerController extends Controller
         ]);
         $data=$request->all();
         $slug_str = Str::slug($request->title ?? 'banner');
+        $slug = Str::slug($request->title ?? 'banner');
         $count=Banner::where('slug',$slug)->count();
         if($count>0){
             $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
@@ -55,7 +56,7 @@ class BannerController extends Controller
         return redirect()->route('banner.index');
     }
     /**
-     * 
+     *
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -65,7 +66,7 @@ class BannerController extends Controller
         //
     }
     /**
-     * 
+     *
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -76,7 +77,7 @@ class BannerController extends Controller
         return view('backend.banner.edit')->with('banner',$banner);
     }
     /**
-     * 
+     *
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -102,7 +103,7 @@ class BannerController extends Controller
         return redirect()->route('banner.index');
     }
     /**
-     * 
+     *
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
