@@ -97,7 +97,7 @@
                                         </div>
                                     </form>
 
-                                    <p class="cat">Category :<a
+                                    <p class="cat">Kategori :<a
                                             href="{{ route('product-cat', $product_detail->cat_info['slug']) }}">{{ $product_detail->cat_info['title'] }}</a>
                                     </p>
                                     @if ($product_detail->sub_cat_info)

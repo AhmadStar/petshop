@@ -74,28 +74,21 @@
                     </tr>
                     <tr>
                         <td>Sipariş Durumu</td>
-                        <td> : {{$order->status}}</td>
+                        <td> : Yeni</td>
                     </tr>
                     <tr>
-                      @php
-                          $shipping_charge=DB::table('shippings')->where('id',$order->shipping_id)->pluck('price');
-                      @endphp
-                        <td>Shipping Charge</td>
-                        <td> :${{$order->shipping->price}}</td>
+                        <td>Toplam Ödeme</td>
+                        <td> :  {{number_format($order->total_amount,2)}}TL</td>
                     </tr>
                     <tr>
-                        <td>Total Amount</td>
-                        <td> : $ {{number_format($order->total_amount,2)}}</td>
-                    </tr>
-                    <tr>
-                      <td>Payment Method</td>
+                      <td>Ödeme Yöntemi</td>
                       <td> : 
                             @if($order->payment_method == 'cod')
-                                Cash on Delivery
+                                Kapıda Ödeme
                             @elseif($order->payment_method == 'paypal')
                                 Paypal
                             @elseif($order->payment_method == 'cardpay')
-                                Card Payment
+                                Kartla Ödeme
                             @endif
                         </td>
                     </tr>
